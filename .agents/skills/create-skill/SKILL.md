@@ -93,9 +93,6 @@ Use this template when creating a new skill:
 ---
 name: <skill-name>
 description: <1-1024 char description of what the skill does and when to use it>
-metadata:
-  author: dotnet
-  version: "1.0"
 ---
 
 # <Skill Title>
