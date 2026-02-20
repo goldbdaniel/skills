@@ -190,6 +190,33 @@
           "message": "fix: force array output in components.json for dashboard (#59)"
         },
         "tool": "customBiggerIsBetter"
+      },
+      {
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/527d2d5b132c3e5f1537c638e572778d70518f06",
+          "timestamp": "2026-02-20T05:40:49+00:00",
+          "id": "527d2d5b132c3e5f1537c638e572778d70518f06",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Aditya Mandaleeka"
+          },
+          "message": "fix: force array output in components.json for dashboard (#59)"
+        },
+        "benches": [
+          {
+            "value": 10.0,
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 6.800000190734863,
+            "name": "csharp-scripts/Test a C# language feature with a script - Vanilla Quality",
+            "unit": "Score (0-10)"
+          }
+        ],
+        "date": 1771574700449,
+        "model": "claude-opus-4.6",
+        "tool": "customBiggerIsBetter"
       }
     ],
     "Efficiency": [
@@ -381,8 +408,35 @@
           "message": "fix: force array output in components.json for dashboard (#59)"
         },
         "tool": "customSmallerIsBetter"
+      },
+      {
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/527d2d5b132c3e5f1537c638e572778d70518f06",
+          "timestamp": "2026-02-20T05:40:49+00:00",
+          "id": "527d2d5b132c3e5f1537c638e572778d70518f06",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Aditya Mandaleeka"
+          },
+          "message": "fix: force array output in components.json for dashboard (#59)"
+        },
+        "benches": [
+          {
+            "value": 28.9,
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 96947.0,
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Tokens In",
+            "unit": "tokens"
+          }
+        ],
+        "date": 1771574700449,
+        "model": "claude-opus-4.6",
+        "tool": "customSmallerIsBetter"
       }
     ]
   },
-  "lastUpdate": 1771571635209
+  "lastUpdate": 1771574700449
 }
