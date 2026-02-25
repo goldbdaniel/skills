@@ -1892,6 +1892,53 @@
           }
         },
         "benches": []
+      },
+      {
+        "date": 1772009099741,
+        "commit": {
+          "timestamp": "2026-02-25T08:12:57+00:00",
+          "url": "https://github.com/dotnet/skills/commit/aef6dd634fc8265b5886187ee92749f38a3e799b",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Viktor Hofer"
+          },
+          "message": "Clean up MSBuild component: remove deleted skill references, update workflows (#115)",
+          "id": "aef6dd634fc8265b5886187ee92749f38a3e799b"
+        },
+        "benches": [
+          {
+            "value": 7.599999904632568,
+            "unit": "Score (0-10)",
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Quality"
+          },
+          {
+            "value": 6.0,
+            "unit": "Score (0-10)",
+            "name": "csharp-scripts/Test a C# language feature with a script - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Skilled Quality"
+          },
+          {
+            "value": 7.199999809265137,
+            "unit": "Score (0-10)",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Skilled Quality"
+          },
+          {
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Vanilla Quality"
+          }
+        ],
+        "tool": "customBiggerIsBetter",
+        "model": "claude-opus-4.6"
       }
     ],
     "Efficiency": [
@@ -3785,8 +3832,55 @@
           }
         },
         "benches": []
+      },
+      {
+        "date": 1772009099741,
+        "commit": {
+          "timestamp": "2026-02-25T08:12:57+00:00",
+          "url": "https://github.com/dotnet/skills/commit/aef6dd634fc8265b5886187ee92749f38a3e799b",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Viktor Hofer"
+          },
+          "message": "Clean up MSBuild component: remove deleted skill references, update workflows (#115)",
+          "id": "aef6dd634fc8265b5886187ee92749f38a3e799b"
+        },
+        "benches": [
+          {
+            "value": 54.0,
+            "unit": "seconds",
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Time"
+          },
+          {
+            "value": 128281.0,
+            "unit": "tokens",
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Tokens In"
+          },
+          {
+            "value": 21.8,
+            "unit": "seconds",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Skilled Time"
+          },
+          {
+            "value": 45911.0,
+            "unit": "tokens",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Skilled Tokens In"
+          },
+          {
+            "value": 28.9,
+            "unit": "seconds",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Skilled Time"
+          },
+          {
+            "value": 53695.0,
+            "unit": "tokens",
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Skilled Tokens In"
+          }
+        ],
+        "tool": "customSmallerIsBetter",
+        "model": "claude-opus-4.6"
       }
     ]
   },
-  "lastUpdate": 1771930088995
+  "lastUpdate": 1772009099741
 }
