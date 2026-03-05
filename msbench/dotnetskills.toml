@@ -3,11 +3,15 @@ name = "dotnet/skills team"
 team = ".NET Developer Experience"
 
 [import]
-from = "path-clone"
-repository = "https://dev.azure.com/devdiv/_git/skills"
-path = "msbench/tasks"
+from = "path"
+path = "c:/src/skills/msbench/tasks"
 staging-folder = "${TEMP}/harborcuration/dotnetskills"
 dataset = "dotnetskills"
+
+# Original remote config (for CI/prod):
+# from = "path-clone"
+# repository = "https://dev.azure.com/devdiv/_git/skills"
+# path = "msbench/tasks"
 
 [docker.local]
 benchmark = "dotnetskills"

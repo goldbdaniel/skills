@@ -48,13 +48,6 @@ assert_output_contains() {
         return 0
     fi
 
-    # Also check modified files in /testbed/
-    if grep -rqi "$expected" /testbed/ 2>/dev/null; then
-        echo "PASS: $label (found in testbed files)"
-        PASSED_ASSERTIONS=$((PASSED_ASSERTIONS + 1))
-        return 0
-    fi
-
     echo "FAIL: $label"
     return 0  # Don't exit on failure — we count them
 }
@@ -83,13 +76,6 @@ assert_output_matches() {
 
     if echo "$AGENT_OUTPUT" | grep -qPi "$pattern" 2>/dev/null; then
         echo "PASS: $label"
-        PASSED_ASSERTIONS=$((PASSED_ASSERTIONS + 1))
-        return 0
-    fi
-
-    # Also check modified files in /testbed/
-    if grep -rqPi "$pattern" /testbed/ 2>/dev/null; then
-        echo "PASS: $label (found in testbed files)"
         PASSED_ASSERTIONS=$((PASSED_ASSERTIONS + 1))
         return 0
     fi

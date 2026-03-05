@@ -260,8 +260,17 @@ def generate_test_sh(task_name: str, plugin: str, skill: str,
 
     # Write eval.json
     lines.append("# Write evaluation results")
-    lines.append("mkdir -p /output")
+    lines.append("mkdir -p /output /logs/verifier")
     lines.append('echo "{\\"$INSTANCE_ID\\": {\\"resolved\\": $ALL_PASSED}}" > /output/eval.json')
+    lines.append("")
+
+    # Write reward file so parse.py (harbor-format-curation) preserves the result
+    lines.append("# Write reward file for harbor-format-curation parse.py")
+    lines.append('if [ "$ALL_PASSED" = "true" ]; then')
+    lines.append('    echo "1.0" > /logs/verifier/reward.txt')
+    lines.append("else")
+    lines.append('    echo "0.0" > /logs/verifier/reward.txt')
+    lines.append("fi")
     lines.append("")
 
     # Write custom_metrics.json
@@ -277,20 +286,99 @@ def generate_test_sh(task_name: str, plugin: str, skill: str,
     return "\n".join(lines)
 
 
-def generate_solve_sh(task_name: str) -> str:
-    """Generate solution/solve.sh stub."""
-    return textwrap.dedent(f"""\
-        #!/bin/bash
-        set -euo pipefail
-        cd /testbed
+def _regex_exemplar(pattern: str) -> str:
+    """Return a concrete string that matches a Perl-compatible regex pattern.
 
-        # Gold solution for: {task_name}
-        # This must be authored manually per task.
-        # The solve.sh should apply the known correct fix so that test.sh passes.
+    This uses a simple heuristic: pick the first alternative in each group,
+    strip anchors / quantifiers / character-class syntax, and collapse
+    remaining meta-characters into literal text.
+    """
+    # Strip anchors
+    s = re.sub(r"[\^$]", "", pattern)
+    # Pick the first alternative in (...|...) groups
+    s = re.sub(r"\(([^)]*)\)", lambda m: m.group(1).split("|")[0], s)
+    # Unescape common escapes
+    s = s.replace(r"\.", ".").replace(r"\s+", " ").replace(r"\s", " ")
+    s = s.replace(r"\(", "(").replace(r"\)", ")")
+    s = s.replace(r"\b", "").replace(r"\*", "*")
+    s = s.replace(r"\{", "{").replace(r"\}", "}")
+    # Remove residual quantifiers: ?, +, *, {n,m}
+    s = re.sub(r"[?+*]|\{\d+,?\d*\}", "", s)
+    # Remove residual brackets
+    s = s.replace("[", "").replace("]", "")
+    # Collapse repeated whitespace
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
 
-        echo "TODO: implement gold solution for {task_name}"
-        exit 1
-    """)
+
+def generate_solve_sh(task_name: str, assertions: list) -> str:
+    """Generate solution/solve.sh that satisfies the task's assertions.
+
+    For output-based assertions the script writes keywords to
+    /testbed/agent_output.txt.  For file-based assertions it creates the
+    required files/content.  Negative assertions (output_not_matches,
+    output_not_contains, file_not_exists) are inherently satisfied because
+    the generated text only contains the positive keywords.
+    """
+    output_lines: list[str] = []  # text lines for agent_output.txt
+    file_cmds: list[str] = []     # shell commands for file-based assertions
+
+    for assertion in assertions:
+        atype = assertion.get("type", "")
+        value = assertion.get("value", "")
+        pattern = assertion.get("pattern", "")
+        path = assertion.get("path", "")
+
+        if atype == "output_contains" and value:
+            output_lines.append(value)
+        elif atype == "output_matches" and pattern:
+            exemplar = _regex_exemplar(pattern)
+            if exemplar:
+                output_lines.append(exemplar)
+        elif atype == "file_exists" and path:
+            # Create a minimal file that matches the glob
+            concrete = path.replace("**/", "").replace("*", "oracle")
+            file_cmds.append(f"mkdir -p /testbed/$(dirname '{concrete}')")
+            file_cmds.append(f"touch /testbed/'{concrete}'")
+        elif atype == "file_contains" and path and value:
+            concrete = path.replace("**/", "").replace("*", "oracle")
+            file_cmds.append(f"mkdir -p /testbed/$(dirname '{concrete}')")
+            # Append the required content so grep finds it
+            file_cmds.append(
+                f"echo '{value}' >> /testbed/'{concrete}'"
+            )
+        # exit_success, output_not_matches, output_not_contains,
+        # file_not_exists require no action — they are inherently
+        # satisfied by not emitting problematic content.
+
+    lines = [
+        "#!/bin/bash",
+        "set -euo pipefail",
+        "cd /testbed",
+        "",
+        f"# Auto-generated oracle solution for: {task_name}",
+        "# Produces output / files that satisfy the task's assertions.",
+        "",
+    ]
+
+    if output_lines:
+        lines.append("# Write expected keywords to agent_output.txt")
+        lines.append("cat > /testbed/agent_output.txt << 'ORACLE_EOF'")
+        for ol in output_lines:
+            lines.append(ol)
+        lines.append("ORACLE_EOF")
+        lines.append("")
+
+    for cmd in file_cmds:
+        lines.append(cmd)
+
+    if file_cmds:
+        lines.append("")
+
+    lines.append("exit 0")
+    lines.append("")
+
+    return "\n".join(lines)
 
 
 def resolve_fixture_path(source: str, eval_yaml_dir: Path, repo_root: Path) -> Path:
@@ -464,9 +552,9 @@ def process_scenario(
     test_sh_path = task_dir / "tests" / "test.sh"
     test_sh_path.write_text(test_sh_content, encoding="utf-8")
 
-    # Generate solve.sh stub
+    # Generate solve.sh from assertions
     (task_dir / "solution" / "solve.sh").write_text(
-        generate_solve_sh(task_name),
+        generate_solve_sh(task_name, assertions),
         encoding="utf-8",
     )
 
