@@ -29,14 +29,44 @@ agent's ability to solve .NET tasks.
 It follows an **A/B pattern** (identical to the existing
 [skillsbench / skillsbenchnoskills](https://dev.azure.com/devdiv/OnlineServices/_git/msbench-benchmarks?path=/benchmarks/skillsbench)
 benchmark in `msbench-benchmarks`):
-the same 29 tasks are run twice — once with skills loaded and once without —
+tasks are run twice — once with skills loaded and once without —
 and the resolve-rate delta shows the real-world value of every skill.
 
-### In-scope skills (v1)
+### Opting in to MSBench (`msbench_ready`)
 
-14 skills across the `dotnet` and `dotnet-msbuild` plugins contribute 29 tasks.
-5 skills are excluded because they depend on MCP servers not yet available in
-Docker or require binary artefacts not suited for containerised execution:
+Not every eval.yaml is automatically converted to an MSBench task.
+Each eval.yaml must explicitly opt in by setting the **top-level flag**
+`msbench_ready: true`:
+
+```yaml
+msbench_ready: true          # ← opt-in to MSBench onboarding
+
+scenarios:
+  - name: "My scenario"
+    prompt: "..."
+    assertions: [...]
+```
+
+Evals without this flag are silently skipped by the converter.
+This keeps the benchmark small and focused while new evals are being
+developed and validated locally via the skill-validator.
+
+### Currently onboarded evals
+
+| Eval | Plugin | Scenarios | Why selected |
+|------|--------|-----------|--------------|
+| `csharp-scripts` | dotnet | 1 | Clear deterministic assertions, proven locally |
+| `dotnet-pinvoke` | dotnet | 2 | Pure output-based with 4 strong assertions per scenario |
+| `msbuild-modernization` | dotnet-msbuild | 1 | Covers msbuild plugin, uses `copy_test_files` setup |
+
+To onboard additional evals, add `msbench_ready: true` to their
+eval.yaml and re-run the converter.
+
+### Excluded skills
+
+5 skills are excluded entirely (regardless of `msbench_ready`) because they
+depend on MCP servers not yet available in Docker or require binary artefacts
+not suited for containerised execution:
 `binlog-failure-analysis`, `binlog-generation`, `build-perf-diagnostics`,
 `build-parallelism`, `dump-collect`.
 
@@ -90,9 +120,10 @@ msbench/
 
 Tasks are **not written by hand**. They are converted from the existing
 `eval.yaml` files that live alongside each evaluation scenario under `tests/`
-(e.g. `tests/dotnet/analyzing-dotnet-performance/eval.yaml`).
-The converter reads every `eval.yaml`, maps each scenario to a Harbor task
-directory, resolves fixture paths, generates the Dockerfile, test.sh, etc.
+(e.g. `tests/dotnet/csharp-scripts/eval.yaml`).
+The converter reads every `eval.yaml` **that has `msbench_ready: true`**,
+maps each scenario to a Harbor task directory, resolves fixture paths,
+generates the Dockerfile, test.sh, etc. Evals without the flag are skipped.
 
 ```powershell
 # Regenerate all tasks from eval.yaml sources
