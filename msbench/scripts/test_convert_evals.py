@@ -320,10 +320,16 @@ class TestGenerateTestSh:
 
 
 class TestGenerateSolveSh:
-    def test_solve_sh_is_stub(self):
-        result = generate_solve_sh("dotnet--perf--test-task")
-        assert "TODO" in result
-        assert "exit 1" in result
+    def test_solve_sh_output_contains(self):
+        assertions = [{"type": "output_contains", "value": "performance"}]
+        result = generate_solve_sh("dotnet--perf--test-task", assertions)
+        assert "agent_output.txt" in result
+        assert "performance" in result
+        assert "exit 0" in result
+
+    def test_solve_sh_empty_assertions(self):
+        result = generate_solve_sh("dotnet--perf--test-task", [])
+        assert "exit 0" in result
         assert "dotnet--perf--test-task" in result
 
 
@@ -544,7 +550,8 @@ class TestDiscoverSkills:
     def teardown_method(self):
         shutil.rmtree(self.tmpdir, ignore_errors=True)
 
-    def _create_skill(self, plugin, skill, with_eval=True, scenarios=None):
+    def _create_skill(self, plugin, skill, with_eval=True, scenarios=None,
+                       msbench_ready=True):
         """Helper: create a skill directory structure."""
         skill_dir = self.tmpdir / "plugins" / plugin / "skills" / skill
         skill_dir.mkdir(parents=True, exist_ok=True)
@@ -554,6 +561,7 @@ class TestDiscoverSkills:
             test_dir = self.tmpdir / "tests" / plugin / skill
             test_dir.mkdir(parents=True, exist_ok=True)
             eval_content = {
+                "msbench_ready": msbench_ready,
                 "scenarios": scenarios or [
                     {"name": f"Test {skill}", "prompt": "test", "assertions": []}
                 ]
@@ -624,7 +632,7 @@ class TestConvertAll:
         shutil.rmtree(self.tmpdir, ignore_errors=True)
 
     def test_multi_scenario_generates_multiple_tasks(self):
-        # Create a skill with multiple scenarios
+        # Create a skill with multiple scenarios (msbench_ready: true)
         skill_dir = self.tmpdir / "plugins" / "dotnet" / "skills" / "perf"
         skill_dir.mkdir(parents=True)
         (skill_dir / "SKILL.md").write_text("# perf")
@@ -641,7 +649,7 @@ class TestConvertAll:
                 "timeout": 60,
             })
 
-        eval_content = {"scenarios": scenarios}
+        eval_content = {"msbench_ready": True, "scenarios": scenarios}
         (test_dir / "eval.yaml").write_text(yaml.dump(eval_content))
 
         output_dir = self.tmpdir / "output"
@@ -656,6 +664,61 @@ class TestConvertAll:
         task_dirs = [d for d in output_dir.iterdir() if d.is_dir()]
         assert len(task_dirs) == 5
 
+    def test_skips_evals_without_msbench_ready(self):
+        """Evals without msbench_ready: true are skipped."""
+        skill_dir = self.tmpdir / "plugins" / "dotnet" / "skills" / "perf"
+        skill_dir.mkdir(parents=True)
+        (skill_dir / "SKILL.md").write_text("# perf")
+
+        test_dir = self.tmpdir / "tests" / "dotnet" / "perf"
+        test_dir.mkdir(parents=True)
+
+        eval_content = {
+            "scenarios": [
+                {"name": "Test", "prompt": "test",
+                 "assertions": [{"type": "output_contains", "value": "x"}]}
+            ]
+        }
+        (test_dir / "eval.yaml").write_text(yaml.dump(eval_content))
+
+        output_dir = self.tmpdir / "output"
+        results = convert_all(
+            skills_dir=self.tmpdir / "plugins",
+            tests_dir=self.tmpdir / "tests",
+            output_dir=output_dir,
+            repo_root=self.tmpdir,
+        )
+
+        assert len(results) == 0
+
+    def test_converts_evals_with_msbench_ready(self):
+        """Evals with msbench_ready: true are converted."""
+        skill_dir = self.tmpdir / "plugins" / "dotnet" / "skills" / "perf"
+        skill_dir.mkdir(parents=True)
+        (skill_dir / "SKILL.md").write_text("# perf")
+
+        test_dir = self.tmpdir / "tests" / "dotnet" / "perf"
+        test_dir.mkdir(parents=True)
+
+        eval_content = {
+            "msbench_ready": True,
+            "scenarios": [
+                {"name": "Test", "prompt": "test",
+                 "assertions": [{"type": "output_contains", "value": "x"}]}
+            ]
+        }
+        (test_dir / "eval.yaml").write_text(yaml.dump(eval_content))
+
+        output_dir = self.tmpdir / "output"
+        results = convert_all(
+            skills_dir=self.tmpdir / "plugins",
+            tests_dir=self.tmpdir / "tests",
+            output_dir=output_dir,
+            repo_root=self.tmpdir,
+        )
+
+        assert len(results) == 1
+
     def test_check_mode_detects_drift(self, capsys):
         # Create a skill
         skill_dir = self.tmpdir / "plugins" / "dotnet" / "skills" / "perf"
@@ -666,6 +729,7 @@ class TestConvertAll:
         test_dir.mkdir(parents=True)
 
         eval_content = {
+            "msbench_ready": True,
             "scenarios": [
                 {"name": "Test", "prompt": "test", "assertions": []}
             ]

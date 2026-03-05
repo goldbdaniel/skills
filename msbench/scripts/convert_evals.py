@@ -646,6 +646,11 @@ def convert_all(
             errors.append(f"{plugin}/{skill_name}: {e}")
             continue
 
+        # Only convert evals that have opted in to msbench onboarding
+        if not eval_data.get("msbench_ready", False):
+            print(f"  SKIPPED: msbench_ready not set in {eval_yaml_path}")
+            continue
+
         scenarios = eval_data.get("scenarios", [])
         if not scenarios:
             print(f"  WARNING: No scenarios found in {eval_yaml_path}")

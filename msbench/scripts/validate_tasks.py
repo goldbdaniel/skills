@@ -275,6 +275,11 @@ def validate_cross_reference(
             try:
                 with open(eval_yaml, "r", encoding="utf-8") as f:
                     data = yaml.safe_load(f)
+
+                # Only count evals that have opted in to msbench onboarding
+                if not data.get("msbench_ready", False):
+                    continue
+
                 scenarios = data.get("scenarios", [])
                 expected_count += len(scenarios)
             except Exception as e:

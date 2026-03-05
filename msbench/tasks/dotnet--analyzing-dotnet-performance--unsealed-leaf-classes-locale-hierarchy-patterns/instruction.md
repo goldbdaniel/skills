@@ -1,1 +1,0 @@
-Review this locale hierarchy and ordinalizer classes for performance. These classes are instantiated once per locale but their virtual methods are called on every formatted string in a high-throughput localization library.
