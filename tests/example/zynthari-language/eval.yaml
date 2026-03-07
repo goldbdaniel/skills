@@ -1,0 +1,116 @@
+scenarios:
+  - name: "Translate a simple English phrase to Zynthari"
+    prompt: |
+      Translate the following English sentence into Zynthari:
+
+      "The fast wolf runs in the dark forest"
+
+      Provide only the Zynthari translation.
+    assertions:
+      - type: "output_contains"
+        value: "spekri"
+      - type: "output_contains"
+        value: "shrekva"
+      - type: "output_contains"
+        value: "bliskat"
+      - type: "output_contains"
+        value: "zvemba"
+      - type: "output_contains"
+        value: "shemba"
+      - type: "output_contains"
+        value: "entho"
+    rubric:
+      - "Correctly translates wolf → spekri, runs → shrekva, forest → bliskat"
+      - "Uses the correct adjectives: fast → zvemba, dark → shemba"
+      - "Follows SVO word order and places adjectives before nouns"
+      - "Includes grammar particles (el for the, entho for in)"
+    timeout: 60
+
+  - name: "Translate Zynthari words to English"
+    prompt: |
+      What do the following Zynthari words mean in English?
+
+      1. brenka
+      2. grudli
+      3. frimble
+      4. zivretha
+      5. kwenth
+
+      List each word with its English translation.
+    assertions:
+      - type: "output_contains"
+        value: "thank"
+      - type: "output_contains"
+        value: "mountain"
+      - type: "output_contains"
+        value: "child"
+      - type: "output_contains"
+        value: "love"
+      - type: "output_contains"
+        value: "blue"
+    rubric:
+      - "Correctly translates brenka → thank you"
+      - "Correctly translates grudli → mountain"
+      - "Correctly translates frimble → child"
+      - "Correctly translates zivretha → to love"
+      - "Correctly translates kwenth → blue"
+    timeout: 60
+
+  - name: "Construct a Zynthari sentence with grammar rules"
+    prompt: |
+      Using Zynthari, translate:
+
+      "The old teacher will give the small children the new books"
+
+      Apply Zynthari grammar rules for future tense, plurals, and adjective placement.
+      Show both the translation and a brief explanation of the grammar rules you applied.
+    assertions:
+      - type: "output_contains"
+        value: "chorpa"
+      - type: "output_contains"
+        value: "fwenki"
+      - type: "output_contains"
+        value: "frimble"
+      - type: "output_contains"
+        value: "krothel"
+      - type: "output_contains"
+        value: "finkel"
+      - type: "output_contains"
+        value: "spevni"
+      - type: "output_matches"
+        pattern: "-ul"
+      - type: "output_matches"
+        pattern: "-ri"
+    rubric:
+      - "Correctly translates teacher → chorpa and uses old → krothel before it"
+      - "Applies future tense suffix -ul to the verb give (fwenki → fwenkiul)"
+      - "Uses plural suffix -ri for children (frimbleri)"
+      - "Places adjectives before nouns: small children → finkel frimbleri, new books → spevni (books)"
+      - "Explains the grammar rules applied: SVO order, adjective-before-noun, -ul future tense, -ri plural"
+    timeout: 60
+
+  - name: "Translate a Zynthari sentence to English"
+    prompt: |
+      Translate the following Zynthari sentence to English:
+
+      "el grothian tuvaki klontarek kre el spekri entho el grudli"
+
+      Provide the English translation and explain each word.
+    assertions:
+      - type: "output_contains"
+        value: "strong"
+      - type: "output_contains"
+        value: "bear"
+      - type: "output_matches"
+        pattern: "f(ou|i)ght"
+      - type: "output_contains"
+        value: "wolf"
+      - type: "output_contains"
+        value: "mountain"
+    rubric:
+      - "Correctly identifies grothian → strong, tuvaki → bear"
+      - "Recognizes klontarek as past tense of klontar (to fight) with -ek suffix"
+      - "Translates kre → with, spekri → wolf, entho → in, grudli → mountain"
+      - "Produces a coherent English sentence: The strong bear fought with the wolf in the mountain"
+      - "Explains each Zynthari word and grammar features (past tense -ek suffix, particles)"
+    timeout: 60
