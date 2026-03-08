@@ -70,7 +70,10 @@ public sealed record EvalScenario(
     int? MaxTokens = null,
     bool ExpectActivation = true);
 
-public sealed record EvalConfig(IReadOnlyList<EvalScenario> Scenarios);
+public sealed record EvalConfig(
+    IReadOnlyList<EvalScenario> Scenarios,
+    IReadOnlyList<string>? ShouldActivatePrompts = null,
+    IReadOnlyList<string>? ShouldNotActivatePrompts = null);
 
 // --- Skill info ---
 
@@ -227,6 +230,7 @@ public sealed class SkillVerdict
     public IReadOnlyList<string>? ProfileWarnings { get; set; }
     public bool SkillNotActivated { get; set; }
     public OverfittingResult? OverfittingResult { get; set; }
+    public SelectivityResult? SelectivityResult { get; set; }
 }
 
 // --- Overfitting assessment ---
@@ -274,6 +278,20 @@ public sealed record OverfittingJudgeOptions(
     int Timeout,
     string WorkDir);
 
+// --- Selectivity test ---
+
+public sealed record SelectivityPromptResult(
+    string Prompt,
+    bool ExpectedActivation,
+    bool SkillActivated);
+
+public sealed record SelectivityResult(
+    IReadOnlyList<SelectivityPromptResult> PromptResults,
+    double Recall,
+    double Precision,
+    bool Passed,
+    string Reason);
+
 // --- Config ---
 
 public sealed record ReporterSpec(ReporterType Type);
@@ -308,6 +326,9 @@ public sealed record ValidatorConfig
     public string? TestsDir { get; init; }
     public bool OverfittingCheck { get; init; } = true;
     public bool OverfittingFix { get; init; }
+    public bool SelectivityTest { get; init; }
+    public double SelectivityMinRecall { get; init; } = 0.8;
+    public double SelectivityMinPrecision { get; init; } = 0.8;
 }
 
 public static class DefaultWeights
