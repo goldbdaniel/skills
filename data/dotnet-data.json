@@ -1,0 +1,70 @@
+{
+  "entries": {
+    "Efficiency": [
+      {
+        "date": 1772984863328,
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/8e50fc855891cfa7ffd1435730fdb0a0460d5e9b",
+          "author": {
+            "name": "Dan Moseley",
+            "username": "JanKrivanek"
+          },
+          "id": "8e50fc855891cfa7ffd1435730fdb0a0460d5e9b",
+          "message": "Add agent and plugin spec conformance validation (#279)",
+          "timestamp": "2026-03-08T14:40:06+00:00"
+        },
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "overfittingScore": 0.39,
+            "value": 15.9,
+            "unit": "seconds",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "overfitting": "moderate"
+          },
+          {
+            "overfittingScore": 0.39,
+            "value": 25235.0,
+            "unit": "tokens",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "overfitting": "moderate"
+          }
+        ],
+        "model": "claude-opus-4.6"
+      }
+    ],
+    "Quality": [
+      {
+        "date": 1772984863328,
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/8e50fc855891cfa7ffd1435730fdb0a0460d5e9b",
+          "author": {
+            "name": "Dan Moseley",
+            "username": "JanKrivanek"
+          },
+          "id": "8e50fc855891cfa7ffd1435730fdb0a0460d5e9b",
+          "message": "Add agent and plugin spec conformance validation (#279)",
+          "timestamp": "2026-03-08T14:40:06+00:00"
+        },
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "overfittingScore": 0.39,
+            "value": 9.199999809265137,
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "overfitting": "moderate"
+          },
+          {
+            "value": 8.800000190734863,
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
+          }
+        ],
+        "model": "claude-opus-4.6"
+      }
+    ]
+  },
+  "repoUrl": "",
+  "lastUpdate": 1772984863328
+}
