@@ -296,15 +296,15 @@ For each skill directory found, verify that its parent plugin directory contains
 **I8 — Orphan plugins (not listed in marketplace.json):**
 Compare the set of plugin directories on disk against the marketplace registry:
 ```
-find plugins/*/plugin.json -maxdepth 2
+find plugins -maxdepth 2 -type f -name plugin.json
 cat .github/plugin/marketplace.json | jq -r '.plugins[].source'
 ```
 For each plugin directory under `plugins/` that contains a `plugin.json`:
-- Extract the plugin name from `plugin.json` (`name` field) and its directory path (`plugins/{name}`).
-- Check if a matching entry exists in `.github/plugin/marketplace.json` where `plugins[].source` resolves to the same directory (e.g., `"./plugins/{name}"`).
-- If the plugin is not listed in marketplace.json, it is orphaned and will not be discoverable by consumers.
+- Derive the plugin directory path from the actual location of `plugin.json` on disk (for example, if `plugin.json` is at `plugins/foo/plugin.json`, the directory is `plugins/foo/`), and separately read the plugin display name from its `name` field.
+- Check if a matching entry exists in `.github/plugin/marketplace.json` where `plugins[].source` resolves to the same directory path (e.g., `"./plugins/foo"`), comparing using the directory derived from the filesystem rather than the `name` field.
+- If no entry in marketplace.json points to that directory, the plugin is orphaned and will not be discoverable by consumers. Optionally, also emit a separate finding if the `plugin.json` `name` field does not match the directory basename (e.g., `plugins/foo/` with `name: "bar"`).
 - 🟡 Warning for each orphan plugin found
-- Fingerprint: `infra:orphan-plugin:{plugin_name}`
+- Fingerprint: `infra:orphan-plugin:{directory_basename}` (uses on-disk directory name, not the `name` field)
 
 ### 1.6 Resource Usage (U1–U3)
 
