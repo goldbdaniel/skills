@@ -240,7 +240,7 @@ GET /repos/{owner}/{repo}/pulls?state=closed&sort=updated&direction=desc&per_pag
 Count merged PRs per day over the last 7 days.
 - 🔵 Info (metric only — reported in trends table, not fingerprinted)
 
-### 1.5 Infrastructure Checks (I1–I6)
+### 1.5 Infrastructure Checks (I1–I8)
 
 **I1 — Missing CODEOWNERS:**
 ```
@@ -279,6 +279,32 @@ Check last deployment status.
 Scan workflow YAML files for non-`actions/*` references. Flag those pinned to tags instead of SHAs.
 - 🔵 Info
 - Fingerprint: `infra:unpinned-action:{action_name}`
+
+**I7 — Orphan skills (not registered in any plugin):**
+Discover all skill directories on disk:
+```
+find plugins/*/skills/ -mindepth 1 -maxdepth 1 -type d
+```
+For each skill directory found, verify that its parent plugin directory contains a valid `plugin.json` with a `skills` field that resolves to a path containing the skill. Specifically:
+- Parse `plugins/{component}/plugin.json` and resolve the `skills` field (e.g., `"./skills/"`) relative to the plugin directory.
+- Confirm the skill directory is under the resolved skills path.
+- If a skill directory exists under `plugins/*/skills/` but the parent `plugins/*/` has no `plugin.json`, or the `plugin.json` has no `skills` field, the skill is orphaned.
+- Also scan for any stray skill-like directories outside the standard `plugins/*/skills/` structure (e.g., leftover directories in `plugins/*/` that contain `.md` prompt files but are not under `skills/` or `agents/`).
+- 🟡 Warning for each orphan skill found
+- Fingerprint: `infra:orphan-skill:{component}:{skill_name}`
+
+**I8 — Orphan plugins (not listed in marketplace.json):**
+Compare the set of plugin directories on disk against the marketplace registry:
+```
+find plugins/*/plugin.json -maxdepth 2
+cat .github/plugin/marketplace.json | jq -r '.plugins[].source'
+```
+For each plugin directory under `plugins/` that contains a `plugin.json`:
+- Extract the plugin name from `plugin.json` (`name` field) and its directory path (`plugins/{name}`).
+- Check if a matching entry exists in `.github/plugin/marketplace.json` where `plugins[].source` resolves to the same directory (e.g., `"./plugins/{name}"`).
+- If the plugin is not listed in marketplace.json, it is orphaned and will not be discoverable by consumers.
+- 🟡 Warning for each orphan plugin found
+- Fingerprint: `infra:orphan-plugin:{plugin_name}`
 
 ### 1.6 Resource Usage (U1–U3)
 
