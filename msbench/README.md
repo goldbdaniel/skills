@@ -259,13 +259,18 @@ also pass `--dataset msbench/dataset.jsonl`.
 > **Windows note:** Set `$env:PYTHONUTF8 = "1"` before running `msbench-cli`
 > to avoid cp1252 encoding errors in runner scripts.
 
+> **Important:** The `--runner` path **must be absolute**. When using a
+> special agent, msbench-cli resolves the runner path relative to an
+> internal temp directory, so relative paths will fail. Wrap in
+> `(Resolve-Path ...)` in PowerShell (shown below).
+
 #### Run all benchmark tasks
 
 ```powershell
 # With a specific plugin's skills (self-contained runner)
 msbench-cli run `
     --agent github-copilot-cli `
-    --runner msbench/agents/with-skills/dotnet-msbuild/runner.sh `
+    --runner (Resolve-Path msbench/agents/with-skills/dotnet-msbuild/runner.sh) `
     --model claude-opus-4.5 `
     --benchmark dotnetskills `
     --dataset msbench/dataset.jsonl `
@@ -274,7 +279,7 @@ msbench-cli run `
 # With skills (legacy combined runner, assumes pre-installed skills)
 msbench-cli run `
     --agent github-copilot-cli `
-    --runner msbench/agents/with-skills/runner.sh `
+    --runner (Resolve-Path msbench/agents/with-skills/runner.sh) `
     --model claude-opus-4.5 `
     --benchmark dotnetskills `
     --dataset msbench/dataset.jsonl `
@@ -283,7 +288,7 @@ msbench-cli run `
 # Without skills (baseline)
 msbench-cli run `
     --agent github-copilot-cli `
-    --runner msbench/agents/without-skills/runner.sh `
+    --runner (Resolve-Path msbench/agents/without-skills/runner.sh) `
     --model claude-opus-4.5 `
     --benchmark dotnetskills `
     --dataset msbench/dataset.jsonl `
@@ -301,7 +306,7 @@ Use `--benchmark <benchmark>.<instance_id>` to select a single task:
 # Run only the msbuild-modernization task
 msbench-cli run `
     --agent github-copilot-cli `
-    --runner msbench/agents/with-skills/dotnet-msbuild/runner.sh `
+    --runner (Resolve-Path msbench/agents/with-skills/dotnet-msbuild/runner.sh) `
     --model claude-opus-4.5 `
     --benchmark dotnetskills.dotnet-msbuild--msbuild-modernization--legacy-project-sdk-style `
     --dataset msbench/dataset.jsonl `
@@ -315,7 +320,7 @@ Pass multiple instance IDs as space- or comma-separated values:
 ```powershell
 msbench-cli run `
     --agent github-copilot-cli `
-    --runner msbench/agents/with-skills/dotnet/runner.sh `
+    --runner (Resolve-Path msbench/agents/with-skills/dotnet/runner.sh) `
     --model claude-opus-4.5 `
     --benchmark dotnetskills.dotnet--csharp-scripts--c-language-feature-script `
                 dotnetskills.dotnet--dotnet-pinvoke--libraryimport-declaration-c-header-net-8 `
