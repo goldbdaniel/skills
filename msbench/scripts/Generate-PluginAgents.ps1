@@ -145,8 +145,12 @@ foreach ($plugin in $plugins) {
     $generatedContent = $heredocBlocks -join "`n"
 
     # Apply template substitutions
+    # NOTE: Use [string]::Replace() instead of -replace for generated content
+    # because PowerShell's -replace treats $' $` $1 etc. in the replacement
+    # string as regex backreferences, which corrupts embedded scripts that
+    # contain PowerShell variables like $Matches[1], $line, $') { etc.
     $output = $template -replace '@@PLUGIN_NAME@@', $pName
-    $output = $output -replace '# @@GENERATED_PLUGIN_FILES@@', $generatedContent
+    $output = $output.Replace('# @@GENERATED_PLUGIN_FILES@@', $generatedContent)
 
     # Normalize to LF line endings for bash
     $output = $output -replace "`r`n", "`n"

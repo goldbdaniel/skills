@@ -1476,72 +1476,15 @@ function Test-DotNetLibrary([string]$libraryName) {
 # Returns the content after the prefix, or the original line if no prefix found.
 function Remove-LogcatPrefix([string]$line) {
     # threadtime: MM-DD HH:MM:SS.mmm  PID  TID PRIO TAG  : content
-    if ($line -match '^\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}\.\d+\s+\d+\s+\d+\s+[A-Z]\s+.*?:\s*(.*)
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-) {
+    if ($line -match '^\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}\.\d+\s+\d+\s+\d+\s+[A-Z]\s+.*?:\s*(.*)$') {
         return $Matches[1]
     }
     # time: MM-DD HH:MM:SS.mmm PRIO/TAG(PID): content
-    if ($line -match '^\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}\.\d+\s+[A-Z]/[^\(]+\(\s*\d+\):\s*(.*)
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-) {
+    if ($line -match '^\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}\.\d+\s+[A-Z]/[^\(]+\(\s*\d+\):\s*(.*)$') {
         return $Matches[1]
     }
     # brief: PRIO/TAG(PID): content
-    if ($line -match '^[A-Z]/[^\(]+\(\s*\d+\):\s*(.*)
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-) {
+    if ($line -match '^[A-Z]/[^\(]+\(\s*\d+\):\s*(.*)$') {
         return $Matches[1]
     }
     return $line
@@ -1600,26 +1543,7 @@ function Get-BacktraceFrames([string[]]$lines, [bool]$firstThreadOnly) {
             continue
         }
 
-        if ($line -match '^\s*#(\d+)\s+pc\s+(0x)?([0-9a-fA-F]+)\s+(\S+)(.*)
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-) {
+        if ($line -match '^\s*#(\d+)\s+pc\s+(0x)?([0-9a-fA-F]+)\s+(\S+)(.*)$') {
             $inBacktrace = $true
             $frameNum = $Matches[1]
             $pcOffset = '0x' + $Matches[3]
@@ -1708,47 +1632,7 @@ function Get-DebugSymbols([string]$buildId, [string]$cacheDir, [string]$serverUr
         }
     }
     catch {
-        Write-Warning "Failed to download symbols for BuildId $buildId`: #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-"
+        Write-Warning "Failed to download symbols for BuildId $buildId`: $_"
         Remove-Item $debugFile -ErrorAction SilentlyContinue
         return $null
     }
@@ -1829,47 +1713,7 @@ function Find-RuntimeVersion([string]$buildId, [string]$libraryName, [string]$ll
                     }
                 }
                 catch {
-                    Write-Verbose "Could not parse nuspec for version $version`: #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-"
+                    Write-Verbose "Could not parse nuspec for version $version`: $_"
                 }
             }
 
@@ -1917,132 +1761,12 @@ function Find-RuntimeVersionOnline([string]$buildId, [string]$libraryName, [stri
                 $indexJson = Invoke-RestMethod -Uri $indexUrl -TimeoutSec 15 -UseBasicParsing
             }
             catch {
-                Write-Verbose "Could not fetch version index for $pkgId`: #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-"
+                Write-Verbose "Could not fetch version index for $pkgId`: $_"
                 continue
             }
 
             # Only check stable release versions (no previews/RCs), newest first
-            $versions = @($indexJson.versions | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
- -notmatch '-' }) | Sort-Object { [version](#!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
- -replace '[^0-9.]', '') } -Descending
+            $versions = @($indexJson.versions | Where-Object { $_ -notmatch '-' }) | Sort-Object { [version]($_ -replace '[^0-9.]', '') } -Descending
 
             if ($versions.Count -eq 0) { continue }
             Write-Host "  Checking $($versions.Count) release versions of $pkgId on NuGet.org..." -ForegroundColor DarkGray
@@ -2064,47 +1788,7 @@ ghcs run \
                     }
                     $zip = [System.IO.Compression.ZipFile]::OpenRead($nupkgFile)
                     try {
-                        $entry = $zip.Entries | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.Name -eq $libraryName } | Select-Object -First 1
+                        $entry = $zip.Entries | Where-Object { $_.Name -eq $libraryName } | Select-Object -First 1
                         if (-not $entry) {
                             Remove-Item $nupkgFile -ErrorAction SilentlyContinue
                             continue
@@ -2127,47 +1811,7 @@ ghcs run \
                             $commit = $null
                             $zip2 = [System.IO.Compression.ZipFile]::OpenRead($nupkgFile)
                             try {
-                                $nuspecEntry = $zip2.Entries | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.FullName -like '*.nuspec' } | Select-Object -First 1
+                                $nuspecEntry = $zip2.Entries | Where-Object { $_.FullName -like '*.nuspec' } | Select-Object -First 1
                                 if ($nuspecEntry) {
                                     $reader = [System.IO.StreamReader]::new($nuspecEntry.Open())
                                     try {
@@ -2199,47 +1843,7 @@ ghcs run \
                     Remove-Item $nupkgFile -ErrorAction SilentlyContinue
                 }
                 catch {
-                    Write-Verbose "Failed to check version $ver`: #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-"
+                    Write-Verbose "Failed to check version $ver`: $_"
                     Remove-Item $nupkgFile -ErrorAction SilentlyContinue
                     Remove-Item $extractDir -Recurse -Force -ErrorAction SilentlyContinue
                 }
@@ -2257,47 +1861,7 @@ function Resolve-Frame([string]$debugFile, [string]$pcOffset, [string]$symbolize
         $output = & $symbolizerPath "--obj=$debugFile" -f -C $pcOffset 2>$null
         if ($LASTEXITCODE -ne 0 -or -not $output) { return $null }
 
-        $lines = $output -split "`n" | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.Trim() -ne '' }
+        $lines = $output -split "`n" | Where-Object { $_.Trim() -ne '' }
         if ($lines.Count -ge 2) {
             $functionName = $lines[0].Trim()
             $sourceLocation = $lines[1].Trim()
@@ -2314,47 +1878,7 @@ ghcs run \
         }
     }
     catch {
-        Write-Verbose "llvm-symbolizer failed for offset $pcOffset`: #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-"
+        Write-Verbose "llvm-symbolizer failed for offset $pcOffset`: $_"
     }
 
     return $null
@@ -2380,133 +1904,13 @@ Write-Verbose "Symbol cache: $SymbolCacheDir"
 $tombstoneLines = Get-Content $TombstoneFile
 $threads = Get-BacktraceFrames $tombstoneLines $CrashingThreadOnly
 
-$allFrames = @($threads | ForEach-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.Frames } | ForEach-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
- })
+$allFrames = @($threads | ForEach-Object { $_.Frames } | ForEach-Object { $_ })
 if ($allFrames.Count -eq 0) {
     Write-Error "No backtrace frames found in $TombstoneFile"
     exit 1
 }
 
-$dotnetFrames = @($allFrames | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.IsDotNet })
+$dotnetFrames = @($allFrames | Where-Object { $_.IsDotNet })
 Write-Host "Found $($allFrames.Count) backtrace frames across $($threads.Count) thread(s) ($($dotnetFrames.Count) from .NET libraries)" -ForegroundColor Cyan
 
 if ($dotnetFrames.Count -eq 0) {
@@ -2526,133 +1930,13 @@ if ($ParseOnly) {
     Write-Host "Total frames: $($allFrames.Count)"
     Write-Host ".NET frames: $($dotnetFrames.Count)"
 
-    $uniqueBuildIds = @($dotnetFrames | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId } | Select-Object -ExpandProperty BuildId -Unique)
-    $framesWithoutBuildId = @($dotnetFrames | Where-Object { -not #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId })
+    $uniqueBuildIds = @($dotnetFrames | Where-Object { $_.BuildId } | Select-Object -ExpandProperty BuildId -Unique)
+    $framesWithoutBuildId = @($dotnetFrames | Where-Object { -not $_.BuildId })
 
     Write-Host "`n--- .NET Libraries ---"
     $libGroups = $dotnetFrames | Group-Object LibraryName
     foreach ($g in $libGroups) {
-        $bidFrame = $g.Group | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId } | Select-Object -First 1
+        $bidFrame = $g.Group | Where-Object { $_.BuildId } | Select-Object -First 1
         if ($bidFrame) {
             Write-Host "  $($g.Name)  BuildId: $($bidFrame.BuildId)  ($($g.Count) frame(s))"
             Write-Host "    Symbol URL: $SymbolServerUrl/_.debug/elf-buildid-sym-$($bidFrame.BuildId)/_.debug"
@@ -2688,88 +1972,8 @@ ghcs run \
 
 # Collect unique BuildIds and download symbols
 $buildIdMap = @{} # BuildId -> debug file path
-$uniqueBuildIds = @($dotnetFrames | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId } | Select-Object -ExpandProperty BuildId -Unique)
-$framesWithoutBuildId = @($dotnetFrames | Where-Object { -not #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId })
+$uniqueBuildIds = @($dotnetFrames | Where-Object { $_.BuildId } | Select-Object -ExpandProperty BuildId -Unique)
+$framesWithoutBuildId = @($dotnetFrames | Where-Object { -not $_.BuildId })
 
 if ($framesWithoutBuildId.Count -gt 0) {
     Write-Warning "$($framesWithoutBuildId.Count) .NET frame(s) have no BuildId metadata — these cannot be symbolicated via the symbol server."
@@ -2809,47 +2013,7 @@ else {
 
     Write-Host "Downloading debug symbols for $($uniqueBuildIds.Count) unique .NET BuildId(s)..." -ForegroundColor Cyan
     foreach ($bid in $uniqueBuildIds) {
-        $lib = ($dotnetFrames | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId -eq $bid } | Select-Object -First 1).LibraryName
+        $lib = ($dotnetFrames | Where-Object { $_.BuildId -eq $bid } | Select-Object -First 1).LibraryName
         Write-Host "  $lib (BuildId: $bid)" -ForegroundColor DarkGray
         $debugFile = Get-DebugSymbols $bid $SymbolCacheDir $SymbolServerUrl
         if ($debugFile) {
@@ -2874,47 +2038,7 @@ ghcs run \
     if (-not $SkipVersionLookup -and $llvmReadelf) {
         Write-Host "Identifying .NET runtime version..." -ForegroundColor Cyan
         foreach ($bid in $uniqueBuildIds) {
-            $lib = ($dotnetFrames | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId -eq $bid } | Select-Object -First 1).LibraryName
+            $lib = ($dotnetFrames | Where-Object { $_.BuildId -eq $bid } | Select-Object -First 1).LibraryName
             $versionInfo = Find-RuntimeVersion $bid $lib $llvmReadelf
             if (-not $versionInfo) {
                 # Fallback: search NuGet.org
@@ -2993,47 +2117,7 @@ if ($versionMap.Count -gt 0) {
     $footer += "--- .NET Runtime Version ---"
     foreach ($bid in $versionMap.Keys) {
         $vi = $versionMap[$bid]
-        $lib = ($dotnetFrames | Where-Object { #!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.BuildId -eq $bid } | Select-Object -First 1).LibraryName
+        $lib = ($dotnetFrames | Where-Object { $_.BuildId -eq $bid } | Select-Object -First 1).LibraryName
         $commitInfo = if ($vi.Commit) { "  Commit: https://github.com/dotnet/runtime/commit/$($vi.Commit)" } else { '' }
         $footer += "$lib -> .NET $($vi.Version)"
         if ($commitInfo) { $footer += $commitInfo }
@@ -3589,88 +2673,8 @@ Get-ItemProperty "Registry::HKCR\CLSID\$clsid\InprocServer32" -ErrorAction Silen
 # Version subkeys — what runtimes registered this CLSID?
 Get-ChildItem "Registry::HKCR\CLSID\$clsid\InprocServer32" -ErrorAction SilentlyContinue |
     ForEach-Object {
-        Write-Output "`n--- $(#!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.PSChildName) ---"
-        Get-ItemProperty "Registry::$(#!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.Name)" -ErrorAction SilentlyContinue
+        Write-Output "`n--- $($_.PSChildName) ---"
+        Get-ItemProperty "Registry::$($_.Name)" -ErrorAction SilentlyContinue
     }
 ```
 
@@ -4116,88 +3120,8 @@ When log analysis points to a registration or configuration issue, check:
 Get-ItemProperty 'Registry::HKCR\CLSID\{guid}'
 Get-ItemProperty 'Registry::HKCR\CLSID\{guid}\InprocServer32'
 Get-ChildItem 'Registry::HKCR\CLSID\{guid}\InprocServer32' | ForEach-Object {
-    Write-Output "--- $(#!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.PSChildName) ---"
-    Get-ItemProperty "Registry::$(#!/usr/bin/env bash
-# MSBench runner script with embedded dotnet-diag plugin
-#
-# This is a self-contained script that embeds all skills and agents from the
-# dotnet-diag plugin. It recreates the plugin directory structure on the
-# target machine before launching the Copilot CLI agent.
-#
-# NOTE: Do not edit the embedded file blocks below manually.
-# They are generated by: msbench/scripts/Generate-PluginAgents.ps1
-# Source files live in: plugins/dotnet-diag/
-
-set -euo pipefail
-
-METADATA_PATH="${METADATA_PATH:-/drop/metadata.json}"
-INSTANCE_ID=$(python3 -c "import json; print(json.load(open('$METADATA_PATH'))['instance_id'])")
-
-# --- 1. Install plugin files ---
-echo "Installing dotnet-diag plugin..."
-PLUGIN_DIR="/agent/skills/dotnet-diag"
-mkdir -p "$PLUGIN_DIR"
-
-# @@GENERATED_PLUGIN_FILES@@
-
-echo "Plugin dotnet-diag installed:"
-find "$PLUGIN_DIR" -type f
-
-# --- 2. Write skill metadata for tracking ---
-SKILL_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -2 | tail -1)
-PLUGIN_NAME=$(echo "$INSTANCE_ID" | sed 's/--/\n/g' | head -1)
-SKILL_DIR="${PLUGIN_DIR}/skills/${SKILL_NAME}"
-echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
-
-# --- 3. Run Copilot CLI with skill loading ---
-echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
-.Name)"
+    Write-Output "--- $($_.PSChildName) ---"
+    Get-ItemProperty "Registry::$($_.Name)"
 }
 ```
 
@@ -7109,9 +6033,6 @@ echo "{\"plugin\": \"dotnet-diag\", \"skill_dir\": \"$SKILL_DIR\", \"skill_injec
 
 # --- 3. Run Copilot CLI with skill loading ---
 echo "Starting Copilot CLI with dotnet-diag skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
+cd "$AGENT_DIR"
+set +u
+. entry.sh
