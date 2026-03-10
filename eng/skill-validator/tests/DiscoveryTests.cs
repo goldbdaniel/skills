@@ -39,8 +39,17 @@ public class DiscoverSkillsTests
     [Fact]
     public async Task ReturnsEmptyForNonSkillDirectory()
     {
-        var skills = await SkillDiscovery.DiscoverSkills(Path.GetTempPath());
-        Assert.Empty(skills);
+        var tmpDir = Path.Combine(Path.GetTempPath(), $"skill-test-{Guid.NewGuid():N}");
+        Directory.CreateDirectory(tmpDir);
+        try
+        {
+            var skills = await SkillDiscovery.DiscoverSkills(tmpDir);
+            Assert.Empty(skills);
+        }
+        finally
+        {
+            Directory.Delete(tmpDir, recursive: true);
+        }
     }
 
     [Fact]
@@ -54,20 +63,20 @@ public class DiscoverSkillsTests
             var pluginJson = """
                 {
                     "mcpServers": {
-                        "binlog-mcp": {
+                        "test-mcp": {
                             "command": "dotnet",
                             "args": ["run"],
-                            "tools": ["load_binlog"]
+                            "tools": ["load_data"]
                         }
                     }
                 }
                 """;
-            await File.WriteAllTextAsync(Path.Combine(tmpDir, "plugin.json"), pluginJson);
+            await File.WriteAllTextAsync(Path.Combine(tmpDir, "plugin.json"), pluginJson, TestContext.Current.CancellationToken);
 
             var result = await SkillDiscovery.FindPluginMcpServers(skillDir);
             Assert.NotNull(result);
-            Assert.True(result!.ContainsKey("binlog-mcp"));
-            Assert.Equal("dotnet", result["binlog-mcp"].Command);
+            Assert.True(result!.ContainsKey("test-mcp"));
+            Assert.Equal("dotnet", result["test-mcp"].Command);
         }
         finally
         {
@@ -88,20 +97,20 @@ public class DiscoverSkillsTests
             var pluginJson = """
                 {
                     "mcpServers": {
-                        "binlog-mcp": {
+                        "test-mcp": {
                             "command": "dotnet",
                             "args": ["run"],
-                            "tools": ["load_binlog"]
+                            "tools": ["load_data"]
                         }
                     }
                 }
                 """;
-            await File.WriteAllTextAsync(Path.Combine(tmpDir, "plugin.json"), pluginJson);
+            await File.WriteAllTextAsync(Path.Combine(tmpDir, "plugin.json"), pluginJson, TestContext.Current.CancellationToken);
 
             var result = await SkillDiscovery.FindPluginMcpServers(skillDir);
             Assert.NotNull(result);
-            Assert.True(result!.ContainsKey("binlog-mcp"));
-            Assert.Equal("dotnet", result["binlog-mcp"].Command);
+            Assert.True(result!.ContainsKey("test-mcp"));
+            Assert.Equal("dotnet", result["test-mcp"].Command);
         }
         finally
         {
