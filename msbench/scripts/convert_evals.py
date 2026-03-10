@@ -258,23 +258,18 @@ def generate_test_sh(task_name: str, plugin: str, skill: str,
     lines.append("finalize_assertions")
     lines.append("")
 
-    # Write eval.json
+    # Write eval.json (binary resolved flag for SWE-bench compatibility)
     lines.append("# Write evaluation results")
     lines.append("mkdir -p /output /logs/verifier")
     lines.append('echo "{\\"$INSTANCE_ID\\": {\\"resolved\\": $ALL_PASSED}}" > /output/eval.json')
     lines.append("")
 
-    # Write reward file so parse.py (harbor-format-curation) preserves the result
-    lines.append("# Write reward file for harbor-format-curation parse.py")
-    lines.append('if [ "$ALL_PASSED" = "true" ]; then')
-    lines.append('    echo "1.0" > /logs/verifier/reward.txt')
-    lines.append("else")
-    lines.append('    echo "0.0" > /logs/verifier/reward.txt')
-    lines.append("fi")
+    # Write fractional reward based on assertion pass rate
+    lines.append("# Compute fractional reward (passed_assertions / total_assertions)")
+    lines.append("compute_reward")
     lines.append("")
 
     # Write custom_metrics.json
-    rubric_items = "|".join(r.replace('"', '\\"') for r in rubric) if rubric else ""
     lines.append("# Write custom metrics")
     lines.append(f'python3 /app/write_eval.py "$INSTANCE_ID" "$ALL_PASSED" \\')
     lines.append(f"    --assertions-total $TOTAL_ASSERTIONS \\")

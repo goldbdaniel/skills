@@ -22,12 +22,8 @@ finalize_assertions
 mkdir -p /output /logs/verifier
 echo "{\"$INSTANCE_ID\": {\"resolved\": $ALL_PASSED}}" > /output/eval.json
 
-# Write reward file for harbor-format-curation parse.py
-if [ "$ALL_PASSED" = "true" ]; then
-    echo "1.0" > /logs/verifier/reward.txt
-else
-    echo "0.0" > /logs/verifier/reward.txt
-fi
+# Compute fractional reward (passed_assertions / total_assertions)
+compute_reward
 
 # Write custom metrics
 python3 /app/write_eval.py "$INSTANCE_ID" "$ALL_PASSED" \

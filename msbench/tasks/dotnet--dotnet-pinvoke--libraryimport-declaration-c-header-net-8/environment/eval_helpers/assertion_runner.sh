@@ -209,6 +209,34 @@ finalize_assertions() {
     echo "Resolved: $ALL_PASSED"
 }
 
+# --- Reward Computation ---
+# Computes a fractional reward based on assertion pass rate (0.0 to 1.0).
+# This mirrors the SkillValidator scoring model where each assertion has
+# equal weight and the pass rate is the meaningful signal.
+# Must be called after finalize_assertions.
+compute_reward() {
+    if [ "$TOTAL_ASSERTIONS" -gt 0 ]; then
+        REWARD=$(python3 -c "print(round($PASSED_ASSERTIONS / $TOTAL_ASSERTIONS, 4))")
+    else
+        REWARD="0.0"
+    fi
+
+    echo ""
+    echo "=== Reward Calculation ==="
+    echo "Formula: REWARD = PASSED_ASSERTIONS / TOTAL_ASSERTIONS"
+    echo "Values:"
+    echo "  PASSED_ASSERTIONS = $PASSED_ASSERTIONS"
+    echo "  TOTAL_ASSERTIONS = $TOTAL_ASSERTIONS"
+    echo "  ALL_PASSED = $ALL_PASSED"
+    echo "Result: REWARD = $REWARD"
+    echo "========================="
+    echo ""
+
+    mkdir -p /logs/verifier
+    echo "$REWARD" > /logs/verifier/reward.txt
+    echo "Reward: $REWARD"
+}
+
 # --- Build Check ---
 
 # Try to build the .NET project and return success/failure
