@@ -15,11 +15,7 @@ SKILL_DIR="/agent/skills/${PLUGIN_NAME}/skills/${SKILL_NAME}"
 
 echo "{\"skill_dir\": \"$SKILL_DIR\", \"skill_injected\": $([ -d \"$SKILL_DIR\" ] && echo true || echo false)}" > /agent/skill_metadata.json
 
-# Copilot CLI invocation with native skill loading:
-# The --skill-dirs flag points to the plugin directories:
-ghcs run \
-  --skill-dirs /agent/skills/dotnet,/agent/skills/dotnet-msbuild \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
+# Launch via the standard CES agent entry point
+cd "$AGENT_DIR"
+set +u
+. entry.sh

@@ -1,0 +1,8 @@
+# msbench-cli config — Copilot CLI with dotnet-maui plugin skills
+agent: github-copilot-cli
+agent_pkg: .
+runner_script:
+  file: runner.sh
+tags:
+  skills: "enabled"
+  plugin: "dotnet-maui"

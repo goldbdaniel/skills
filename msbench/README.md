@@ -76,6 +76,7 @@ not suited for containerised execution:
 msbench/
 ├── README.md                  ← you are here
 ├── dotnetskills.toml          ← harbor-format-curation config (local + prod Docker profiles)
+├── dataset.jsonl              ← msbench-cli dataset (auto-generated — see "Dataset" section)
 ├── version.txt                ← benchmark version (SemVer)
 │
 ├── tasks/                     ← Harbor-format tasks (auto-generated — do not edit by hand)
@@ -95,19 +96,22 @@ msbench/
 ├── agents/                    ← agent runner packages for the A/B pattern
 │   ├── plugin-runner.template.sh  ← shared template for per-plugin runners
 │   ├── with-skills/           ← Copilot CLI + native skill loading
+│   │   ├── msbench-config.yaml ← msbench-cli config (legacy combined runner)
 │   │   ├── runner.sh          ← legacy combined runner (assumes pre-installed skills)
-│   │   ├── config.yaml
+│   │   ├── config.yaml        ← agent metadata
 │   │   ├── dotnet/            ← self-contained runner embedding the dotnet plugin
+│   │   │   ├── msbench-config.yaml ← msbench-cli config
 │   │   │   ├── runner.sh      ← generated — do not edit (see Generate-PluginAgents.ps1)
-│   │   │   └── config.yaml
+│   │   │   └── config.yaml    ← agent metadata
 │   │   ├── dotnet-data/       ← self-contained runner embedding the dotnet-data plugin
 │   │   ├── dotnet-diag/       ← self-contained runner embedding the dotnet-diag plugin
 │   │   ├── dotnet-maui/       ← self-contained runner embedding the dotnet-maui plugin
 │   │   ├── dotnet-msbuild/    ← self-contained runner embedding the dotnet-msbuild plugin
 │   │   └── dotnet-upgrade/    ← self-contained runner embedding the dotnet-upgrade plugin
 │   └── without-skills/        ← Copilot CLI baseline (no skills)
+│       ├── msbench-config.yaml ← msbench-cli config
 │       ├── runner.sh
-│       └── config.yaml
+│       └── config.yaml        ← agent metadata
 │
 ├── shared/
 │   └── eval_helpers/          ← reusable evaluation scripts (copied into every task)
@@ -119,6 +123,7 @@ msbench/
 │
 └── scripts/
     ├── convert_evals.py          ← converter: eval.yaml → Harbor tasks
+    ├── generate_dataset.py       ← generates dataset.jsonl from tasks/
     ├── validate_tasks.py         ← E2E structural validation
     ├── analyze_results.py        ← post-run A/B comparison report
     ├── Generate-PluginAgents.ps1 ← generates per-plugin self-contained runner.sh files
@@ -160,6 +165,42 @@ python msbench/scripts/validate_tasks.py `
     --skills-dir plugins/
 ```
 
+## Dataset
+
+The `dotnetskills` benchmark is **not yet registered** in the global
+`benchmarks.parquet` shipped with `msbench-cli`. To run it you must pass a
+local dataset file via `--dataset msbench/dataset.jsonl`.
+
+The dataset is a JSONL file with one row per task. Each row contains the
+fields required by `msbench-cli`: `instance_id`, `image_tag`, `benchmark`,
+`benchmark_columns`, `problem_statement`, `is_harbor_task`, and `difficulty`.
+
+### Generating / refreshing the dataset
+
+The dataset is auto-generated from the Harbor tasks under `msbench/tasks/`.
+Regenerate it whenever tasks change (e.g. after running the eval converter
+or bumping `version.txt`):
+
+```powershell
+# Regenerate dataset.jsonl from tasks/
+python msbench/scripts/generate_dataset.py
+
+# Verify the dataset is in sync (useful in CI)
+python msbench/scripts/generate_dataset.py --check
+```
+
+The generator reads `task.toml` and `instruction.md` from each task
+directory, combines them with the benchmark version from `version.txt`, and
+writes the JSONL file. Always commit the regenerated `dataset.jsonl`
+together with any task changes.
+
+| Flag | Behaviour |
+|------|----------|
+| *(none)* | Generate / overwrite `msbench/dataset.jsonl` |
+| `--tasks-dir PATH` | Override the tasks directory (default: `msbench/tasks`) |
+| `--output PATH` | Override the output file (default: `msbench/dataset.jsonl`) |
+| `--check` | Verify existing dataset is in sync; exit non-zero on drift |
+
 ## Local usage
 
 ### Prerequisites
@@ -167,6 +208,8 @@ python msbench/scripts/validate_tasks.py `
 - Python 3.10+ with `pyyaml` installed (`pip install pyyaml`)
 - Docker (for building / running images locally)
 - `msbench-cli` installed ([MicrosoftSweBench](https://dev.azure.com/devdiv/InternalTools/_git/MicrosoftSweBench))
+- On Windows, set `$env:PYTHONUTF8 = "1"` (runner scripts contain UTF-8
+  characters that the default Windows cp1252 encoding cannot decode)
 
 ### 1. Generate and validate tasks
 
@@ -174,6 +217,9 @@ python msbench/scripts/validate_tasks.py `
 # From the repo root
 python msbench/scripts/convert_evals.py --skills-dir plugins/ --tests-dir tests/ --output-dir msbench/tasks/
 python msbench/scripts/validate_tasks.py --tasks-dir msbench/tasks/ --tests-dir tests/ --skills-dir plugins/
+
+# Regenerate the dataset after task changes
+python msbench/scripts/generate_dataset.py
 ```
 
 ### 2. Build Docker images locally
@@ -204,25 +250,75 @@ The container produces `/output/eval.json` with the result.
 
 ### 4. Submit via msbench-cli (against CES)
 
-```bash
-# With a specific plugin's skills (self-contained runner, no pre-install needed)
-msbench-cli run submit \
-    --benchmark dotnetskills \
-    --agent-dir msbench/agents/with-skills/dotnet-msbuild/ \
-    --tag skills=enabled,plugin=dotnet-msbuild
+Each agent directory contains a `msbench-config.yaml` that bundles the
+agent package path and runner script reference for `msbench-cli`. Use
+`--config` to point at it, plus `--benchmark` and `--dataset` (since
+`dotnetskills` is not yet in the global parquet).
 
-# With skills (legacy combined runner, requires pre-installed skills)
-msbench-cli run submit \
-    --benchmark dotnetskills \
-    --agent-dir msbench/agents/with-skills/ \
-    --tag skills=enabled
+> **Windows note:** Set `$env:PYTHONUTF8 = "1"` before running `msbench-cli`
+> to avoid cp1252 encoding errors in runner scripts.
+
+#### Run all benchmark tasks
+
+```powershell
+# With a specific plugin's skills (self-contained runner)
+msbench-cli run `
+    --config msbench/agents/with-skills/dotnet-msbuild/msbench-config.yaml `
+    --benchmark dotnetskills `
+    --dataset msbench/dataset.jsonl
+
+# With skills (legacy combined runner, assumes pre-installed skills)
+msbench-cli run `
+    --config msbench/agents/with-skills/msbench-config.yaml `
+    --benchmark dotnetskills `
+    --dataset msbench/dataset.jsonl
 
 # Without skills (baseline)
-msbench-cli run submit \
-    --benchmark dotnetskills \
-    --agent-dir msbench/agents/without-skills/ \
-    --tag skills=disabled
+msbench-cli run `
+    --config msbench/agents/without-skills/msbench-config.yaml `
+    --benchmark dotnetskills `
+    --dataset msbench/dataset.jsonl
 ```
+
+Replace `dotnet-msbuild` with any plugin name (`dotnet`, `dotnet-data`,
+`dotnet-diag`, `dotnet-maui`, `dotnet-upgrade`) to test other plugins.
+
+#### Run a single benchmark task
+
+Use `--benchmark <benchmark>.<instance_id>` to select a single task:
+
+```powershell
+# Run only the msbuild-modernization task
+msbench-cli run `
+    --config msbench/agents/with-skills/dotnet-msbuild/msbench-config.yaml `
+    --benchmark dotnetskills.dotnet-msbuild--msbuild-modernization--legacy-project-sdk-style `
+    --dataset msbench/dataset.jsonl
+```
+
+#### Run multiple specific tasks
+
+Pass multiple instance IDs as space- or comma-separated values:
+
+```powershell
+msbench-cli run `
+    --config msbench/agents/with-skills/dotnet/msbench-config.yaml `
+    --benchmark dotnetskills.dotnet--csharp-scripts--c-language-feature-script `
+                dotnetskills.dotnet--dotnet-pinvoke--libraryimport-declaration-c-header-net-8 `
+    --dataset msbench/dataset.jsonl
+```
+
+#### Useful flags
+
+| Flag | Purpose |
+|------|---------|
+| `--dry-run` / `-n` | Show the planned run without submitting |
+| `--model MODEL` | Suggest a model for the agent to use |
+| `--backend local` | Run locally with Docker instead of CES |
+| `--backend ces-dev1` | Target the CES dev environment |
+| `--skip-login` | Skip Azure container registry login |
+| `--tag KEY=VALUE` | Add metadata tags (repeatable, overrides config tags) |
+| `--timeout SECONDS` | Max wait time for completion |
+| `--no-wait` | Submit and return immediately |
 
 ### Regenerating per-plugin runners
 
@@ -269,7 +365,7 @@ The benchmark is designed to run in Azure Pipelines. A typical pipeline does:
 2. **Build images** — invoke `harbor-format-curation` with the `docker.prod`
    profile to build and push images to ACR
    (`codeexecservice.azurecr.io`).
-3. **Submit A/B runs** — use `msbench-cli run submit` twice (with and
+3. **Submit A/B runs** — use `msbench-cli run` twice (with and
    without skills), blocking until both complete.
 4. **Analyse** — run `analyze_results.py` on the two result sets and
    publish the summary as a pipeline artefact.
@@ -294,6 +390,10 @@ Add this as an early pipeline step to fail fast if someone edits an
         --output-dir msbench/tasks/ \
         --check
   displayName: "Verify Harbor tasks are in sync with eval.yaml"
+
+- script: |
+    python msbench/scripts/generate_dataset.py --check
+  displayName: "Verify dataset.jsonl is in sync with tasks"
 ```
 
 ## Versioning

@@ -1,0 +1,7 @@
+# msbench-cli config — Copilot CLI baseline (no skills)
+agent: github-copilot-cli
+agent_pkg: .
+runner_script:
+  file: runner.sh
+tags:
+  skills: "disabled"

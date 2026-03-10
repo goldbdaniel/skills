@@ -32,9 +32,6 @@ echo "{\"plugin\": \"@@PLUGIN_NAME@@\", \"skill_dir\": \"$SKILL_DIR\", \"skill_i
 
 # --- 3. Run Copilot CLI with skill loading ---
 echo "Starting Copilot CLI with @@PLUGIN_NAME@@ skills..."
-ghcs run \
-  --skill-dirs "$PLUGIN_DIR" \
-  --workspace /testbed \
-  --prompt-file /drop/metadata.json \
-  --output-dir /output \
-  2>&1 | tee /output/trajectory.txt
+cd "$AGENT_DIR"
+set +u
+. entry.sh
