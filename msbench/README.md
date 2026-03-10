@@ -96,11 +96,9 @@ msbench/
 ├── agents/                    ← agent runner packages for the A/B pattern
 │   ├── plugin-runner.template.sh  ← shared template for per-plugin runners
 │   ├── with-skills/           ← Copilot CLI + native skill loading
-│   │   ├── msbench-config.yaml ← msbench-cli config (legacy combined runner)
 │   │   ├── runner.sh          ← legacy combined runner (assumes pre-installed skills)
 │   │   ├── config.yaml        ← agent metadata
 │   │   ├── dotnet/            ← self-contained runner embedding the dotnet plugin
-│   │   │   ├── msbench-config.yaml ← msbench-cli config
 │   │   │   ├── runner.sh      ← generated — do not edit (see Generate-PluginAgents.ps1)
 │   │   │   └── config.yaml    ← agent metadata
 │   │   ├── dotnet-data/       ← self-contained runner embedding the dotnet-data plugin
@@ -109,7 +107,6 @@ msbench/
 │   │   ├── dotnet-msbuild/    ← self-contained runner embedding the dotnet-msbuild plugin
 │   │   └── dotnet-upgrade/    ← self-contained runner embedding the dotnet-upgrade plugin
 │   └── without-skills/        ← Copilot CLI baseline (no skills)
-│       ├── msbench-config.yaml ← msbench-cli config
 │       ├── runner.sh
 │       └── config.yaml        ← agent metadata
 │
@@ -250,10 +247,14 @@ The container produces `/output/eval.json` with the result.
 
 ### 4. Submit via msbench-cli (against CES)
 
-Each agent directory contains a `msbench-config.yaml` that bundles the
-agent package path and runner script reference for `msbench-cli`. Use
-`--config` to point at it, plus `--benchmark` and `--dataset` (since
-`dotnetskills` is not yet in the global parquet).
+The runner scripts are designed to run under the `github-copilot-cli`
+**special agent** — a pre-built agent environment that msbench-cli
+installs on the CES machine (providing the Copilot CLI and `entry.sh`).
+Use `--agent github-copilot-cli` combined with `--runner` pointing at
+the appropriate `runner.sh`.
+
+Since `dotnetskills` is not yet in the global benchmark parquet, you must
+also pass `--dataset msbench/dataset.jsonl`.
 
 > **Windows note:** Set `$env:PYTHONUTF8 = "1"` before running `msbench-cli`
 > to avoid cp1252 encoding errors in runner scripts.
@@ -263,21 +264,30 @@ agent package path and runner script reference for `msbench-cli`. Use
 ```powershell
 # With a specific plugin's skills (self-contained runner)
 msbench-cli run `
-    --config msbench/agents/with-skills/dotnet-msbuild/msbench-config.yaml `
+    --agent github-copilot-cli `
+    --runner msbench/agents/with-skills/dotnet-msbuild/runner.sh `
+    --model claude-opus-4.5 `
     --benchmark dotnetskills `
-    --dataset msbench/dataset.jsonl
+    --dataset msbench/dataset.jsonl `
+    --tag skills=enabled --tag plugin=dotnet-msbuild
 
 # With skills (legacy combined runner, assumes pre-installed skills)
 msbench-cli run `
-    --config msbench/agents/with-skills/msbench-config.yaml `
+    --agent github-copilot-cli `
+    --runner msbench/agents/with-skills/runner.sh `
+    --model claude-opus-4.5 `
     --benchmark dotnetskills `
-    --dataset msbench/dataset.jsonl
+    --dataset msbench/dataset.jsonl `
+    --tag skills=enabled
 
 # Without skills (baseline)
 msbench-cli run `
-    --config msbench/agents/without-skills/msbench-config.yaml `
+    --agent github-copilot-cli `
+    --runner msbench/agents/without-skills/runner.sh `
+    --model claude-opus-4.5 `
     --benchmark dotnetskills `
-    --dataset msbench/dataset.jsonl
+    --dataset msbench/dataset.jsonl `
+    --tag skills=disabled
 ```
 
 Replace `dotnet-msbuild` with any plugin name (`dotnet`, `dotnet-data`,
@@ -290,9 +300,12 @@ Use `--benchmark <benchmark>.<instance_id>` to select a single task:
 ```powershell
 # Run only the msbuild-modernization task
 msbench-cli run `
-    --config msbench/agents/with-skills/dotnet-msbuild/msbench-config.yaml `
+    --agent github-copilot-cli `
+    --runner msbench/agents/with-skills/dotnet-msbuild/runner.sh `
+    --model claude-opus-4.5 `
     --benchmark dotnetskills.dotnet-msbuild--msbuild-modernization--legacy-project-sdk-style `
-    --dataset msbench/dataset.jsonl
+    --dataset msbench/dataset.jsonl `
+    --tag skills=enabled --tag plugin=dotnet-msbuild
 ```
 
 #### Run multiple specific tasks
@@ -301,10 +314,13 @@ Pass multiple instance IDs as space- or comma-separated values:
 
 ```powershell
 msbench-cli run `
-    --config msbench/agents/with-skills/dotnet/msbench-config.yaml `
+    --agent github-copilot-cli `
+    --runner msbench/agents/with-skills/dotnet/runner.sh `
+    --model claude-opus-4.5 `
     --benchmark dotnetskills.dotnet--csharp-scripts--c-language-feature-script `
                 dotnetskills.dotnet--dotnet-pinvoke--libraryimport-declaration-c-header-net-8 `
-    --dataset msbench/dataset.jsonl
+    --dataset msbench/dataset.jsonl `
+    --tag skills=enabled --tag plugin=dotnet
 ```
 
 #### Useful flags
@@ -312,11 +328,11 @@ msbench-cli run `
 | Flag | Purpose |
 |------|---------|
 | `--dry-run` / `-n` | Show the planned run without submitting |
-| `--model MODEL` | Suggest a model for the agent to use |
+| `--model MODEL` | Model for the agent (e.g. `claude-opus-4.5`, `gpt-4o`) |
 | `--backend local` | Run locally with Docker instead of CES |
 | `--backend ces-dev1` | Target the CES dev environment |
 | `--skip-login` | Skip Azure container registry login |
-| `--tag KEY=VALUE` | Add metadata tags (repeatable, overrides config tags) |
+| `--tag KEY=VALUE` | Add metadata tags (repeatable) |
 | `--timeout SECONDS` | Max wait time for completion |
 | `--no-wait` | Submit and return immediately |
 

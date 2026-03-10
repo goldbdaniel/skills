@@ -186,21 +186,6 @@ resources:
     $configYaml = $configYaml -replace "`r`n", "`n"
     [System.IO.File]::WriteAllText($configPath, $configYaml, [System.Text.UTF8Encoding]::new($false))
 
-    # Write msbench-config.yaml (msbench-cli run --config)
-    $msbenchConfigYaml = @"
-# msbench-cli config -- Copilot CLI with $pName plugin skills
-agent: github-copilot-cli
-agent_pkg: .
-runner_script:
-  file: runner.sh
-tags:
-  skills: "enabled"
-  plugin: "$pName"
-"@
-    $msbenchConfigPath = Join-Path $outputDir 'msbench-config.yaml'
-    $msbenchConfigYaml = $msbenchConfigYaml -replace "`r`n", "`n"
-    [System.IO.File]::WriteAllText($msbenchConfigPath, $msbenchConfigYaml, [System.Text.UTF8Encoding]::new($false))
-
     Write-Host "  -> $outputPath ($agentCount agents, $skillCount skill files, $otherCount other)" -ForegroundColor Green
 }
 

@@ -1,8 +1,0 @@
-# msbench-cli config -- Copilot CLI with dotnet-msbuild plugin skills
-agent: github-copilot-cli
-agent_pkg: .
-runner_script:
-  file: runner.sh
-tags:
-  skills: "enabled"
-  plugin: "dotnet-msbuild"
