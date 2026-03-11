@@ -33855,6 +33855,85 @@
         },
         "tool": "customBiggerIsBetter",
         "date": 1773194155920
+      },
+      {
+        "benches": [
+          {
+            "value": 9.199999809265137,
+            "overfitting": "moderate",
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.32
+          },
+          {
+            "value": 5.599999904632568,
+            "name": "csharp-scripts/Test a C# language feature with a script - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.800000190734863,
+            "name": "nuget-trusted-publishing/Set up trusted publishing for a new NuGet library - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 6.0,
+            "name": "nuget-trusted-publishing/Set up trusted publishing for a new NuGet library - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "nuget-trusted-publishing/Set up NuGet publishing without mentioning trusted publishing - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 4.0,
+            "name": "nuget-trusted-publishing/Set up NuGet publishing without mentioning trusted publishing - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 9.600000381469727,
+            "name": "nuget-trusted-publishing/Migrate existing workflow from API key to trusted publishing - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 4.400000095367432,
+            "name": "nuget-trusted-publishing/Migrate existing workflow from API key to trusted publishing - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 7.199999809265137,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 7.599999904632568,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Vanilla Quality",
+            "unit": "Score (0-10)"
+          }
+        ],
+        "tool": "customBiggerIsBetter",
+        "model": "claude-opus-4.6",
+        "commit": {
+          "id": "7be01578bd671bf6b4fab9e5976981ab217ee12a",
+          "message": "Rename status job to skill-validator-status",
+          "url": "https://github.com/dotnet/skills/commit/7be01578bd671bf6b4fab9e5976981ab217ee12a",
+          "timestamp": "2026-03-10T22:59:45+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "JanKrivanek"
+          }
+        },
+        "date": 1773205267055
       }
     ],
     "Efficiency": [
@@ -69767,8 +69846,89 @@
         },
         "tool": "customSmallerIsBetter",
         "date": 1773194155920
+      },
+      {
+        "benches": [
+          {
+            "value": 52.3,
+            "overfitting": "moderate",
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Time",
+            "unit": "seconds",
+            "overfittingScore": 0.32
+          },
+          {
+            "value": 127207.0,
+            "overfitting": "moderate",
+            "name": "csharp-scripts/Test a C# language feature with a script - Skilled Tokens In",
+            "unit": "tokens",
+            "overfittingScore": 0.32
+          },
+          {
+            "value": 73.7,
+            "name": "nuget-trusted-publishing/Set up trusted publishing for a new NuGet library - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 122462.0,
+            "name": "nuget-trusted-publishing/Set up trusted publishing for a new NuGet library - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 44.5,
+            "name": "nuget-trusted-publishing/Set up NuGet publishing without mentioning trusted publishing - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 96791.0,
+            "name": "nuget-trusted-publishing/Set up NuGet publishing without mentioning trusted publishing - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 27.9,
+            "name": "nuget-trusted-publishing/Migrate existing workflow from API key to trusted publishing - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 56542.0,
+            "name": "nuget-trusted-publishing/Migrate existing workflow from API key to trusted publishing - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 20.2,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 48017.0,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET 8+) - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 18.4,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 37068.0,
+            "name": "dotnet-pinvoke/Generate LibraryImport declaration from C header (.NET Framework) - Skilled Tokens In",
+            "unit": "tokens"
+          }
+        ],
+        "tool": "customSmallerIsBetter",
+        "model": "claude-opus-4.6",
+        "commit": {
+          "id": "7be01578bd671bf6b4fab9e5976981ab217ee12a",
+          "message": "Rename status job to skill-validator-status",
+          "url": "https://github.com/dotnet/skills/commit/7be01578bd671bf6b4fab9e5976981ab217ee12a",
+          "timestamp": "2026-03-10T22:59:45+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "JanKrivanek"
+          }
+        },
+        "date": 1773205267055
       }
     ]
   },
-  "lastUpdate": 1773194155920
+  "lastUpdate": 1773205267055
 }
