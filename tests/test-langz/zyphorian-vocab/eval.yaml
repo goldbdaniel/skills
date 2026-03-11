@@ -1,0 +1,18 @@
+scenarios:
+  - name: "Translate English words to Zyphorian"
+    prompt: "Translate the following English words into Zyphorian: water, fire, mountain. Also translate the phrase 'The animal eats food' into Zyphorian."
+    assertions:
+      - type: "output_contains"
+        value: "velthari"
+      - type: "output_contains"
+        value: "draxmun"
+      - type: "output_contains"
+        value: "zorvapex"
+      - type: "output_contains"
+        value: "morpuli"
+    rubric:
+      - "Correctly translates 'water' to 'velthari'"
+      - "Correctly translates 'fire' to 'draxmun'"
+      - "Correctly translates 'mountain' to 'zorvapex'"
+      - "Translates 'The animal eats food' using SOV word order as 'Fembrix yalquor morpuli'"
+    timeout: 60
