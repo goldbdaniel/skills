@@ -94,18 +94,17 @@ msbench/
 │           └── solve.sh       ← stub (gold solutions are authored separately)
 │
 ├── agents/                    ← agent runner packages for the A/B pattern
-│   ├── plugin-runner.template.sh  ← shared template for per-plugin runners
-│   ├── with-skills/           ← Copilot CLI + native skill loading
+│   ├── with-skills/           ← Copilot CLI + plugin installation via marketplace
 │   │   ├── runner.sh          ← legacy combined runner (assumes pre-installed skills)
 │   │   ├── config.yaml        ← agent metadata
-│   │   ├── dotnet/            ← self-contained runner embedding the dotnet plugin
-│   │   │   ├── runner.sh      ← generated — do not edit (see Generate-PluginAgents.ps1)
+│   │   ├── dotnet/            ← runner that installs the dotnet plugin
+│   │   │   ├── runner.sh      ← installs plugin via copilot plugin marketplace
 │   │   │   └── config.yaml    ← agent metadata
-│   │   ├── dotnet-data/       ← self-contained runner embedding the dotnet-data plugin
-│   │   ├── dotnet-diag/       ← self-contained runner embedding the dotnet-diag plugin
-│   │   ├── dotnet-maui/       ← self-contained runner embedding the dotnet-maui plugin
-│   │   ├── dotnet-msbuild/    ← self-contained runner embedding the dotnet-msbuild plugin
-│   │   └── dotnet-upgrade/    ← self-contained runner embedding the dotnet-upgrade plugin
+│   │   ├── dotnet-data/       ← runner that installs the dotnet-data plugin
+│   │   ├── dotnet-diag/       ← runner that installs the dotnet-diag plugin
+│   │   ├── dotnet-maui/       ← runner that installs the dotnet-maui plugin
+│   │   ├── dotnet-msbuild/    ← runner that installs the dotnet-msbuild plugin
+│   │   └── dotnet-upgrade/    ← runner that installs the dotnet-upgrade plugin
 │   └── without-skills/        ← Copilot CLI baseline (no skills)
 │       ├── runner.sh
 │       └── config.yaml        ← agent metadata
@@ -123,7 +122,6 @@ msbench/
     ├── generate_dataset.py       ← generates dataset.jsonl from tasks/
     ├── validate_tasks.py         ← E2E structural validation
     ├── analyze_results.py        ← post-run A/B comparison report
-    ├── Generate-PluginAgents.ps1 ← generates per-plugin self-contained runner.sh files
     ├── prepare_agent_packages.sh ← copies in-scope SKILL.md files into agent package
     └── test_convert_evals.py     ← unit tests for the converter (pytest)
 ```
@@ -340,23 +338,6 @@ msbench-cli run `
 | `--tag KEY=VALUE` | Add metadata tags (repeatable) |
 | `--timeout SECONDS` | Max wait time for completion |
 | `--no-wait` | Submit and return immediately |
-
-### Regenerating per-plugin runners
-
-When plugin content changes, regenerate the self-contained runner scripts:
-
-```powershell
-# Regenerate all plugin runners
-pwsh msbench/scripts/Generate-PluginAgents.ps1
-
-# Regenerate a single plugin
-pwsh msbench/scripts/Generate-PluginAgents.ps1 -PluginName dotnet-msbuild
-```
-
-The generated `runner.sh` files embed all plugin files (skills, agents,
-references, scripts, plugin.json) as heredoc blocks. Only the `.sh` file
-needs to be copied to the benchmark machine — it recreates the full plugin
-directory structure at runtime.
 
 ### 5. Compare results
 
