@@ -213,6 +213,8 @@ finalize_assertions() {
 # Computes a fractional reward based on assertion pass rate (0.0 to 1.0).
 # This mirrors the SkillValidator scoring model where each assertion has
 # equal weight and the pass rate is the meaningful signal.
+# The fractional reward is written directly to reward.txt so that MSBench
+# can report variable-scale success (not just binary 0/1).
 # Must be called after finalize_assertions.
 compute_reward() {
     if [ "$TOTAL_ASSERTIONS" -gt 0 ]; then
@@ -228,17 +230,9 @@ compute_reward() {
     echo "  PASSED_ASSERTIONS = $PASSED_ASSERTIONS"
     echo "  TOTAL_ASSERTIONS = $TOTAL_ASSERTIONS"
     echo "  ALL_PASSED = $ALL_PASSED"
-    echo "Result: REWARD = $REWARD"
+    echo "Result: REWARD = $REWARD (fractional, variable-scale)"
     echo "========================="
     echo ""
-
-    # For now, reward is binary: 1 only if all assertions pass, else 0.
-    # The fractional REWARD is preserved in logs for future granular scoring.
-    REWARD_FRACTIONAL=$REWARD
-    if [ "$REWARD" != "1.0" ] && [ "$REWARD" != "1" ]; then
-        REWARD="0.0"
-    fi
-    echo "Final (binary): REWARD = $REWARD  (fractional was $REWARD_FRACTIONAL)"
 
     mkdir -p /logs/verifier
     echo "$REWARD" > /logs/verifier/reward.txt

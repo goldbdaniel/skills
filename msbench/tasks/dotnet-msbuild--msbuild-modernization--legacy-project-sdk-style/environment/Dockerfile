@@ -12,7 +12,7 @@ RUN mkdir -p /testbed /output /app
 COPY test_files/ /testbed/
 
 
-# Copy evaluation helpers
+# Copy evaluation helpers (variable-scale scoring v2)
 COPY eval_helpers/ /app/
 
 WORKDIR /testbed

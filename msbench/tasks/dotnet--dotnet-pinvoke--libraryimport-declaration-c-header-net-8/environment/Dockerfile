@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN mkdir -p /testbed /output /app
 
 
-# Copy evaluation helpers
+# Copy evaluation helpers (variable-scale scoring v2)
 COPY eval_helpers/ /app/
 
 WORKDIR /testbed

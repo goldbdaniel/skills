@@ -27,16 +27,21 @@ def write_custom_metrics(
     extra_values: dict = None,
     output_dir: str = "/output",
 ):
-    """Write the standardized custom_metrics.json."""
+    """Write the standardized custom_metrics.json.
+
+    Uses the MSBench Custom Metrics schema: numeric, string, boolean types.
+    The assertions_pass_rate metric (0.0–1.0) is the primary variable-scale
+    scoring signal used by the MSBench Run Analysis UI.
+    """
     os.makedirs(output_dir, exist_ok=True)
 
-    pass_rate = assertions_passed / max(assertions_total, 1)
+    pass_rate = round(assertions_passed / max(assertions_total, 1), 4)
 
     schema = {
         "build_success": "boolean",
-        "assertions_total": "integer",
-        "assertions_passed": "integer",
-        "assertions_pass_rate": "float",
+        "assertions_total": "numeric",
+        "assertions_passed": "numeric",
+        "assertions_pass_rate": "numeric",
         "skill_name": "string",
         "plugin_name": "string",
         "source_type": "string",
@@ -47,7 +52,7 @@ def write_custom_metrics(
         "build_success": 1 if build_success else 0,
         "assertions_total": assertions_total,
         "assertions_passed": assertions_passed,
-        "assertions_pass_rate": round(pass_rate, 3),
+        "assertions_pass_rate": pass_rate,
         "skill_name": skill_name,
         "plugin_name": plugin_name,
         "source_type": source_type,
@@ -71,10 +76,8 @@ def write_custom_metrics(
             values[key] = val
             if isinstance(val, bool):
                 schema[key] = "boolean"
-            elif isinstance(val, int):
-                schema[key] = "integer"
-            elif isinstance(val, float):
-                schema[key] = "float"
+            elif isinstance(val, (int, float)):
+                schema[key] = "numeric"
             else:
                 schema[key] = "string"
             descriptions[key] = f"Custom metric: {key}"
