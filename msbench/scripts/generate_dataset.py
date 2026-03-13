@@ -80,14 +80,38 @@ def _read_dotnetskills_toml(tasks_dir: Path) -> dict:
     return {"benchmark": "dotnetskills", "registry": "codeexecservice.azurecr.io"}
 
 
-BENCHMARK_COLUMNS = "instance_id,problem_statement,image_tag,benchmark,is_harbor_task,difficulty"
+BENCHMARK_COLUMNS = "benchmark,instance_id,problem_statement,image_tag,benchmark_columns,is_harbor_task,difficulty"
+
+# Map plugin prefix to benchmark suffix
+PLUGIN_BENCHMARK_SUFFIX = {
+    "dotnet-msbuild": "msbuild",
+    "dotnet": "dotnet",
+}
 
 
-def generate_dataset(tasks_dir: Path) -> list[dict]:
-    """Generate dataset rows from all task directories."""
+def _plugin_from_instance_id(instance_id: str) -> str:
+    """Extract the plugin name from a task instance_id.
+
+    Instance IDs follow the pattern ``{plugin}--{skill}--{slug}``.
+    We match the longest plugin prefix first (e.g. ``dotnet-msbuild``
+    before ``dotnet``).
+    """
+    for prefix in sorted(PLUGIN_BENCHMARK_SUFFIX, key=len, reverse=True):
+        if instance_id.startswith(prefix + "--"):
+            return prefix
+    return "dotnet"
+
+
+def generate_dataset(tasks_dir: Path, *, unified: bool = False) -> list[dict]:
+    """Generate dataset rows from all task directories.
+
+    When *unified* is True, all tasks share a single benchmark name
+    (``dotnetskills``).  Otherwise each task gets a per-plugin benchmark
+    name such as ``dotnetskills-dotnet`` or ``dotnetskills-msbuild``.
+    """
     version = _read_version(tasks_dir)
     config = _read_dotnetskills_toml(tasks_dir)
-    benchmark = config["benchmark"]
+    base_benchmark = config["benchmark"]
 
     rows: list[dict] = []
     for task_dir in sorted(tasks_dir.iterdir()):
@@ -106,12 +130,20 @@ def generate_dataset(tasks_dir: Path) -> list[dict]:
         instance_id = task_dir.name
         difficulty = toml_data.get("metadata", {}).get("difficulty", "unknown")
 
-        image_tag = f"{benchmark}.eval.x86_64.{instance_id}:msbench-{version}"
+        image_tag = f"{base_benchmark}.eval.x86_64.{instance_id}:msbench-{version}"
 
+        if unified:
+            benchmark = base_benchmark
+        else:
+            plugin = _plugin_from_instance_id(instance_id)
+            suffix = PLUGIN_BENCHMARK_SUFFIX.get(plugin, plugin)
+            benchmark = f"{base_benchmark}-{suffix}"
+
+        # benchmark is the first key for compatibility with msbench-cli
         row = {
+            "benchmark": benchmark,
             "instance_id": instance_id,
             "image_tag": image_tag,
-            "benchmark": benchmark,
             "benchmark_columns": BENCHMARK_COLUMNS,
             "problem_statement": problem_statement,
             "is_harbor_task": True,
@@ -133,6 +165,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Generate msbench dataset.jsonl from Harbor-format tasks")
     parser.add_argument("--tasks-dir", default="msbench/tasks", help="Path to tasks directory")
     parser.add_argument("--output", default="msbench/dataset.jsonl", help="Output JSONL file path")
+    parser.add_argument("--unified", action="store_true",
+                        help="Use a single benchmark name for all tasks (no per-plugin split)")
     parser.add_argument("--check", action="store_true", help="Verify existing dataset is in sync; exit non-zero on drift")
     args = parser.parse_args()
 
@@ -143,7 +177,7 @@ def main() -> int:
         print(f"ERROR: tasks directory not found: {tasks_dir}", file=sys.stderr)
         return 1
 
-    rows = generate_dataset(tasks_dir)
+    rows = generate_dataset(tasks_dir, unified=args.unified)
 
     if not rows:
         print("ERROR: no tasks found", file=sys.stderr)
