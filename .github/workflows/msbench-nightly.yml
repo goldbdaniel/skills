@@ -72,6 +72,8 @@ jobs:
 
           python msbench/scripts/generate_dataset.py --check || DATASET_SYNC=1
 
+          python msbench/scripts/generate_dataset.py --unified --output msbench/dataset-all.jsonl --check || DATASET_SYNC=1
+
           if [ "$TASKS_SYNC" -eq 0 ] && [ "$DATASET_SYNC" -eq 0 ]; then
             echo "Everything is in sync."
             echo "is_in_sync=true" >> "$GITHUB_OUTPUT"
@@ -97,6 +99,9 @@ jobs:
 
           echo "Regenerating dataset.jsonl..."
           python msbench/scripts/generate_dataset.py
+
+          echo "Regenerating dataset-all.jsonl..."
+          python msbench/scripts/generate_dataset.py --unified --output msbench/dataset-all.jsonl
 
       - name: Detect Docker image changes
         id: detect-images
@@ -164,7 +169,7 @@ jobs:
 
           # Create branch and commit
           git checkout -b "$BRANCH"
-          git add msbench/tasks/ msbench/dataset.jsonl
+          git add msbench/tasks/ msbench/dataset.jsonl msbench/dataset-all.jsonl
           git diff --cached --quiet && { echo "No changes to commit."; exit 0; }
 
           git commit -m "msbench: auto-sync Harbor tasks and dataset from eval.yaml
@@ -280,7 +285,7 @@ jobs:
             --runner "$(realpath msbench/agents/with-skills/all/runner.sh)" \
             --model "$MODEL" \
             --benchmark dotnetskills \
-            --dataset msbench/dataset.jsonl \
+            --dataset msbench/dataset-all.jsonl \
             --tag skills=enabled \
             --tag plugin=all \
             --tag trigger=nightly \
@@ -301,7 +306,7 @@ jobs:
             --runner "$(realpath msbench/agents/without-skills/runner.sh)" \
             --model "$MODEL" \
             --benchmark dotnetskills \
-            --dataset msbench/dataset.jsonl \
+            --dataset msbench/dataset-all.jsonl \
             --tag skills=disabled \
             --tag trigger=nightly \
             --tag "date=$(date +%Y-%m-%d)" \
