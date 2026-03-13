@@ -691,6 +691,8 @@ def convert_all(
         missing = expected_tasks - existing_tasks
         extra = existing_tasks - expected_tasks
 
+        has_drift = bool(missing or extra)
+
         if missing:
             print(f"\n  DRIFT: {len(missing)} tasks missing from {output_dir}:")
             for t in sorted(missing):
@@ -699,8 +701,12 @@ def convert_all(
             print(f"\n  DRIFT: {len(extra)} extra tasks in {output_dir}:")
             for t in sorted(extra):
                 print(f"    - {t}")
-        if not missing and not extra:
+        if not has_drift:
             print(f"\n  OK: All tasks in sync")
+
+        # Attach drift info to results for the caller
+        for r in results:
+            r["_check_has_drift"] = has_drift
 
     return results
 
@@ -772,6 +778,12 @@ def main():
     )
 
     if not results:
+        sys.exit(1)
+
+    # In --check mode, exit non-zero when drift is detected
+    if args.check and any(r.get("_check_has_drift") for r in results):
+        print("\nERROR: Tasks are out of sync with eval.yaml. Regenerate with:", file=sys.stderr)
+        print("  python msbench/scripts/convert_evals.py --skills-dir plugins/ --tests-dir tests/ --output-dir msbench/tasks/", file=sys.stderr)
         sys.exit(1)
 
     sys.exit(0)

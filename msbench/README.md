@@ -360,7 +360,33 @@ python -m pytest msbench/scripts/test_convert_evals.py -v
 
 ## Pipeline usage (CI/CD)
 
-The benchmark is designed to run in Azure Pipelines. A typical pipeline does:
+The benchmark is designed to run in CI. Two workflows exist:
+
+### Nightly pipeline (`msbench-nightly.yml`)
+
+The `msbench-nightly` GitHub Actions workflow runs daily at 02:00 UTC and
+performs two tasks:
+
+1. **Sync check** — verifies that Harbor tasks and `dataset.jsonl` are in
+   sync with the source `eval.yaml` files. If drift is detected, it:
+   - Regenerates tasks via `convert_evals.py`
+   - Validates them via `validate_tasks.py`
+   - Regenerates `dataset.jsonl` via `generate_dataset.py`
+   - Detects whether Docker images need rebuilding (Dockerfile, fixtures,
+     test_files, or eval_helpers changes)
+   - Creates a PR with the regenerated files and, if images changed,
+     includes the list of affected tasks and rebuild instructions
+
+2. **Benchmark run** — submits the A/B benchmark (with-skills using all
+   plugins vs without-skills baseline) via `msbench-cli run --no-wait`.
+   Results are tracked on the [MSBench dashboard](https://msbenchapp.azurewebsites.net/).
+
+The workflow can also be triggered manually via `workflow_dispatch` with
+options to skip the benchmark run or override the model.
+
+### Manual pipeline steps
+
+A typical pipeline does:
 
 1. **Generate & validate** — run the converter in `--check` mode to ensure
    tasks are in sync; fail the build if they drift.
