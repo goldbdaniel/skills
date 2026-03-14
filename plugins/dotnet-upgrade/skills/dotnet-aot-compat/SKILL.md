@@ -101,6 +101,14 @@ Group the warnings from Step 2 by warning code and count them. **Do not open ind
 
 **In most real projects, IL2026/IL3050 from JsonSerializer dominate.** Start with Strategy C unless the warning breakdown clearly shows otherwise. After the batch JSON fix, handle remaining warnings with Strategies A–B. Only use Strategy D as a last resort.
 
+**Scope the work when the project is large.** If the total number of distinct warning sites exceeds ~30 after triage, do not attempt to fix everything. Instead:
+1. Fix the highest-impact pattern completely (typically Strategy C for JsonSerializer — one `JsonSerializerContext` clears many warnings at once).
+2. Fix one additional high-count annotation pattern (Strategy A or B) covering up to 20 warning sites.
+3. For remaining warnings, add `// TODO: AOT - <ILxxxx> <brief description>` comments at each unresolved call site so the remaining work is visible without hiding it.
+4. Report the count of resolved vs. remaining warnings at the end.
+
+This ensures a useful, partially complete result rather than an incomplete run that times out.
+
 ### Step 4: Fix warnings iteratively (innermost first)
 
 Work from the **innermost** reflection call outward. Each fix may cascade new warnings to callers.

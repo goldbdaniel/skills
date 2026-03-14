@@ -1,20 +1,143 @@
 scenarios:
-  - name: "Make Azure.ResourceManager AOT-compatible"
-    prompt: "Make the project in the before/ directory AOT-compatible. Do not consult the after/ directory."
+  - name: "Make DataProcessor library AOT-compatible"
+    prompt: "Make the project at DataProcessor/DataProcessor.csproj AOT-compatible by resolving all IL trim/AOT warnings."
     setup:
-      copy_test_files: true
+      files:
+        - path: "DataProcessor/DataProcessor.csproj"
+          content: |
+            <Project Sdk="Microsoft.NET.Sdk">
+              <PropertyGroup>
+                <TargetFramework>net9.0</TargetFramework>
+                <Nullable>enable</Nullable>
+                <ImplicitUsings>enable</ImplicitUsings>
+              </PropertyGroup>
+            </Project>
+        - path: "DataProcessor/Models/Order.cs"
+          content: |
+            namespace DataProcessor.Models;
+
+            public class Order
+            {
+                public int Id { get; set; }
+                public string? CustomerName { get; set; }
+                public decimal Amount { get; set; }
+                public DateTime CreatedAt { get; set; }
+                public List<string> Tags { get; set; } = new();
+            }
+        - path: "DataProcessor/Models/Customer.cs"
+          content: |
+            namespace DataProcessor.Models;
+
+            public class Customer
+            {
+                public int Id { get; set; }
+                public string? Name { get; set; }
+                public string? Email { get; set; }
+                public Address? BillingAddress { get; set; }
+            }
+        - path: "DataProcessor/Models/Address.cs"
+          content: |
+            namespace DataProcessor.Models;
+
+            public class Address
+            {
+                public string? Street { get; set; }
+                public string? City { get; set; }
+                public string? PostalCode { get; set; }
+            }
+        - path: "DataProcessor/Services/JsonStorageService.cs"
+          content: |
+            using System.Text.Json;
+            using DataProcessor.Models;
+
+            namespace DataProcessor.Services;
+
+            // Each JsonSerializer.Serialize/Deserialize call without a JsonSerializerContext
+            // produces IL2026 (RequiresUnreferencedCode) and IL3050 (RequiresDynamicCode).
+            public class JsonStorageService
+            {
+                public string SerializeOrder(Order order) =>
+                    JsonSerializer.Serialize(order);
+
+                public Order? DeserializeOrder(string json) =>
+                    JsonSerializer.Deserialize<Order>(json);
+
+                public string SerializeCustomer(Customer customer) =>
+                    JsonSerializer.Serialize(customer);
+
+                public Customer? DeserializeCustomer(string json) =>
+                    JsonSerializer.Deserialize<Customer>(json);
+
+                public string SerializeAddress(Address address) =>
+                    JsonSerializer.Serialize(address);
+
+                public Address? DeserializeAddress(string json) =>
+                    JsonSerializer.Deserialize<Address>(json);
+
+                public string SerializeOrderList(List<Order> orders) =>
+                    JsonSerializer.Serialize(orders);
+
+                public List<Order>? DeserializeOrderList(string json) =>
+                    JsonSerializer.Deserialize<List<Order>>(json);
+            }
+        - path: "DataProcessor/Services/TypeResolver.cs"
+          content: |
+            using System.Reflection;
+
+            namespace DataProcessor.Services;
+
+            // Each reflection call on an unannotated Type parameter produces IL2070.
+            public class TypeResolver
+            {
+                public MethodInfo? FindMethod(Type type, string name) =>
+                    type.GetMethod(name, BindingFlags.Public | BindingFlags.Instance);
+
+                public PropertyInfo[] GetPublicProperties(Type type) =>
+                    type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+                public ConstructorInfo? FindDefaultConstructor(Type type) =>
+                    type.GetConstructor(Type.EmptyTypes);
+
+                public FieldInfo[] GetPublicFields(Type type) =>
+                    type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+            }
+        - path: "DataProcessor/Services/ObjectFactory.cs"
+          content: |
+            namespace DataProcessor.Services;
+
+            // Activator.CreateInstance on a Type retrieved from a Dictionary (which carries
+            // no [DynamicallyAccessedMembers] annotation) produces IL2072.
+            public class ObjectFactory
+            {
+                private readonly Dictionary<string, Type> _registry = new();
+
+                public void Register(string key, Type type) => _registry[key] = type;
+
+                public object? Create(string key)
+                {
+                    if (!_registry.TryGetValue(key, out var type))
+                        return null;
+                    return Activator.CreateInstance(type);
+                }
+
+                public object? CreateWithArgs(string key, object?[]? args)
+                {
+                    if (!_registry.TryGetValue(key, out var type))
+                        return null;
+                    return Activator.CreateInstance(type, args);
+                }
+            }
     assertions:
       - type: "file_contains"
-        path: "before/Azure.ResourceManager.csproj"
+        path: "DataProcessor/DataProcessor.csproj"
         value: "IsAotCompatible"
     expect_tools: ["bash", "dotnet"]
     rubric:
       - "Added IsAotCompatible to the .csproj"
       - "Built with AOT/trim analyzers enabled and identified IL warnings"
-      - "Used DynamicallyAccessedMembers annotations to preserve annotation flow where possible"
-      - "Used RequiresUnreferencedCode only as a last resort for fundamentally reflection-dependent code"
+      - "Used source-generated System.Text.Json (JsonSerializerContext with [JsonSerializable] attributes) to fix IL2026/IL3050 warnings from JsonSerializer calls"
+      - "Used DynamicallyAccessedMembers annotations to preserve annotation flow for IL2070/IL2072 reflection warnings"
       - "Did NOT use #pragma warning disable or UnconditionalSuppressMessage for any IL warning. Warnings hidden via suppression do not count as resolved."
       - "Iteratively rebuilt to verify warnings were resolved, working from innermost call sites outward"
-      - "Used source-generated System.Text.Json instead of reflection-based JSON serialization"
       - "Final build produces 0 IL warnings. Warnings suppressed via #pragma or [UnconditionalSuppressMessage] still count as unresolved."
-    timeout: 1050
+    timeout: 420
