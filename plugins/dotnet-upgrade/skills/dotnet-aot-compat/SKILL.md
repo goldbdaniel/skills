@@ -105,9 +105,9 @@ Group the warnings from Step 2 by warning code and count them. **Do not open ind
 
 Work from the **innermost** reflection call outward. Each fix may cascade new warnings to callers.
 
-**Stay warning-driven.** For each warning, open only the file and line the compiler reported, identify the pattern, apply the matching fix recipe below, and move on. Do not scan the codebase for similar patterns or try to understand the full architecture — fix what the compiler tells you, rebuild, and let new warnings guide the next change.
+**Stay warning-driven.** For each warning, open only the file and line the compiler reported, identify the pattern, apply the matching fix recipe below, and move on. Do not scan the codebase for similar patterns beyond what the build output reports — fix what the compiler tells you, rebuild, and let new warnings guide the next change.
 
-**Batch aggressively.** After the first build, group all warnings by code (e.g., all IL2026, all IL3050). Fix an entire warning code across the project before rebuilding — do not rebuild after every few files. For JSON serialization fixes (Strategy C), create the `JsonSerializerContext`, then update **all** call sites in one pass before rebuilding.
+**Batch by warning code and pattern.** After the first build, group warnings by code (e.g., all IL2026, all IL3050). When a warning code maps to a single dominant pattern (e.g., all IL2026 are `JsonSerializer` calls), fix all of them in one pass before rebuilding. When the same code has multiple distinct root causes requiring different strategies, handle each pattern as a separate batch. Use the build warning list to drive all edits — for JSON serialization fixes (Strategy C), create the `JsonSerializerContext`, then update all reported call sites in one pass before rebuilding.
 
 **Use sub-agents when available.** If you can launch sub-agents (e.g., via a `task` tool), dispatch **multiple sub-agents in parallel** to edit different files simultaneously. Keep the main loop focused on building, parsing warnings, and dispatching — delegate actual file edits to sub-agents. For batch JSON updates, give each sub-agent 5-10 files to update in one prompt. **After 2 build-fix cycles, dispatch all remaining file edits to sub-agents in parallel — do not continue fixing files sequentially.** Example:
 
