@@ -714,6 +714,521 @@
           },
           "url": "https://github.com/dotnet/skills/commit/93ccead1e789917c5438562fd314a102d06da3b1"
         }
+      },
+      {
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "message": "Update code owners to use team alias (#382)",
+          "id": "d5d2136157c8b0c40e63162be0439758041c78e0",
+          "url": "https://github.com/dotnet/skills/commit/d5d2136157c8b0c40e63162be0439758041c78e0",
+          "timestamp": "2026-03-17T07:13:48+00:00"
+        },
+        "model": "claude-opus-4.6",
+        "date": 1773741680147,
+        "benches": [
+          {
+            "value": 36.7,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Skilled Time"
+          },
+          {
+            "value": 43980.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Skilled Tokens In"
+          },
+          {
+            "value": 29.2,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Plugin Time"
+          },
+          {
+            "value": 37590.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Plugin Tokens In"
+          },
+          {
+            "value": 23.0,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Skilled Time"
+          },
+          {
+            "value": 29596.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Skilled Tokens In"
+          },
+          {
+            "value": 19.5,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Plugin Time"
+          },
+          {
+            "value": 29910.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Plugin Tokens In"
+          },
+          {
+            "value": 43.5,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Skilled Time"
+          },
+          {
+            "value": 66635.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Skilled Tokens In"
+          },
+          {
+            "value": 38.0,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Plugin Time"
+          },
+          {
+            "value": 67220.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Plugin Tokens In"
+          },
+          {
+            "value": 16.6,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Skilled Time"
+          },
+          {
+            "value": 29701.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Skilled Tokens In"
+          },
+          {
+            "value": 14.5,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Plugin Time"
+          },
+          {
+            "value": 29935.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Plugin Tokens In"
+          },
+          {
+            "value": 17.0,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Skilled Time"
+          },
+          {
+            "value": 29594.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Skilled Tokens In"
+          },
+          {
+            "value": 16.2,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Plugin Time"
+          },
+          {
+            "value": 29866.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Plugin Tokens In"
+          },
+          {
+            "value": 19.3,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Skilled Time"
+          },
+          {
+            "value": 30046.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Skilled Tokens In"
+          },
+          {
+            "value": 21.2,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Plugin Time"
+          },
+          {
+            "value": 30398.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Plugin Tokens In"
+          },
+          {
+            "value": 31.6,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Skilled Time"
+          },
+          {
+            "value": 81915.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Skilled Tokens In"
+          },
+          {
+            "value": 44.1,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Plugin Time"
+          },
+          {
+            "value": 113224.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Plugin Tokens In"
+          },
+          {
+            "value": 34.8,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Skilled Time"
+          },
+          {
+            "value": 96166.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Skilled Tokens In"
+          },
+          {
+            "value": 32.9,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Plugin Time"
+          },
+          {
+            "value": 96811.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Plugin Tokens In"
+          },
+          {
+            "value": 12.7,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Skilled Time"
+          },
+          {
+            "value": 29641.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Skilled Tokens In"
+          },
+          {
+            "value": 19.3,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Plugin Time"
+          },
+          {
+            "value": 33575.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Plugin Tokens In"
+          },
+          {
+            "value": 30.8,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Skilled Time"
+          },
+          {
+            "value": 30508.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Skilled Tokens In"
+          },
+          {
+            "value": 45.5,
+            "unit": "seconds",
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Plugin Time"
+          },
+          {
+            "value": 61013.0,
+            "unit": "tokens",
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Plugin Tokens In"
+          },
+          {
+            "value": 56.0,
+            "unit": "seconds",
+            "name": "run-tests/Run tests in a VSTest MSTest project - Skilled Time"
+          },
+          {
+            "value": 64419.0,
+            "unit": "tokens",
+            "name": "run-tests/Run tests in a VSTest MSTest project - Skilled Tokens In"
+          },
+          {
+            "value": 50.5,
+            "unit": "seconds",
+            "name": "run-tests/Run tests in a VSTest MSTest project - Plugin Time"
+          },
+          {
+            "value": 65640.0,
+            "unit": "tokens",
+            "name": "run-tests/Run tests in a VSTest MSTest project - Plugin Tokens In"
+          },
+          {
+            "value": 120.4,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Skilled Time"
+          },
+          {
+            "value": 248306.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Skilled Tokens In"
+          },
+          {
+            "value": 120.4,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Plugin Time"
+          },
+          {
+            "value": 258701.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Plugin Tokens In"
+          },
+          {
+            "value": 120.4,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Skilled Time"
+          },
+          {
+            "value": 184788.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Skilled Tokens In"
+          },
+          {
+            "value": 120.4,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Plugin Time"
+          },
+          {
+            "value": 236842.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Plugin Tokens In"
+          },
+          {
+            "value": 50.8,
+            "unit": "seconds",
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Skilled Time"
+          },
+          {
+            "value": 90702.0,
+            "unit": "tokens",
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Skilled Tokens In"
+          },
+          {
+            "value": 35.0,
+            "unit": "seconds",
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Plugin Time"
+          },
+          {
+            "value": 69443.0,
+            "unit": "tokens",
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Plugin Tokens In"
+          },
+          {
+            "value": 12.0,
+            "unit": "seconds",
+            "notActivated": true,
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Skilled Time"
+          },
+          {
+            "value": 29885.0,
+            "unit": "tokens",
+            "notActivated": true,
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Skilled Tokens In"
+          },
+          {
+            "value": 25.1,
+            "unit": "seconds",
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Plugin Time"
+          },
+          {
+            "value": 51441.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Plugin Tokens In"
+          },
+          {
+            "value": 13.8,
+            "unit": "seconds",
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Skilled Time"
+          },
+          {
+            "value": 29241.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Skilled Tokens In"
+          },
+          {
+            "value": 23.9,
+            "unit": "seconds",
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Plugin Time"
+          },
+          {
+            "value": 47682.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Plugin Tokens In"
+          },
+          {
+            "value": 20.1,
+            "unit": "seconds",
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Skilled Time"
+          },
+          {
+            "value": 53604.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Skilled Tokens In"
+          },
+          {
+            "value": 24.6,
+            "unit": "seconds",
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Plugin Time"
+          },
+          {
+            "value": 58051.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Plugin Tokens In"
+          },
+          {
+            "value": 34.6,
+            "unit": "seconds",
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Skilled Time"
+          },
+          {
+            "value": 65184.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Skilled Tokens In"
+          },
+          {
+            "value": 29.8,
+            "unit": "seconds",
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Plugin Time"
+          },
+          {
+            "value": 66767.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Plugin Tokens In"
+          },
+          {
+            "value": 23.9,
+            "unit": "seconds",
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Skilled Time"
+          },
+          {
+            "value": 42157.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Skilled Tokens In"
+          },
+          {
+            "value": 18.2,
+            "unit": "seconds",
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Plugin Time"
+          },
+          {
+            "value": 44919.0,
+            "unit": "tokens",
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Plugin Tokens In"
+          },
+          {
+            "value": 24.2,
+            "unit": "seconds",
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Skilled Time"
+          },
+          {
+            "value": 46429.0,
+            "unit": "tokens",
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Skilled Tokens In"
+          },
+          {
+            "value": 18.0,
+            "unit": "seconds",
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Plugin Time"
+          },
+          {
+            "value": 43161.0,
+            "unit": "tokens",
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Plugin Tokens In"
+          },
+          {
+            "value": 41.9,
+            "unit": "seconds",
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Skilled Time"
+          },
+          {
+            "value": 72449.0,
+            "unit": "tokens",
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Skilled Tokens In"
+          },
+          {
+            "value": 34.6,
+            "unit": "seconds",
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Plugin Time"
+          },
+          {
+            "value": 66824.0,
+            "unit": "tokens",
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Plugin Tokens In"
+          },
+          {
+            "value": 120.2,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Skilled Time"
+          },
+          {
+            "value": 218447.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Skilled Tokens In"
+          },
+          {
+            "value": 120.0,
+            "unit": "seconds",
+            "timedOut": true,
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Plugin Time"
+          },
+          {
+            "value": 251251.0,
+            "unit": "tokens",
+            "timedOut": true,
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Plugin Tokens In"
+          },
+          {
+            "value": 40.1,
+            "unit": "seconds",
+            "name": "run-tests/Detect test platform from Directory.Build.props - Skilled Time"
+          },
+          {
+            "value": 84267.0,
+            "unit": "tokens",
+            "name": "run-tests/Detect test platform from Directory.Build.props - Skilled Tokens In"
+          },
+          {
+            "value": 33.8,
+            "unit": "seconds",
+            "name": "run-tests/Detect test platform from Directory.Build.props - Plugin Time"
+          },
+          {
+            "value": 70701.0,
+            "unit": "tokens",
+            "name": "run-tests/Detect test platform from Directory.Build.props - Plugin Tokens In"
+          },
+          {
+            "value": 39.0,
+            "unit": "seconds",
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Skilled Time"
+          },
+          {
+            "value": 64745.0,
+            "unit": "tokens",
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Skilled Tokens In"
+          },
+          {
+            "value": 37.6,
+            "unit": "seconds",
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Plugin Time"
+          },
+          {
+            "value": 65810.0,
+            "unit": "tokens",
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Plugin Tokens In"
+          }
+        ],
+        "tool": "customSmallerIsBetter"
       }
     ],
     "Quality": [
@@ -1230,9 +1745,395 @@
           },
           "url": "https://github.com/dotnet/skills/commit/93ccead1e789917c5438562fd314a102d06da3b1"
         }
+      },
+      {
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "message": "Update code owners to use team alias (#382)",
+          "id": "d5d2136157c8b0c40e63162be0439758041c78e0",
+          "url": "https://github.com/dotnet/skills/commit/d5d2136157c8b0c40e63162be0439758041c78e0",
+          "timestamp": "2026-03-17T07:13:48+00:00"
+        },
+        "model": "claude-opus-4.6",
+        "date": 1773741680147,
+        "benches": [
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Plugin Quality"
+          },
+          {
+            "value": 9.600000381469727,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Plugin Quality"
+          },
+          {
+            "value": 4.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Vanilla Quality"
+          },
+          {
+            "value": 9.600000381469727,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Plugin Quality"
+          },
+          {
+            "value": 2.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Plugin Quality"
+          },
+          {
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Plugin Quality"
+          },
+          {
+            "value": 6.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Plugin Quality"
+          },
+          {
+            "value": 8.800000190734863,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Vanilla Quality"
+          },
+          {
+            "value": 9.600000381469727,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Skilled Quality"
+          },
+          {
+            "value": 8.399999618530273,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Plugin Quality"
+          },
+          {
+            "value": 6.400000095367432,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Skilled Quality"
+          },
+          {
+            "value": 9.600000381469727,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Plugin Quality"
+          },
+          {
+            "value": 4.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Vanilla Quality"
+          },
+          {
+            "value": 7.199999809265137,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Skilled Quality"
+          },
+          {
+            "value": 6.800000190734863,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Plugin Quality"
+          },
+          {
+            "value": 6.400000095367432,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Plugin Quality"
+          },
+          {
+            "value": 6.0,
+            "unit": "Score (0-10)",
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests in a VSTest MSTest project - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests in a VSTest MSTest project - Plugin Quality"
+          },
+          {
+            "value": 8.800000190734863,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests in a VSTest MSTest project - Vanilla Quality"
+          },
+          {
+            "value": 6.400000095367432,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Skilled Quality"
+          },
+          {
+            "value": 6.400000095367432,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Plugin Quality"
+          },
+          {
+            "value": 4.400000095367432,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Vanilla Quality"
+          },
+          {
+            "value": 4.400000095367432,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Skilled Quality"
+          },
+          {
+            "value": 4.400000095367432,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Plugin Quality"
+          },
+          {
+            "value": 4.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Vanilla Quality"
+          },
+          {
+            "value": 8.399999618530273,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Skilled Quality"
+          },
+          {
+            "value": 9.600000381469727,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Plugin Quality"
+          },
+          {
+            "value": 4.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "notActivated": true,
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Plugin Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Plugin Quality"
+          },
+          {
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Plugin Quality"
+          },
+          {
+            "value": 2.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Plugin Quality"
+          },
+          {
+            "value": 2.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Vanilla Quality"
+          },
+          {
+            "value": 9.600000381469727,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Skilled Quality"
+          },
+          {
+            "value": 9.600000381469727,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Plugin Quality"
+          },
+          {
+            "value": 4.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Vanilla Quality"
+          },
+          {
+            "value": 7.199999809265137,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Skilled Quality"
+          },
+          {
+            "value": 7.199999809265137,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Plugin Quality"
+          },
+          {
+            "value": 7.199999809265137,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Plugin Quality"
+          },
+          {
+            "value": 2.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Vanilla Quality"
+          },
+          {
+            "value": 5.599999904632568,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Skilled Quality"
+          },
+          {
+            "value": 4.800000190734863,
+            "unit": "Score (0-10)",
+            "timedOut": true,
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Plugin Quality"
+          },
+          {
+            "value": 4.400000095367432,
+            "unit": "Score (0-10)",
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Detect test platform from Directory.Build.props - Skilled Quality"
+          },
+          {
+            "value": 5.199999809265137,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Detect test platform from Directory.Build.props - Plugin Quality"
+          },
+          {
+            "value": 2.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Detect test platform from Directory.Build.props - Vanilla Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Plugin Quality"
+          },
+          {
+            "value": 8.800000190734863,
+            "unit": "Score (0-10)",
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Vanilla Quality"
+          }
+        ],
+        "tool": "customBiggerIsBetter"
       }
     ]
   },
-  "lastUpdate": 1773656155428,
+  "lastUpdate": 1773741680147,
   "repoUrl": ""
 }

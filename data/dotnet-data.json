@@ -799,6 +799,51 @@
             "name": "Amaury Levé"
           }
         }
+      },
+      {
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "message": "Update code owners to use team alias (#382)",
+          "id": "d5d2136157c8b0c40e63162be0439758041c78e0",
+          "url": "https://github.com/dotnet/skills/commit/d5d2136157c8b0c40e63162be0439758041c78e0",
+          "timestamp": "2026-03-17T07:13:48+00:00"
+        },
+        "model": "claude-opus-4.6",
+        "date": 1773741674878,
+        "benches": [
+          {
+            "value": 15.2,
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.3,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time"
+          },
+          {
+            "value": 26389.0,
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.3,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In"
+          },
+          {
+            "value": 16.3,
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.3,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time"
+          },
+          {
+            "value": 26386.0,
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.3,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In"
+          }
+        ],
+        "tool": "customSmallerIsBetter"
       }
     ],
     "Quality": [
@@ -1538,9 +1583,45 @@
             "name": "Amaury Levé"
           }
         }
+      },
+      {
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "message": "Update code owners to use team alias (#382)",
+          "id": "d5d2136157c8b0c40e63162be0439758041c78e0",
+          "url": "https://github.com/dotnet/skills/commit/d5d2136157c8b0c40e63162be0439758041c78e0",
+          "timestamp": "2026-03-17T07:13:48+00:00"
+        },
+        "model": "claude-opus-4.6",
+        "date": 1773741674878,
+        "benches": [
+          {
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.3,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality"
+          },
+          {
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.3,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality"
+          },
+          {
+            "value": 8.800000190734863,
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
+          }
+        ],
+        "tool": "customBiggerIsBetter"
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1773567884846
+  "lastUpdate": 1773741674878
 }
