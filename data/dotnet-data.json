@@ -889,6 +889,43 @@
         "date": 1773848153792,
         "model": "claude-opus-4.6",
         "tool": "customSmallerIsBetter"
+      },
+      {
+        "tool": "customSmallerIsBetter",
+        "commit": {
+          "timestamp": "2026-03-18T15:35:43Z",
+          "url": "https://github.com/dotnet/skills/commit/243f35a4bd44ec3383e4986bae16dcbf5bc093a8",
+          "message": "Bump the microsoft-and-system group with 4 updates (#397)",
+          "id": "243f35a4bd44ec3383e4986bae16dcbf5bc093a8",
+          "author": {
+            "username": "JanKrivanek",
+            "name": "dependabot[bot]"
+          }
+        },
+        "benches": [
+          {
+            "unit": "seconds",
+            "value": 14.2,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time"
+          },
+          {
+            "unit": "tokens",
+            "value": 26424.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In"
+          },
+          {
+            "unit": "seconds",
+            "value": 14.8,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time"
+          },
+          {
+            "unit": "tokens",
+            "value": 26518.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In"
+          }
+        ],
+        "model": "claude-opus-4.6",
+        "date": 1773864293834
       }
     ],
     "Quality": [
@@ -1700,9 +1737,41 @@
         "date": 1773848153792,
         "model": "claude-opus-4.6",
         "tool": "customBiggerIsBetter"
+      },
+      {
+        "tool": "customBiggerIsBetter",
+        "commit": {
+          "timestamp": "2026-03-18T15:35:43Z",
+          "url": "https://github.com/dotnet/skills/commit/243f35a4bd44ec3383e4986bae16dcbf5bc093a8",
+          "message": "Bump the microsoft-and-system group with 4 updates (#397)",
+          "id": "243f35a4bd44ec3383e4986bae16dcbf5bc093a8",
+          "author": {
+            "username": "JanKrivanek",
+            "name": "dependabot[bot]"
+          }
+        },
+        "benches": [
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
+          }
+        ],
+        "model": "claude-opus-4.6",
+        "date": 1773864293834
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1773848153792
+  "lastUpdate": 1773864293834
 }
