@@ -55,8 +55,8 @@ az acr create --name yourregistry --resource-group mygroup --sku Basic
 az acr login --name yourregistry
 
 # Build and push
-docker build -t yourregistry.azurecr.io/mymcpserver:1.0.0 .
-docker push yourregistry.azurecr.io/mymcpserver:1.0.0
+docker build -t <yourregistry>.azurecr.io/<mymcpserver>:1.0.0 .
+docker push <yourregistry>.azurecr.io/<mymcpserver>:1.0.0
 
 # Or build directly in ACR (no local Docker needed)
 az acr build --registry yourregistry --image mymcpserver:1.0.0 .
@@ -80,8 +80,8 @@ az containerapp create \
   --name mymcpserver \
   --resource-group mygroup \
   --environment myenvironment \
-  --image yourregistry.azurecr.io/mymcpserver:1.0.0 \
-  --registry-server yourregistry.azurecr.io \
+  --image <yourregistry>.azurecr.io/<mymcpserver>:1.0.0 \
+  --registry-server <yourregistry>.azurecr.io \
   --target-port 8080 \
   --ingress external \
   --min-replicas 0 \
@@ -102,7 +102,7 @@ az containerapp show --name mymcpserver --resource-group mygroup \
 az containerapp update \
   --name mymcpserver \
   --resource-group mygroup \
-  --image yourregistry.azurecr.io/mymcpserver:1.1.0
+  --image <yourregistry>.azurecr.io/<mymcpserver>:1.1.0
 ```
 
 ### Scaling Configuration
@@ -134,7 +134,7 @@ az webapp create \
   --name mymcpserver \
   --resource-group mygroup \
   --plan myplan \
-  --deployment-container-image-name yourregistry.azurecr.io/mymcpserver:1.0.0
+  --deployment-container-image-name <yourregistry>.azurecr.io/<mymcpserver>:1.0.0
 
 # Configure secrets via Key Vault
 az webapp config appsettings set \

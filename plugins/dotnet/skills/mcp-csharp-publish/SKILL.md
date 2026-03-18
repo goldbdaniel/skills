@@ -144,13 +144,13 @@ curl http://localhost:3001/health
 3. **Push to container registry:**
 ```bash
 # Docker Hub
-docker tag mymcpserver:latest yourusername/mymcpserver:1.0.0
-docker push yourusername/mymcpserver:1.0.0
+docker tag mymcpserver:latest <yourusername>/mymcpserver:1.0.0
+docker push <yourusername>/<mymcpserver>:1.0.0
 
 # Azure Container Registry
 az acr login --name yourregistry
-docker tag mymcpserver:latest yourregistry.azurecr.io/mymcpserver:1.0.0
-docker push yourregistry.azurecr.io/mymcpserver:1.0.0
+docker tag mymcpserver:latest <yourregistry>.azurecr.io/<mymcpserver>:1.0.0
+docker push <yourregistry>.azurecr.io/<mymcpserver>:1.0.0
 ```
 
 ### Step 3: Deploy to Azure (HTTP servers)
@@ -161,7 +161,7 @@ az containerapp create \
   --name mymcpserver \
   --resource-group mygroup \
   --environment myenvironment \
-  --image yourregistry.azurecr.io/mymcpserver:1.0.0 \
+  --image <yourregistry>.azurecr.io/<mymcpserver>:1.0.0 \
   --target-port 8080 \
   --ingress external \
   --min-replicas 0 \
@@ -176,7 +176,7 @@ az webapp create \
   --name mymcpserver \
   --resource-group mygroup \
   --plan myplan \
-  --deployment-container-image-name yourregistry.azurecr.io/mymcpserver:1.0.0
+  --deployment-container-image-name <yourregistry>.azurecr.io/<mymcpserver>:1.0.0
 ```
 
 **For detailed Azure deployment**, see [references/docker-azure.md](references/docker-azure.md).
