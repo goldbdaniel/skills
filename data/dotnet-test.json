@@ -4734,6 +4734,1445 @@
         ],
         "model": "claude-opus-4.6",
         "date": 1773864300600
+      },
+      {
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v1 project with assembly reference - Skilled Time",
+            "unit": "seconds",
+            "value": 48.1
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v1 project with assembly reference - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 98834.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v1 project with assembly reference - Plugin Time",
+            "unit": "seconds",
+            "value": 59.1
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v1 project with assembly reference - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 143100.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v2 NuGet project to v3 - Skilled Time",
+            "unit": "seconds",
+            "value": 33.9
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v2 NuGet project to v3 - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 60377.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v2 NuGet project to v3 - Plugin Time",
+            "unit": "seconds",
+            "value": 20.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v2 NuGet project to v3 - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 47806.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix Assert.AreEqual object overload errors after v3 upgrade - Skilled Time",
+            "unit": "seconds",
+            "value": 65.7
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix Assert.AreEqual object overload errors after v3 upgrade - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 116042.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix Assert.AreEqual object overload errors after v3 upgrade - Plugin Time",
+            "unit": "seconds",
+            "value": 58.9
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix Assert.AreEqual object overload errors after v3 upgrade - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 104356.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate from .testsettings to .runsettings - Skilled Time",
+            "unit": "seconds",
+            "value": 32.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate from .testsettings to .runsettings - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 76204.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate from .testsettings to .runsettings - Plugin Time",
+            "unit": "seconds",
+            "value": 29.7
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate from .testsettings to .runsettings - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 82575.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix DataRow type mismatch errors after v3 upgrade - Skilled Time",
+            "unit": "seconds",
+            "value": 50.9
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix DataRow type mismatch errors after v3 upgrade - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 136375.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix DataRow type mismatch errors after v3 upgrade - Plugin Time",
+            "unit": "seconds",
+            "value": 62.1
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix DataRow type mismatch errors after v3 upgrade - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 127773.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate to MSTest.Sdk project style - Skilled Time",
+            "unit": "seconds",
+            "value": 53.9
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate to MSTest.Sdk project style - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 115740.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate to MSTest.Sdk project style - Plugin Time",
+            "unit": "seconds",
+            "value": 50.8
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate to MSTest.Sdk project style - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 124254.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Handle dropped target framework during v3 migration - Skilled Time",
+            "notActivated": true,
+            "unit": "seconds",
+            "value": 11.3
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Handle dropped target framework during v3 migration - Skilled Tokens In",
+            "notActivated": true,
+            "unit": "tokens",
+            "value": 24917.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Handle dropped target framework during v3 migration - Plugin Time",
+            "unit": "seconds",
+            "value": 9.9
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Handle dropped target framework during v3 migration - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 30034.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate complex MSTest v2 project with testsettings, DataRow issues, and dropped TFM - Skilled Time",
+            "unit": "seconds",
+            "value": 27.4
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate complex MSTest v2 project with testsettings, DataRow issues, and dropped TFM - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 45689.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate complex MSTest v2 project with testsettings, DataRow issues, and dropped TFM - Plugin Time",
+            "unit": "seconds",
+            "value": 31.9
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate complex MSTest v2 project with testsettings, DataRow issues, and dropped TFM - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 49432.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Correctly identify MSTest v1 vs v2 and recommend different migration paths - Skilled Time",
+            "unit": "seconds",
+            "value": 45.7
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Correctly identify MSTest v1 vs v2 and recommend different migration paths - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 90778.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Correctly identify MSTest v1 vs v2 and recommend different migration paths - Plugin Time",
+            "unit": "seconds",
+            "value": 14.2
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Correctly identify MSTest v1 vs v2 and recommend different migration paths - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 30390.0
+          },
+          {
+            "name": "writing-mstest-tests/Write unit tests for a service class - Skilled Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 48.6
+          },
+          {
+            "name": "writing-mstest-tests/Write unit tests for a service class - Skilled Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 96706.0
+          },
+          {
+            "name": "writing-mstest-tests/Write unit tests for a service class - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 119.5
+          },
+          {
+            "name": "writing-mstest-tests/Write unit tests for a service class - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 303100.0
+          },
+          {
+            "name": "writing-mstest-tests/Write data-driven tests for a calculator - Skilled Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 54.0
+          },
+          {
+            "name": "writing-mstest-tests/Write data-driven tests for a calculator - Skilled Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 98275.0
+          },
+          {
+            "name": "writing-mstest-tests/Write data-driven tests for a calculator - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 43.6
+          },
+          {
+            "name": "writing-mstest-tests/Write data-driven tests for a calculator - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 87571.0
+          },
+          {
+            "name": "writing-mstest-tests/Write async tests with cancellation - Skilled Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 22.1
+          },
+          {
+            "name": "writing-mstest-tests/Write async tests with cancellation - Skilled Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 28197.0
+          },
+          {
+            "name": "writing-mstest-tests/Write async tests with cancellation - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 21.7
+          },
+          {
+            "name": "writing-mstest-tests/Write async tests with cancellation - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 31130.0
+          },
+          {
+            "name": "writing-mstest-tests/Fix swapped Assert.AreEqual arguments - Skilled Time",
+            "unit": "seconds",
+            "value": 11.5
+          },
+          {
+            "name": "writing-mstest-tests/Fix swapped Assert.AreEqual arguments - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 27729.0
+          },
+          {
+            "name": "writing-mstest-tests/Fix swapped Assert.AreEqual arguments - Plugin Time",
+            "notActivated": true,
+            "unit": "seconds",
+            "value": 8.2
+          },
+          {
+            "name": "writing-mstest-tests/Fix swapped Assert.AreEqual arguments - Plugin Tokens In",
+            "notActivated": true,
+            "unit": "tokens",
+            "value": 13629.0
+          },
+          {
+            "name": "writing-mstest-tests/Modernize legacy test patterns - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "value": 120.0,
+            "timedOut": true
+          },
+          {
+            "name": "writing-mstest-tests/Modernize legacy test patterns - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "value": 138719.0,
+            "timedOut": true
+          },
+          {
+            "name": "writing-mstest-tests/Modernize legacy test patterns - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "value": 107.2,
+            "timedOut": true
+          },
+          {
+            "name": "writing-mstest-tests/Modernize legacy test patterns - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "value": 291523.0,
+            "timedOut": true
+          },
+          {
+            "name": "writing-mstest-tests/Replace ExpectedException with Assert.Throws - Skilled Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 12.1
+          },
+          {
+            "name": "writing-mstest-tests/Replace ExpectedException with Assert.Throws - Skilled Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 27454.0
+          },
+          {
+            "name": "writing-mstest-tests/Replace ExpectedException with Assert.Throws - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 11.1
+          },
+          {
+            "name": "writing-mstest-tests/Replace ExpectedException with Assert.Throws - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 30192.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper collection assertions - Skilled Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 12.4
+          },
+          {
+            "name": "writing-mstest-tests/Use proper collection assertions - Skilled Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 27532.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper collection assertions - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 15.4
+          },
+          {
+            "name": "writing-mstest-tests/Use proper collection assertions - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 30604.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper type assertions instead of casts - Skilled Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 9.5
+          },
+          {
+            "name": "writing-mstest-tests/Use proper type assertions instead of casts - Skilled Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 27347.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper type assertions instead of casts - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper type assertions instead of casts - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 30082.0
+          },
+          {
+            "name": "writing-mstest-tests/Set up test lifecycle correctly - Skilled Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 13.6
+          },
+          {
+            "name": "writing-mstest-tests/Set up test lifecycle correctly - Skilled Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 27602.0
+          },
+          {
+            "name": "writing-mstest-tests/Set up test lifecycle correctly - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 18.8
+          },
+          {
+            "name": "writing-mstest-tests/Set up test lifecycle correctly - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 47523.0
+          },
+          {
+            "name": "writing-mstest-tests/Use DynamicData with ValueTuples over object arrays - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "notActivated": true,
+            "value": 6.1
+          },
+          {
+            "name": "writing-mstest-tests/Use DynamicData with ValueTuples over object arrays - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "notActivated": true,
+            "value": 12141.0
+          },
+          {
+            "name": "writing-mstest-tests/Use DynamicData with ValueTuples over object arrays - Plugin Time",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 9.7
+          },
+          {
+            "name": "writing-mstest-tests/Use DynamicData with ValueTuples over object arrays - Plugin Tokens In",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 30165.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Skilled Time",
+            "unit": "seconds",
+            "value": 16.4
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 29832.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Plugin Time",
+            "unit": "seconds",
+            "value": 27.3
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 51056.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Skilled Time",
+            "unit": "seconds",
+            "value": 15.4
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 29637.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Plugin Time",
+            "unit": "seconds",
+            "value": 16.1
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 32102.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Skilled Time",
+            "unit": "seconds",
+            "value": 22.9
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 64368.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Plugin Time",
+            "unit": "seconds",
+            "value": 25.9
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 50715.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Skilled Time",
+            "unit": "seconds",
+            "value": 13.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 29656.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Plugin Time",
+            "unit": "seconds",
+            "value": 14.7
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 32109.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Skilled Time",
+            "unit": "seconds",
+            "value": 17.6
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 29677.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Plugin Time",
+            "unit": "seconds",
+            "value": 17.6
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 32091.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Skilled Time",
+            "unit": "seconds",
+            "value": 17.2
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 29967.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Plugin Time",
+            "unit": "seconds",
+            "value": 19.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 32448.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Skilled Time",
+            "unit": "seconds",
+            "value": 10.6
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 29495.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Plugin Time",
+            "unit": "seconds",
+            "value": 12.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 32055.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Skilled Time",
+            "unit": "seconds",
+            "value": 34.2
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 104148.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Plugin Time",
+            "unit": "seconds",
+            "value": 25.5
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 70686.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Skilled Time",
+            "unit": "seconds",
+            "value": 10.1
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 29604.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Plugin Time",
+            "unit": "seconds",
+            "value": 10.7
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 31869.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Skilled Time",
+            "unit": "seconds",
+            "value": 25.5
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 30542.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Plugin Time",
+            "unit": "seconds",
+            "value": 47.4
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 74623.0
+          },
+          {
+            "name": "run-tests/Run tests in a VSTest MSTest project - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 28.7
+          },
+          {
+            "name": "run-tests/Run tests in a VSTest MSTest project - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 64246.0
+          },
+          {
+            "name": "run-tests/Run tests in a VSTest MSTest project - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 30.4
+          },
+          {
+            "name": "run-tests/Run tests in a VSTest MSTest project - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 69955.0
+          },
+          {
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 120.1,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 383339.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 120.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 317786.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 120.2,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 345658.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 36.1,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 60159.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 28.9
+          },
+          {
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 82472.0
+          },
+          {
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 27.0
+          },
+          {
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 83619.0
+          },
+          {
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 9.4
+          },
+          {
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 25076.0
+          },
+          {
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 11.6
+          },
+          {
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 27736.0
+          },
+          {
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 21.2
+          },
+          {
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 46992.0
+          },
+          {
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 16.3
+          },
+          {
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 50540.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 19.5
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 64023.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 18.2
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 69069.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 27.3
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 65134.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 38.4
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 87691.0
+          },
+          {
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 15.1
+          },
+          {
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 42319.0
+          },
+          {
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 19.6
+          },
+          {
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 28096.0
+          },
+          {
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 22.3
+          },
+          {
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 47230.0
+          },
+          {
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 21.8
+          },
+          {
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 51168.0
+          },
+          {
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 31.4
+          },
+          {
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 65395.0
+          },
+          {
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 36.7
+          },
+          {
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 71849.0
+          },
+          {
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 108.2,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 255255.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 120.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 315127.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Detect test platform from Directory.Build.props - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 34.6
+          },
+          {
+            "name": "run-tests/Detect test platform from Directory.Build.props - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 83359.0
+          },
+          {
+            "name": "run-tests/Detect test platform from Directory.Build.props - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 25.2
+          },
+          {
+            "name": "run-tests/Detect test platform from Directory.Build.props - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 70549.0
+          },
+          {
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Skilled Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 28.0
+          },
+          {
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Skilled Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 64833.0
+          },
+          {
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Plugin Time",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "value": 27.5
+          },
+          {
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Plugin Tokens In",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "value": 70615.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 9) - Skilled Time",
+            "unit": "seconds",
+            "value": 28.2
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 9) - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 57055.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 9) - Plugin Time",
+            "unit": "seconds",
+            "value": 28.8
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 9) - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 61967.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 10) - Skilled Time",
+            "unit": "seconds",
+            "value": 35.5
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 10) - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 88245.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 10) - Plugin Time",
+            "unit": "seconds",
+            "value": 32.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 10) - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 80846.0
+          },
+          {
+            "name": "mtp-hot-reload/Enable hot reload when package already installed - Skilled Time",
+            "unit": "seconds",
+            "value": 16.4
+          },
+          {
+            "name": "mtp-hot-reload/Enable hot reload when package already installed - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 40599.0
+          },
+          {
+            "name": "mtp-hot-reload/Enable hot reload when package already installed - Plugin Time",
+            "unit": "seconds",
+            "value": 16.9
+          },
+          {
+            "name": "mtp-hot-reload/Enable hot reload when package already installed - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 44576.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest launchSettings.json configuration for hot reload - Skilled Time",
+            "unit": "seconds",
+            "value": 26.9
+          },
+          {
+            "name": "mtp-hot-reload/Suggest launchSettings.json configuration for hot reload - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 72585.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest launchSettings.json configuration for hot reload - Plugin Time",
+            "unit": "seconds",
+            "value": 47.7
+          },
+          {
+            "name": "mtp-hot-reload/Suggest launchSettings.json configuration for hot reload - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 134089.0
+          },
+          {
+            "name": "mtp-hot-reload/Use dotnet run not dotnet test for hot reload - Skilled Time",
+            "unit": "seconds",
+            "value": 12.3
+          },
+          {
+            "name": "mtp-hot-reload/Use dotnet run not dotnet test for hot reload - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 25893.0
+          },
+          {
+            "name": "mtp-hot-reload/Use dotnet run not dotnet test for hot reload - Plugin Time",
+            "unit": "seconds",
+            "value": 9.0
+          },
+          {
+            "name": "mtp-hot-reload/Use dotnet run not dotnet test for hot reload - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 28566.0
+          },
+          {
+            "name": "mtp-hot-reload/Negative: VSTest project cannot use MTP hot reload - Skilled Time",
+            "unit": "seconds",
+            "value": 58.9
+          },
+          {
+            "name": "mtp-hot-reload/Negative: VSTest project cannot use MTP hot reload - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 174453.0
+          },
+          {
+            "name": "mtp-hot-reload/Negative: VSTest project cannot use MTP hot reload - Plugin Time",
+            "unit": "seconds",
+            "value": 69.3
+          },
+          {
+            "name": "mtp-hot-reload/Negative: VSTest project cannot use MTP hot reload - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 206278.0
+          },
+          {
+            "name": "mtp-hot-reload/Run specific failing test with hot reload filter - Skilled Time",
+            "unit": "seconds",
+            "value": 18.7
+          },
+          {
+            "name": "mtp-hot-reload/Run specific failing test with hot reload filter - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 41338.0
+          },
+          {
+            "name": "mtp-hot-reload/Run specific failing test with hot reload filter - Plugin Time",
+            "unit": "seconds",
+            "value": 17.8
+          },
+          {
+            "name": "mtp-hot-reload/Run specific failing test with hot reload filter - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 45282.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate custom TestMethodAttribute from Execute to ExecuteAsync - Skilled Time",
+            "unit": "seconds",
+            "value": 53.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate custom TestMethodAttribute from Execute to ExecuteAsync - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 151757.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate custom TestMethodAttribute from Execute to ExecuteAsync - Plugin Time",
+            "unit": "seconds",
+            "value": 43.2
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate custom TestMethodAttribute from Execute to ExecuteAsync - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 139477.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Replace ExpectedExceptionAttribute with Assert.ThrowsExactly - Skilled Time",
+            "notActivated": true,
+            "unit": "seconds",
+            "value": 17.4
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Replace ExpectedExceptionAttribute with Assert.ThrowsExactly - Skilled Tokens In",
+            "notActivated": true,
+            "unit": "tokens",
+            "value": 25867.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Replace ExpectedExceptionAttribute with Assert.ThrowsExactly - Plugin Time",
+            "unit": "seconds",
+            "value": 34.2
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Replace ExpectedExceptionAttribute with Assert.ThrowsExactly - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 95231.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix multiple v4 breaking changes: Assert, ClassCleanup, TestContext, Timeout - Skilled Time",
+            "unit": "seconds",
+            "value": 68.4
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix multiple v4 breaking changes: Assert, ClassCleanup, TestContext, Timeout - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 180049.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix multiple v4 breaking changes: Assert, ClassCleanup, TestContext, Timeout - Plugin Time",
+            "unit": "seconds",
+            "value": 60.9
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix multiple v4 breaking changes: Assert, ClassCleanup, TestContext, Timeout - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 187669.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle net6.0 target framework dropped in MSTest v4 - Skilled Time",
+            "notActivated": true,
+            "unit": "seconds",
+            "value": 12.9
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle net6.0 target framework dropped in MSTest v4 - Skilled Tokens In",
+            "notActivated": true,
+            "unit": "tokens",
+            "value": 25199.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle net6.0 target framework dropped in MSTest v4 - Plugin Time",
+            "notActivated": true,
+            "unit": "seconds",
+            "value": 10.3
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle net6.0 target framework dropped in MSTest v4 - Plugin Tokens In",
+            "notActivated": true,
+            "unit": "tokens",
+            "value": 27444.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix TestMethodAttribute CallerInfo constructor breaking change - Skilled Time",
+            "unit": "seconds",
+            "value": 35.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix TestMethodAttribute CallerInfo constructor breaking change - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 89943.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix TestMethodAttribute CallerInfo constructor breaking change - Plugin Time",
+            "unit": "seconds",
+            "value": 40.1
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix TestMethodAttribute CallerInfo constructor breaking change - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 118544.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Understand behavioral changes after MSTest v4 upgrade - Skilled Time",
+            "unit": "seconds",
+            "value": 29.9
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Understand behavioral changes after MSTest v4 upgrade - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 69369.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Understand behavioral changes after MSTest v4 upgrade - Plugin Time",
+            "unit": "seconds",
+            "value": 13.5
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Understand behavioral changes after MSTest v4 upgrade - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 33031.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle MSTest.Sdk and MTP changes in v4 - Skilled Time",
+            "notActivated": true,
+            "unit": "seconds",
+            "value": 17.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle MSTest.Sdk and MTP changes in v4 - Skilled Tokens In",
+            "notActivated": true,
+            "unit": "tokens",
+            "value": 25140.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle MSTest.Sdk and MTP changes in v4 - Plugin Time",
+            "unit": "seconds",
+            "value": 10.4
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle MSTest.Sdk and MTP changes in v4 - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 32638.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Full MSTest v3 to v4 migration with multiple breaking changes - Skilled Time",
+            "unit": "seconds",
+            "value": 41.5
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Full MSTest v3 to v4 migration with multiple breaking changes - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 90760.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Full MSTest v3 to v4 migration with multiple breaking changes - Plugin Time",
+            "unit": "seconds",
+            "value": 27.9
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Full MSTest v3 to v4 migration with multiple breaking changes - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 53544.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate MSTest.Sdk v3 project using ManagedType and TestTimeout - Skilled Time",
+            "unit": "seconds",
+            "value": 33.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate MSTest.Sdk v3 project using ManagedType and TestTimeout - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 89480.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate MSTest.Sdk v3 project using ManagedType and TestTimeout - Plugin Time",
+            "unit": "seconds",
+            "value": 32.4
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate MSTest.Sdk v3 project using ManagedType and TestTimeout - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 95340.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Correctly identify MSTest v3 project and recommend v4 migration - Skilled Time",
+            "unit": "seconds",
+            "value": 23.3
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Correctly identify MSTest v3 project and recommend v4 migration - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 49720.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Correctly identify MSTest v3 project and recommend v4 migration - Plugin Time",
+            "unit": "seconds",
+            "value": 24.6
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Correctly identify MSTest v3 project and recommend v4 migration - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 53398.0
+          }
+        ],
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/30c19eae130460b5cc9dd425322fe01f440e404d",
+          "message": "Add tokens usage dashboard and data collection (#385)",
+          "id": "30c19eae130460b5cc9dd425322fe01f440e404d",
+          "timestamp": "2026-03-18T20:04:46+00:00",
+          "author": {
+            "username": "JanKrivanek",
+            "name": "Jan Krivanek"
+          }
+        },
+        "date": 1773869300521,
+        "model": "claude-opus-4.6"
       }
     ],
     "Quality": [
@@ -8119,9 +9558,1037 @@
         ],
         "model": "claude-opus-4.6",
         "date": 1773864300600
+      },
+      {
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v1 project with assembly reference - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v1 project with assembly reference - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v1 project with assembly reference - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v2 NuGet project to v3 - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v2 NuGet project to v3 - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate MSTest v2 NuGet project to v3 - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix Assert.AreEqual object overload errors after v3 upgrade - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix Assert.AreEqual object overload errors after v3 upgrade - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix Assert.AreEqual object overload errors after v3 upgrade - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate from .testsettings to .runsettings - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate from .testsettings to .runsettings - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate from .testsettings to .runsettings - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix DataRow type mismatch errors after v3 upgrade - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix DataRow type mismatch errors after v3 upgrade - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Fix DataRow type mismatch errors after v3 upgrade - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate to MSTest.Sdk project style - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate to MSTest.Sdk project style - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate to MSTest.Sdk project style - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Handle dropped target framework during v3 migration - Skilled Quality",
+            "notActivated": true,
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Handle dropped target framework during v3 migration - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Handle dropped target framework during v3 migration - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate complex MSTest v2 project with testsettings, DataRow issues, and dropped TFM - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate complex MSTest v2 project with testsettings, DataRow issues, and dropped TFM - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Migrate complex MSTest v2 project with testsettings, DataRow issues, and dropped TFM - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Correctly identify MSTest v1 vs v2 and recommend different migration paths - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Correctly identify MSTest v1 vs v2 and recommend different migration paths - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v1v2-to-v3/Correctly identify MSTest v1 vs v2 and recommend different migration paths - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "writing-mstest-tests/Write unit tests for a service class - Skilled Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Write unit tests for a service class - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Write unit tests for a service class - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Write data-driven tests for a calculator - Skilled Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "writing-mstest-tests/Write data-driven tests for a calculator - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Write data-driven tests for a calculator - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Write async tests with cancellation - Skilled Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Write async tests with cancellation - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Write async tests with cancellation - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "writing-mstest-tests/Fix swapped Assert.AreEqual arguments - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Fix swapped Assert.AreEqual arguments - Plugin Quality",
+            "notActivated": true,
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Fix swapped Assert.AreEqual arguments - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Modernize legacy test patterns - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "value": 4.0,
+            "timedOut": true
+          },
+          {
+            "name": "writing-mstest-tests/Modernize legacy test patterns - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "value": 10.0,
+            "timedOut": true
+          },
+          {
+            "name": "writing-mstest-tests/Modernize legacy test patterns - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "writing-mstest-tests/Replace ExpectedException with Assert.Throws - Skilled Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Replace ExpectedException with Assert.Throws - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Replace ExpectedException with Assert.Throws - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper collection assertions - Skilled Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper collection assertions - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper collection assertions - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper type assertions instead of casts - Skilled Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper type assertions instead of casts - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "writing-mstest-tests/Use proper type assertions instead of casts - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "writing-mstest-tests/Set up test lifecycle correctly - Skilled Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "writing-mstest-tests/Set up test lifecycle correctly - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "writing-mstest-tests/Set up test lifecycle correctly - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "writing-mstest-tests/Use DynamicData with ValueTuples over object arrays - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.29,
+            "notActivated": true,
+            "value": 6.0
+          },
+          {
+            "name": "writing-mstest-tests/Use DynamicData with ValueTuples over object arrays - Plugin Quality",
+            "overfittingScore": 0.29,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "writing-mstest-tests/Use DynamicData with ValueTuples over object arrays - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest project from VSTest to Microsoft.Testing.Platform - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate NUnit project from VSTest to Microsoft.Testing.Platform - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net v2 project from VSTest to Microsoft.Testing.Platform - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Update Azure DevOps pipeline from VSTest task to MTP - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate MSTest.Sdk project that explicitly uses VSTest - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Translate dotnet test VSTest arguments to MTP equivalents - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Handle exit code 8 when migrating from VSTest to MTP - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Configure dotnet test MTP mode on .NET 10 SDK - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Migrate xUnit.net VSTest filter syntax to MTP - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-vstest-to-mtp/Full VSTest to MTP migration plan for MSTest solution - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "run-tests/Run tests in a VSTest MSTest project - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Run tests in a VSTest MSTest project - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Run tests in a VSTest MSTest project - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 6.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 4.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with trx reporting on MTP project (SDK 9) - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 4.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 4.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/Run tests with blame-hang on MTP project (SDK 10) - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "run-tests/Run tests in a multi-TFM project targeting a specific framework - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter MSTest tests by category on VSTest - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter NUnit tests by class name on VSTest - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by class on MTP - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter xUnit v3 tests by trait on MTP - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "notActivated": true,
+            "value": 4.0
+          },
+          {
+            "name": "run-tests/Filter TUnit tests by class using treenode-filter - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "run-tests/Combine multiple filter criteria on VSTest MSTest - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/MTP project on SDK 9 must use -- separator for args - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 6.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 4.0,
+            "timedOut": true
+          },
+          {
+            "name": "run-tests/MTP project on SDK 10 passes args directly - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "run-tests/Detect test platform from Directory.Build.props - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Detect test platform from Directory.Build.props - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "run-tests/Detect test platform from Directory.Build.props - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Skilled Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Plugin Quality",
+            "overfittingScore": 0.27,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "run-tests/Negative test: do not use MTP syntax for a VSTest project - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 9) - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 9) - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 9) - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 10) - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 10) - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest hot reload for failing test in MTP project (SDK 10) - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "mtp-hot-reload/Enable hot reload when package already installed - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Enable hot reload when package already installed - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Enable hot reload when package already installed - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest launchSettings.json configuration for hot reload - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest launchSettings.json configuration for hot reload - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Suggest launchSettings.json configuration for hot reload - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "mtp-hot-reload/Use dotnet run not dotnet test for hot reload - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "mtp-hot-reload/Use dotnet run not dotnet test for hot reload - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "mtp-hot-reload/Use dotnet run not dotnet test for hot reload - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "mtp-hot-reload/Negative: VSTest project cannot use MTP hot reload - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "mtp-hot-reload/Negative: VSTest project cannot use MTP hot reload - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "mtp-hot-reload/Negative: VSTest project cannot use MTP hot reload - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "mtp-hot-reload/Run specific failing test with hot reload filter - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Run specific failing test with hot reload filter - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "mtp-hot-reload/Run specific failing test with hot reload filter - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate custom TestMethodAttribute from Execute to ExecuteAsync - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate custom TestMethodAttribute from Execute to ExecuteAsync - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate custom TestMethodAttribute from Execute to ExecuteAsync - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Replace ExpectedExceptionAttribute with Assert.ThrowsExactly - Skilled Quality",
+            "notActivated": true,
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Replace ExpectedExceptionAttribute with Assert.ThrowsExactly - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Replace ExpectedExceptionAttribute with Assert.ThrowsExactly - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix multiple v4 breaking changes: Assert, ClassCleanup, TestContext, Timeout - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix multiple v4 breaking changes: Assert, ClassCleanup, TestContext, Timeout - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix multiple v4 breaking changes: Assert, ClassCleanup, TestContext, Timeout - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle net6.0 target framework dropped in MSTest v4 - Skilled Quality",
+            "notActivated": true,
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle net6.0 target framework dropped in MSTest v4 - Plugin Quality",
+            "notActivated": true,
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle net6.0 target framework dropped in MSTest v4 - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix TestMethodAttribute CallerInfo constructor breaking change - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix TestMethodAttribute CallerInfo constructor breaking change - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Fix TestMethodAttribute CallerInfo constructor breaking change - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Understand behavioral changes after MSTest v4 upgrade - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Understand behavioral changes after MSTest v4 upgrade - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Understand behavioral changes after MSTest v4 upgrade - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle MSTest.Sdk and MTP changes in v4 - Skilled Quality",
+            "notActivated": true,
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle MSTest.Sdk and MTP changes in v4 - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Handle MSTest.Sdk and MTP changes in v4 - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 4.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Full MSTest v3 to v4 migration with multiple breaking changes - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Full MSTest v3 to v4 migration with multiple breaking changes - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Full MSTest v3 to v4 migration with multiple breaking changes - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate MSTest.Sdk v3 project using ManagedType and TestTimeout - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate MSTest.Sdk v3 project using ManagedType and TestTimeout - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Migrate MSTest.Sdk v3 project using ManagedType and TestTimeout - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Correctly identify MSTest v3 project and recommend v4 migration - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Correctly identify MSTest v3 project and recommend v4 migration - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "migrate-mstest-v3-to-v4/Correctly identify MSTest v3 project and recommend v4 migration - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          }
+        ],
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/30c19eae130460b5cc9dd425322fe01f440e404d",
+          "message": "Add tokens usage dashboard and data collection (#385)",
+          "id": "30c19eae130460b5cc9dd425322fe01f440e404d",
+          "timestamp": "2026-03-18T20:04:46+00:00",
+          "author": {
+            "username": "JanKrivanek",
+            "name": "Jan Krivanek"
+          }
+        },
+        "date": 1773869300521,
+        "model": "claude-opus-4.6"
       }
     ]
   },
-  "lastUpdate": 1773864300600,
+  "lastUpdate": 1773869300521,
   "repoUrl": ""
 }
