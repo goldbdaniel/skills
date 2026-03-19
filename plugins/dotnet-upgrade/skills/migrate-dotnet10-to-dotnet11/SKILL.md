@@ -6,7 +6,7 @@ description: >
   NOT for writing new programs.
   USE FOR: upgrading TargetFramework from net10.0 to net11.0, fixing build errors
   after updating the .NET 11 SDK, resolving source-breaking and behavioral changes
-  in .NET 11 runtime, C# 15 compiler, and EF Core 11, adapting to updated minimum
+  in .NET 11 runtime, C# 15 / F# 11 compiler, and EF Core 11, adapting to updated minimum
   hardware requirements (x86-64-v2, Arm64 LSE), and updating CI/CD pipelines and
   Dockerfiles for .NET 11.
   DO NOT USE FOR: .NET Framework migrations, upgrading from .NET 9 or earlier,
@@ -26,7 +26,7 @@ Migrate a .NET 10 project or solution to .NET 11, systematically resolving all b
 - Resolving build errors or new warnings after updating the .NET 11 SDK
 - Adapting to behavioral changes in .NET 11 runtime, ASP.NET Core 11, or EF Core 11
 - Updating CI/CD pipelines, Dockerfiles, or deployment scripts for .NET 11
-- Fixing C# 15 compiler breaking changes after SDK upgrade
+- Fixing C# 15 / F# 11 compiler breaking changes after SDK upgrade
 
 ## When Not to Use
 
@@ -39,7 +39,7 @@ Migrate a .NET 10 project or solution to .NET 11, systematically resolving all b
 
 | Input | Required | Description |
 |-------|----------|-------------|
-| Project or solution path | Yes | The `.csproj`, `.sln`, or `.slnx` entry point to migrate |
+| Project or solution path | Yes | The `.csproj`, `.fsproj`, `.sln`, or `.slnx` entry point to migrate |
 | Build command | No | How to build (e.g., `dotnet build`, a repo build script). Auto-detect if not provided |
 | Test command | No | How to run tests (e.g., `dotnet test`). Auto-detect if not provided |
 | Project type hints | No | Whether the project uses ASP.NET Core, EF Core, Cosmos DB, etc. Auto-detect from PackageReferences and SDK attributes if not provided |
@@ -52,7 +52,7 @@ Migrate a .NET 10 project or solution to .NET 11, systematically resolving all b
 
 ### Step 1: Assess the project
 
-1. Identify how the project is built and tested. Look for build scripts, `.sln`/`.slnx` files, or individual `.csproj` files.
+1. Identify how the project is built and tested. Look for build scripts, `.sln`/`.slnx` files, or individual `.csproj`/`.fsproj` files.
 2. Run `dotnet --version` to confirm the .NET 11 SDK is installed. If it is not, stop and inform the user.
 3. Determine which technology areas the project uses by examining:
    - **SDK attribute**: `Microsoft.NET.Sdk.Web` → ASP.NET Core; `Microsoft.NET.Sdk.WindowsDesktop` with `<UseWPF>` or `<UseWindowsForms>` → WPF/WinForms
@@ -67,7 +67,7 @@ Migrate a .NET 10 project or solution to .NET 11, systematically resolving all b
 
 ### Step 2: Update the Target Framework
 
-1. In each `.csproj` (or `Directory.Build.props` if centralized), change:
+1. In each `.csproj`/`.fsproj` (or `Directory.Build.props` if centralized), change:
    ```xml
    <TargetFramework>net10.0</TargetFramework>
    ```
@@ -89,7 +89,8 @@ Load reference documents based on the project's technology areas:
 
 | Reference file | When to load |
 |----------------|-------------|
-| `references/csharp-compiler-dotnet10to11.md` | Always (C# 15 compiler breaking changes) |
+| `references/csharp-compiler-dotnet10to11.md` | Project uses C# (C# 15 compiler breaking changes) |
+| `references/fsharp-compiler-dotnet10to11.md` | Project uses F# (F# 11 compiler breaking changes) |
 | `references/core-libraries-dotnet10to11.md` | Always (applies to all .NET 11 projects) |
 | `references/sdk-msbuild-dotnet10to11.md` | Always (SDK and build tooling changes) |
 | `references/efcore-dotnet10to11.md` | Project uses Entity Framework Core (especially Cosmos DB provider) |
@@ -185,7 +186,8 @@ The `references/` folder contains detailed breaking change information organized
 
 | Reference file | When to load |
 |----------------|-------------|
-| `references/csharp-compiler-dotnet10to11.md` | Always (C# 15 compiler breaking changes) |
+| `references/csharp-compiler-dotnet10to11.md` | Project uses C# (C# 15 compiler breaking changes) |
+| `references/fsharp-compiler-dotnet10to11.md` | Project uses F# (F# 11 compiler breaking changes) |
 | `references/core-libraries-dotnet10to11.md` | Always (applies to all .NET 11 projects) |
 | `references/sdk-msbuild-dotnet10to11.md` | Always (SDK and build tooling changes) |
 | `references/efcore-dotnet10to11.md` | Project uses Entity Framework Core (especially Cosmos DB provider) |
