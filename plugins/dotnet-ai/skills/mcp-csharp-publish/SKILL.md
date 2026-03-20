@@ -144,7 +144,7 @@ curl http://localhost:3001/health
 3. **Push to container registry:**
 ```bash
 # Docker Hub
-docker tag mymcpserver:latest <yourusername>/mymcpserver:1.0.0
+docker tag mymcpserver:latest <yourusername>/<mymcpserver>:1.0.0
 docker push <yourusername>/<mymcpserver>:1.0.0
 
 # Azure Container Registry
