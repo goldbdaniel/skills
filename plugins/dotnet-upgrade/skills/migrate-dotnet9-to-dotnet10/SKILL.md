@@ -9,7 +9,7 @@ description: >
   (SYSLIB0058-SYSLIB0062), adapting to SDK/NuGet changes (NU1510,
   PrunePackageReference), migrating System.Linq.Async to built-in
   AsyncEnumerable, fixing OpenApi v2 API changes, cryptography renames, and
-  C# 14 / F# 10 compiler changes (field keyword, extension keyword, span overloads).
+  C# 14 compiler changes (field keyword, extension keyword, span overloads) and F# 10 compiler changes.
   DO NOT USE FOR: .NET Framework migrations, upgrading from .NET 8 or earlier
   (use migrate-dotnet8-to-dotnet9 first), greenfield .NET 10 projects, or
   cosmetic modernization.
@@ -90,12 +90,12 @@ Migrate a .NET 9 project or solution to .NET 10, systematically resolving all br
 
 ### Step 3: Resolve build errors and source-incompatible changes
 
-Work through compilation errors and new warnings systematically. Load the appropriate reference documents based on the project type:
+Work through compilation errors and new warnings systematically. Load the appropriate reference documents based on what your solution contains:
 
-| If the project uses… | Load reference |
-|-----------------------|----------------|
-| C# project | `references/csharp-compiler-dotnet9to10.md` |
-| F# project | `references/fsharp-compiler-dotnet9to10.md` |
+| If your solution contains… | Load reference |
+|----------------------------|----------------|
+| C# projects | `references/csharp-compiler-dotnet9to10.md` |
+| F# projects | `references/fsharp-compiler-dotnet9to10.md` |
 | Any .NET 10 project | `references/core-libraries-dotnet9to10.md` |
 | Any .NET 10 project | `references/sdk-msbuild-dotnet9to10.md` |
 | ASP.NET Core | `references/aspnet-core-dotnet9to10.md` |

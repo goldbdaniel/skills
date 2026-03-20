@@ -26,7 +26,8 @@ Migrate a .NET 10 project or solution to .NET 11, systematically resolving all b
 - Resolving build errors or new warnings after updating the .NET 11 SDK
 - Adapting to behavioral changes in .NET 11 runtime, ASP.NET Core 11, or EF Core 11
 - Updating CI/CD pipelines, Dockerfiles, or deployment scripts for .NET 11
-- Fixing C# 15 / F# 11 compiler breaking changes after SDK upgrade
+- Fixing C# 15 compiler breaking changes after SDK upgrade (see the C#-specific “Common patterns” list in Step 3)
+- Fixing F# 11 compiler breaking changes after SDK upgrade (see the F# 11 “What’s new” documentation at https://learn.microsoft.com/dotnet/fsharp/whats-new/fsharp-11)
 
 ## When Not to Use
 
