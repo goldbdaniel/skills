@@ -1053,6 +1053,51 @@
           "url": "https://github.com/dotnet/skills/commit/101a151e9815113841a97a52576b3cb3a8755616"
         },
         "date": 1773947318338
+      },
+      {
+        "benches": [
+          {
+            "overfitting": "moderate",
+            "value": 15.8,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "unit": "seconds",
+            "overfittingScore": 0.29
+          },
+          {
+            "overfitting": "moderate",
+            "value": 26392.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "unit": "tokens",
+            "overfittingScore": 0.29
+          },
+          {
+            "overfitting": "moderate",
+            "value": 13.1,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
+            "unit": "seconds",
+            "overfittingScore": 0.29
+          },
+          {
+            "overfitting": "moderate",
+            "value": 26377.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
+            "unit": "tokens",
+            "overfittingScore": 0.29
+          }
+        ],
+        "date": 1773973128943,
+        "commit": {
+          "id": "29a9dd1202349cc9e4b7f1afeb8fa4664f9970f3",
+          "author": {
+            "username": "JanKrivanek",
+            "name": "Jan Krivanek"
+          },
+          "message": "Add eval test authoring skill (#409)",
+          "timestamp": "2026-03-19T20:23:20+00:00",
+          "url": "https://github.com/dotnet/skills/commit/29a9dd1202349cc9e4b7f1afeb8fa4664f9970f3"
+        },
+        "model": "claude-opus-4.6",
+        "tool": "customSmallerIsBetter"
       }
     ],
     "Quality": [
@@ -2000,9 +2045,45 @@
           "url": "https://github.com/dotnet/skills/commit/101a151e9815113841a97a52576b3cb3a8755616"
         },
         "date": 1773947318338
+      },
+      {
+        "benches": [
+          {
+            "overfitting": "moderate",
+            "value": 8.399999618530273,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.29
+          },
+          {
+            "overfitting": "moderate",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.29
+          },
+          {
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
+            "unit": "Score (0-10)"
+          }
+        ],
+        "date": 1773973128943,
+        "commit": {
+          "id": "29a9dd1202349cc9e4b7f1afeb8fa4664f9970f3",
+          "author": {
+            "username": "JanKrivanek",
+            "name": "Jan Krivanek"
+          },
+          "message": "Add eval test authoring skill (#409)",
+          "timestamp": "2026-03-19T20:23:20+00:00",
+          "url": "https://github.com/dotnet/skills/commit/29a9dd1202349cc9e4b7f1afeb8fa4664f9970f3"
+        },
+        "model": "claude-opus-4.6",
+        "tool": "customBiggerIsBetter"
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1773947318338
+  "lastUpdate": 1773973128943
 }
