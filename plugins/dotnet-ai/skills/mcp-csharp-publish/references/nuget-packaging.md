@@ -131,7 +131,7 @@ If you plan to publish to the MCP Registry, include `.mcp/server.json` in your r
     }
   ],
   "repository": {
-    "url": "https://github.com/yourusername/mymcpserver",
+    "url": "https://github.com/<yourusername>/<mymcpserver>",
     "source": "github"
   }
 }
