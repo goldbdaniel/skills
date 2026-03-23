@@ -977,6 +977,115 @@
           }
         },
         "date": 1774271155505
+      },
+      {
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "message": "Integrate reference scanner into skill-validator CheckCommand (#422)",
+          "id": "c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "timestamp": "2026-03-23T13:05:08+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          }
+        },
+        "model": "claude-opus-4.6",
+        "tool": "customBiggerIsBetter",
+        "date": 1774291799672,
+        "benches": [
+          {
+            "unit": "Score (0-10)",
+            "name": "template-authoring/Validate a template.json file - Skilled Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "template-authoring/Validate a template.json file - Plugin Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "template-authoring/Validate a template.json file - Vanilla Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "template-discovery/Find template for web API project - Skilled Quality",
+            "overfittingScore": 0.28,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "template-discovery/Find template for web API project - Plugin Quality",
+            "overfittingScore": 0.28,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "template-discovery/Find template for web API project - Vanilla Quality",
+            "value": 4.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "template-discovery/Inspect template parameters - Skilled Quality",
+            "overfittingScore": 0.28,
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "template-discovery/Inspect template parameters - Plugin Quality",
+            "overfittingScore": 0.28,
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "template-discovery/Inspect template parameters - Vanilla Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create a console application - Skilled Quality",
+            "overfittingScore": 0.36,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create a console application - Plugin Quality",
+            "overfittingScore": 0.36,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "template-instantiation/Create a console application - Vanilla Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create project with specific framework - Skilled Quality",
+            "overfittingScore": 0.36,
+            "value": 10.0
+          },
+          {
+            "notActivated": true,
+            "overfittingScore": 0.36,
+            "overfitting": "moderate",
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "template-instantiation/Create project with specific framework - Plugin Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "template-instantiation/Create project with specific framework - Vanilla Quality",
+            "value": 10.0
+          }
+        ]
       }
     ],
     "Efficiency": [
@@ -2328,8 +2437,159 @@
           }
         },
         "date": 1774271155505
+      },
+      {
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "message": "Integrate reference scanner into skill-validator CheckCommand (#422)",
+          "id": "c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "timestamp": "2026-03-23T13:05:08+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          }
+        },
+        "model": "claude-opus-4.6",
+        "tool": "customSmallerIsBetter",
+        "date": 1774291799672,
+        "benches": [
+          {
+            "unit": "seconds",
+            "name": "template-authoring/Validate a template.json file - Skilled Time",
+            "value": 19.3
+          },
+          {
+            "unit": "tokens",
+            "name": "template-authoring/Validate a template.json file - Skilled Tokens In",
+            "value": 40918.0
+          },
+          {
+            "unit": "seconds",
+            "name": "template-authoring/Validate a template.json file - Plugin Time",
+            "value": 22.8
+          },
+          {
+            "unit": "tokens",
+            "name": "template-authoring/Validate a template.json file - Plugin Tokens In",
+            "value": 42039.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "template-discovery/Find template for web API project - Skilled Time",
+            "overfittingScore": 0.28,
+            "value": 28.6
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "template-discovery/Find template for web API project - Skilled Tokens In",
+            "overfittingScore": 0.28,
+            "value": 56525.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "template-discovery/Find template for web API project - Plugin Time",
+            "overfittingScore": 0.28,
+            "value": 20.5
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "template-discovery/Find template for web API project - Plugin Tokens In",
+            "overfittingScore": 0.28,
+            "value": 41816.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "template-discovery/Inspect template parameters - Skilled Time",
+            "overfittingScore": 0.28,
+            "value": 19.7
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "template-discovery/Inspect template parameters - Skilled Tokens In",
+            "overfittingScore": 0.28,
+            "value": 40792.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "template-discovery/Inspect template parameters - Plugin Time",
+            "overfittingScore": 0.28,
+            "value": 19.2
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "template-discovery/Inspect template parameters - Plugin Tokens In",
+            "overfittingScore": 0.28,
+            "value": 41887.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create a console application - Skilled Time",
+            "overfittingScore": 0.36,
+            "value": 29.7
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create a console application - Skilled Tokens In",
+            "overfittingScore": 0.36,
+            "value": 69082.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create a console application - Plugin Time",
+            "overfittingScore": 0.36,
+            "value": 29.0
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create a console application - Plugin Tokens In",
+            "overfittingScore": 0.36,
+            "value": 70705.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create project with specific framework - Skilled Time",
+            "overfittingScore": 0.36,
+            "value": 28.0
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "template-instantiation/Create project with specific framework - Skilled Tokens In",
+            "overfittingScore": 0.36,
+            "value": 54484.0
+          },
+          {
+            "notActivated": true,
+            "overfittingScore": 0.36,
+            "overfitting": "moderate",
+            "value": 11.9,
+            "unit": "seconds",
+            "name": "template-instantiation/Create project with specific framework - Plugin Time"
+          },
+          {
+            "notActivated": true,
+            "overfittingScore": 0.36,
+            "overfitting": "moderate",
+            "value": 25028.0,
+            "unit": "tokens",
+            "name": "template-instantiation/Create project with specific framework - Plugin Tokens In"
+          }
+        ]
       }
     ]
   },
-  "lastUpdate": 1774271155505
+  "lastUpdate": 1774291799672
 }

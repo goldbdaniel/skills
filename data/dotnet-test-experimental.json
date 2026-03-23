@@ -1052,6 +1052,219 @@
           }
         },
         "date": 1774271158607
+      },
+      {
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "message": "Integrate reference scanner into skill-validator CheckCommand (#422)",
+          "id": "c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "timestamp": "2026-03-23T13:05:08+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          }
+        },
+        "model": "claude-opus-4.6",
+        "tool": "customBiggerIsBetter",
+        "date": 1774291803220,
+        "benches": [
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect mixed severity anti-patterns in repository service tests - Skilled Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect mixed severity anti-patterns in repository service tests - Plugin Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect mixed severity anti-patterns in repository service tests - Vanilla Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect flakiness indicators and test coupling - Skilled Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect flakiness indicators and test coupling - Plugin Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect flakiness indicators and test coupling - Vanilla Quality",
+            "value": 6.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect duplicated tests and magic values - Skilled Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect duplicated tests and magic values - Plugin Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Detect duplicated tests and magic values - Vanilla Quality",
+            "value": 6.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Recognize well-written tests without inventing false positives - Skilled Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Recognize well-written tests without inventing false positives - Plugin Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-anti-patterns/Recognize well-written tests without inventing false positives - Vanilla Quality",
+            "value": 4.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Quality",
+            "overfittingScore": 0.26,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Quality",
+            "overfittingScore": 0.26,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Vanilla Quality",
+            "value": 6.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Quality",
+            "overfittingScore": 0.26,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Quality",
+            "overfittingScore": 0.26,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Vanilla Quality",
+            "value": 6.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Quality",
+            "overfittingScore": 0.26,
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Quality",
+            "overfittingScore": 0.26,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Vanilla Quality",
+            "value": 6.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Quality",
+            "overfittingScore": 0.26,
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Quality",
+            "overfittingScore": 0.26,
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Vanilla Quality",
+            "value": 6.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-test-tagging/Decline request to write new tests - Vanilla Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Calculate CRAP score for a single method with partial coverage - Skilled Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Calculate CRAP score for a single method with partial coverage - Plugin Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Calculate CRAP score for a single method with partial coverage - Vanilla Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Identify riskiest methods across a file - Skilled Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Identify riskiest methods across a file - Plugin Quality",
+            "value": 10.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Identify riskiest methods across a file - Vanilla Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Generate coverage then compute CRAP score - Skilled Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Generate coverage then compute CRAP score - Plugin Quality",
+            "value": 8.0
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "exp-crap-score/Generate coverage then compute CRAP score - Vanilla Quality",
+            "value": 8.0
+          }
+        ]
       }
     ],
     "Efficiency": [
@@ -2471,8 +2684,297 @@
           }
         },
         "date": 1774271158607
+      },
+      {
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "message": "Integrate reference scanner into skill-validator CheckCommand (#422)",
+          "id": "c4c26175e24890d0d446b56ea4e6642793f8ab39",
+          "timestamp": "2026-03-23T13:05:08+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          }
+        },
+        "model": "claude-opus-4.6",
+        "tool": "customSmallerIsBetter",
+        "date": 1774291803220,
+        "benches": [
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Detect mixed severity anti-patterns in repository service tests - Skilled Time",
+            "value": 56.4
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Detect mixed severity anti-patterns in repository service tests - Skilled Tokens In",
+            "value": 31022.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Detect mixed severity anti-patterns in repository service tests - Plugin Time",
+            "value": 47.5
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Detect mixed severity anti-patterns in repository service tests - Plugin Tokens In",
+            "value": 31128.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Detect flakiness indicators and test coupling - Skilled Time",
+            "value": 39.0
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Detect flakiness indicators and test coupling - Skilled Tokens In",
+            "value": 29729.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Detect flakiness indicators and test coupling - Plugin Time",
+            "value": 36.0
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Detect flakiness indicators and test coupling - Plugin Tokens In",
+            "value": 30117.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Detect duplicated tests and magic values - Skilled Time",
+            "value": 44.7
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Detect duplicated tests and magic values - Skilled Tokens In",
+            "value": 29779.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Detect duplicated tests and magic values - Plugin Time",
+            "value": 55.7
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Detect duplicated tests and magic values - Plugin Tokens In",
+            "value": 30766.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Recognize well-written tests without inventing false positives - Skilled Time",
+            "value": 30.2
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Recognize well-written tests without inventing false positives - Skilled Tokens In",
+            "value": 28724.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-anti-patterns/Recognize well-written tests without inventing false positives - Plugin Time",
+            "value": 27.5
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-anti-patterns/Recognize well-written tests without inventing false positives - Plugin Tokens In",
+            "value": 29060.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Time",
+            "overfittingScore": 0.26,
+            "value": 184.3
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Tokens In",
+            "overfittingScore": 0.26,
+            "value": 506132.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Time",
+            "overfittingScore": 0.26,
+            "value": 113.8
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Tokens In",
+            "overfittingScore": 0.26,
+            "value": 202362.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Time",
+            "overfittingScore": 0.26,
+            "value": 166.7
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Tokens In",
+            "overfittingScore": 0.26,
+            "value": 552157.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Time",
+            "overfittingScore": 0.26,
+            "value": 133.5
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Tokens In",
+            "overfittingScore": 0.26,
+            "value": 326648.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Time",
+            "overfittingScore": 0.26,
+            "value": 120.7
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Tokens In",
+            "overfittingScore": 0.26,
+            "value": 255452.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Time",
+            "overfittingScore": 0.26,
+            "value": 128.8
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Tokens In",
+            "overfittingScore": 0.26,
+            "value": 323105.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Time",
+            "overfittingScore": 0.26,
+            "value": 65.6
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Tokens In",
+            "overfittingScore": 0.26,
+            "value": 65733.0
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Time",
+            "overfittingScore": 0.26,
+            "value": 98.1
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Tokens In",
+            "overfittingScore": 0.26,
+            "value": 79970.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Time",
+            "value": 28.3
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Tokens In",
+            "value": 39880.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Time",
+            "value": 38.2
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Tokens In",
+            "value": 41168.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-crap-score/Calculate CRAP score for a single method with partial coverage - Skilled Time",
+            "value": 47.3
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-crap-score/Calculate CRAP score for a single method with partial coverage - Skilled Tokens In",
+            "value": 61889.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-crap-score/Calculate CRAP score for a single method with partial coverage - Plugin Time",
+            "value": 46.5
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-crap-score/Calculate CRAP score for a single method with partial coverage - Plugin Tokens In",
+            "value": 62809.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-crap-score/Identify riskiest methods across a file - Skilled Time",
+            "value": 59.7
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-crap-score/Identify riskiest methods across a file - Skilled Tokens In",
+            "value": 62732.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-crap-score/Identify riskiest methods across a file - Plugin Time",
+            "value": 52.8
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-crap-score/Identify riskiest methods across a file - Plugin Tokens In",
+            "value": 47058.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-crap-score/Generate coverage then compute CRAP score - Skilled Time",
+            "value": 226.9
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-crap-score/Generate coverage then compute CRAP score - Skilled Tokens In",
+            "value": 573346.0
+          },
+          {
+            "unit": "seconds",
+            "name": "exp-crap-score/Generate coverage then compute CRAP score - Plugin Time",
+            "value": 169.5
+          },
+          {
+            "unit": "tokens",
+            "name": "exp-crap-score/Generate coverage then compute CRAP score - Plugin Tokens In",
+            "value": 323547.0
+          }
+        ]
       }
     ]
   },
-  "lastUpdate": 1774271158607
+  "lastUpdate": 1774291803220
 }
