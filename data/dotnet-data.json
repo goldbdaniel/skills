@@ -3,37 +3,6 @@
     "Efficiency": [
       {
         "tool": "customSmallerIsBetter",
-        "commit": {
-          "message": "Add checking for orphaned skills/plugins (#291)",
-          "id": "d709e0b55a53e8636841abc0d9785a5142bfce31",
-          "author": {
-            "username": "JanKrivanek",
-            "name": "Jan Krivanek"
-          },
-          "url": "https://github.com/dotnet/skills/commit/d709e0b55a53e8636841abc0d9785a5142bfce31",
-          "timestamp": "2026-03-09T13:23:07+00:00"
-        },
-        "date": 1773084519094,
-        "benches": [
-          {
-            "overfittingScore": 0.31,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
-            "unit": "seconds",
-            "overfitting": "moderate",
-            "value": 16.4
-          },
-          {
-            "overfittingScore": 0.31,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
-            "unit": "tokens",
-            "overfitting": "moderate",
-            "value": 25286.0
-          }
-        ],
-        "model": "claude-opus-4.6"
-      },
-      {
-        "tool": "customSmallerIsBetter",
         "benches": [
           {
             "unit": "seconds",
@@ -1229,38 +1198,54 @@
             "value": 26413.0
           }
         ]
+      },
+      {
+        "model": "claude-opus-4.6",
+        "tool": "customSmallerIsBetter",
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/d97128e5d93885e67cae2520323d15f6ae84362e",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Viktor Hofer"
+          },
+          "id": "d97128e5d93885e67cae2520323d15f6ae84362e",
+          "timestamp": "2026-03-23T19:40:27+00:00",
+          "message": "Move static analysis checks from eval to check command (#425)"
+        },
+        "date": 1774304175252,
+        "benches": [
+          {
+            "unit": "seconds",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "value": 16.8,
+            "overfitting": "moderate",
+            "overfittingScore": 0.3
+          },
+          {
+            "unit": "tokens",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "value": 26413.0,
+            "overfitting": "moderate",
+            "overfittingScore": 0.3
+          },
+          {
+            "unit": "seconds",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
+            "value": 21.9,
+            "overfitting": "moderate",
+            "overfittingScore": 0.3
+          },
+          {
+            "unit": "tokens",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
+            "value": 26409.0,
+            "overfitting": "moderate",
+            "overfittingScore": 0.3
+          }
+        ]
       }
     ],
     "Quality": [
-      {
-        "tool": "customBiggerIsBetter",
-        "commit": {
-          "message": "Add checking for orphaned skills/plugins (#291)",
-          "id": "d709e0b55a53e8636841abc0d9785a5142bfce31",
-          "author": {
-            "username": "JanKrivanek",
-            "name": "Jan Krivanek"
-          },
-          "url": "https://github.com/dotnet/skills/commit/d709e0b55a53e8636841abc0d9785a5142bfce31",
-          "timestamp": "2026-03-09T13:23:07+00:00"
-        },
-        "date": 1773084519094,
-        "benches": [
-          {
-            "overfittingScore": 0.31,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
-            "unit": "Score (0-10)",
-            "overfitting": "moderate",
-            "value": 9.600000381469727
-          },
-          {
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
-            "unit": "Score (0-10)",
-            "value": 8.800000190734863
-          }
-        ],
-        "model": "claude-opus-4.6"
-      },
       {
         "tool": "customBiggerIsBetter",
         "benches": [
@@ -2291,9 +2276,45 @@
             "value": 8.0
           }
         ]
+      },
+      {
+        "model": "claude-opus-4.6",
+        "tool": "customBiggerIsBetter",
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/d97128e5d93885e67cae2520323d15f6ae84362e",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Viktor Hofer"
+          },
+          "id": "d97128e5d93885e67cae2520323d15f6ae84362e",
+          "timestamp": "2026-03-23T19:40:27+00:00",
+          "message": "Move static analysis checks from eval to check command (#425)"
+        },
+        "date": 1774304175252,
+        "benches": [
+          {
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "value": 8.0,
+            "overfitting": "moderate",
+            "overfittingScore": 0.3
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
+            "value": 8.0,
+            "overfitting": "moderate",
+            "overfittingScore": 0.3
+          },
+          {
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
+            "value": 8.0
+          }
+        ]
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774292307484
+  "lastUpdate": 1774304175252
 }
