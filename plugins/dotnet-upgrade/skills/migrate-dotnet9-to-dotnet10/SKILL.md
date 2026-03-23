@@ -89,21 +89,7 @@ Migrate a .NET 9 project or solution to .NET 10, systematically resolving all br
 
 ### Step 3: Resolve build errors and source-incompatible changes
 
-Work through compilation errors and new warnings systematically. Load the appropriate reference documents based on what your solution contains:
-
-| If your solution contains… | Load reference |
-|----------------------------|----------------|
-| C# projects | `references/csharp-compiler-dotnet9to10.md` |
-| F# projects | `references/fsharp-compiler-dotnet9to10.md` |
-| Any .NET 10 project | `references/core-libraries-dotnet9to10.md` |
-| Any .NET 10 project | `references/sdk-msbuild-dotnet9to10.md` |
-| ASP.NET Core | `references/aspnet-core-dotnet9to10.md` |
-| Entity Framework Core | `references/efcore-dotnet9to10.md` |
-| Cryptography APIs | `references/cryptography-dotnet9to10.md` |
-| Microsoft.Extensions.Hosting, BackgroundService, configuration | `references/extensions-hosting-dotnet9to10.md` |
-| System.Text.Json, XmlSerializer, HttpClient, MailAddress, Uri | `references/serialization-networking-dotnet9to10.md` |
-| Windows Forms or WPF | `references/winforms-wpf-dotnet9to10.md` |
-| Docker containers, single-file apps, native interop | `references/containers-interop-dotnet9to10.md` |
+Work through compilation errors and new warnings systematically. Load the appropriate reference documents from the Reference Documents table at the end of this skill based on what your solution contains.
 
 **Common source-incompatible changes to check for:**
 

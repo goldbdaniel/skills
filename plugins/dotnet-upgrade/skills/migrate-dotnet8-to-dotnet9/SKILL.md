@@ -83,21 +83,7 @@ Migrate a .NET 8 project or solution to .NET 9, systematically resolving all bre
 
 ### Step 3: Resolve build errors and source-incompatible changes
 
-Work through compilation errors and new warnings systematically. Load the appropriate reference documents based on the project type:
-
-| If the project uses… | Load reference |
-|-----------------------|----------------|
-| C# project | `references/csharp-compiler-dotnet8to9.md` |
-| F# project | `references/fsharp-compiler-dotnet8to9.md` |
-| Any .NET 9 project | `references/core-libraries-dotnet8to9.md` |
-| Any .NET 9 project | `references/sdk-msbuild-dotnet8to9.md` |
-| ASP.NET Core | `references/aspnet-core-dotnet8to9.md` |
-| Entity Framework Core | `references/efcore-dotnet8to9.md` |
-| Cryptography APIs | `references/cryptography-dotnet8to9.md` |
-| System.Text.Json, HttpClient, networking | `references/serialization-networking-dotnet8to9.md` |
-| Windows Forms or WPF | `references/winforms-wpf-dotnet8to9.md` |
-| Docker containers, native interop | `references/containers-interop-dotnet8to9.md` |
-| Runtime configuration, deployment | `references/deployment-runtime-dotnet8to9.md` |
+Work through compilation errors and new warnings systematically. Load the appropriate reference documents from the Reference Documents table at the end of this skill based on the project type.
 
 **Common source-incompatible changes to check for:**
 

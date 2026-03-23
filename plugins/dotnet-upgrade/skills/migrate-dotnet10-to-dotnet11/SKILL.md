@@ -26,8 +26,7 @@ Migrate a .NET 10 project or solution to .NET 11, systematically resolving all b
 - Resolving build errors or new warnings after updating the .NET 11 SDK
 - Adapting to behavioral changes in .NET 11 runtime, ASP.NET Core 11, or EF Core 11
 - Updating CI/CD pipelines, Dockerfiles, or deployment scripts for .NET 11
-- Fixing C# 15 compiler breaking changes after SDK upgrade (see the C#-specific “Common patterns” list in Step 3)
-- Fixing F# 11 compiler breaking changes after SDK upgrade (see the F# 11 “What’s new” documentation at https://learn.microsoft.com/dotnet/fsharp/whats-new/fsharp-11)
+- Fixing C# 15 and F# 11 compiler breaking changes after SDK upgrade
 
 ## When Not to Use
 
@@ -86,17 +85,7 @@ Migrate a .NET 10 project or solution to .NET 11, systematically resolving all b
 
 ### Step 3: Fix source-breaking and compilation changes
 
-Load reference documents based on the project's technology areas:
-
-| Reference file | When to load |
-|----------------|-------------|
-| `references/csharp-compiler-dotnet10to11.md` | Project uses C# (C# 15 compiler breaking changes) |
-| `references/fsharp-compiler-dotnet10to11.md` | Project uses F# (F# 11 compiler breaking changes) |
-| `references/core-libraries-dotnet10to11.md` | Always (applies to all .NET 11 projects) |
-| `references/sdk-msbuild-dotnet10to11.md` | Always (SDK and build tooling changes) |
-| `references/efcore-dotnet10to11.md` | Project uses Entity Framework Core (especially Cosmos DB provider) |
-| `references/cryptography-dotnet10to11.md` | Project uses cryptography APIs or targets macOS |
-| `references/runtime-jit-dotnet10to11.md` | Deploying to older hardware or embedded devices |
+Load the appropriate reference documents from the Reference Documents table at the end of this skill based on the project's technology areas.
 
 Work through each build error systematically. Common patterns:
 
