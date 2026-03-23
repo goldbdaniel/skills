@@ -62,7 +62,7 @@ Place at `.mcp/server.json` in your repository root:
     }
   ],
   "repository": {
-    "url": "https://github.com/<username>/<repo>",
+    "url": "https://github.com/username/repo",
     "source": "github"
   }
 }
@@ -74,8 +74,8 @@ The `name` field must follow a namespace convention based on your authentication
 
 | Auth Method | Name Format | Example |
 |-------------|-------------|---------|
-| GitHub | `io.github.<github-username>/<server-name>` | `io.github.jsmith/weather-server` |
-| DNS | `<reverse-domain>/<server-name>` | `com.mycompany/weather-server` |
+| GitHub | `io.github.{github-username}/{server-name}` | `io.github.jsmith/weather-server` |
+| DNS | `{reverse-domain}/{server-name}` | `com.mycompany/weather-server` |
 
 ## Publish Workflow
 

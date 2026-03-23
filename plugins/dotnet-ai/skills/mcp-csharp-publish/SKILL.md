@@ -197,7 +197,7 @@ brew install mcp-publisher
 ```json
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.<username>/<servername>",
+  "name": "io.github.username/servername",
   "description": "Your server description",
   "version": "1.0.0",
   "packages": [{
@@ -208,7 +208,7 @@ brew install mcp-publisher
     "transport": { "type": "stdio" }
   }],
   "repository": {
-    "url": "https://github.com/<username>/<repo>",
+    "url": "https://github.com/username/repo",
     "source": "github"
   }
 }
