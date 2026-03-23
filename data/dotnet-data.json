@@ -1119,6 +1119,51 @@
         "date": 1774255007162,
         "tool": "customSmallerIsBetter",
         "model": "claude-opus-4.6"
+      },
+      {
+        "date": 1774259589698,
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "value": 13.7,
+            "overfittingScore": 0.2,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time"
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "value": 26430.0,
+            "overfittingScore": 0.2,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In"
+          },
+          {
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "value": 15.4,
+            "overfittingScore": 0.2,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time"
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "value": 26372.0,
+            "overfittingScore": 0.2,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In"
+          }
+        ],
+        "commit": {
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          },
+          "timestamp": "2026-03-23T08:36:20+00:00",
+          "id": "a895c226b320b972a8a0f2347480ba56dad27cd1",
+          "url": "https://github.com/dotnet/skills/commit/a895c226b320b972a8a0f2347480ba56dad27cd1",
+          "message": "Fix agents field in plugin.json to use explicit file paths (#419)"
+        },
+        "tool": "customSmallerIsBetter"
       }
     ],
     "Quality": [
@@ -2099,9 +2144,45 @@
         "date": 1774255007162,
         "tool": "customBiggerIsBetter",
         "model": "claude-opus-4.6"
+      },
+      {
+        "date": 1774259589698,
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "value": 10.0,
+            "overfittingScore": 0.2,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "value": 8.0,
+            "overfittingScore": 0.2,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
+          }
+        ],
+        "commit": {
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          },
+          "timestamp": "2026-03-23T08:36:20+00:00",
+          "id": "a895c226b320b972a8a0f2347480ba56dad27cd1",
+          "url": "https://github.com/dotnet/skills/commit/a895c226b320b972a8a0f2347480ba56dad27cd1",
+          "message": "Fix agents field in plugin.json to use explicit file paths (#419)"
+        },
+        "tool": "customBiggerIsBetter"
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774255007162
+  "lastUpdate": 1774259589698
 }
