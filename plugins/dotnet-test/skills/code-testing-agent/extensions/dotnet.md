@@ -1,65 +1,36 @@
 # .NET Extension
 
-Language-specific guidance for .NET (C#/F#/VB) test generation.
-
-## Build Commands
+## Commands
 
 | Scope | Command |
 |-------|---------|
-| Specific test project | `dotnet build MyProject.Tests.csproj` |
-| Full solution (final validation) | `dotnet build MySolution.sln --no-incremental` |
-| From repo root (no .sln) | `dotnet build --no-incremental` |
+| Build test project | `dotnet build MyProject.Tests.csproj` |
+| Build solution (final) | `dotnet build MySolution.sln --no-incremental` |
+| Run tests | `dotnet test MyProject.Tests.csproj` |
+| Lint | `dotnet format --include path/to/file.cs` |
 
-- Use `--no-restore` if dependencies are already restored
-- Use `-v:q` (quiet) to reduce output noise
-- Always use `--no-incremental` for the final validation build — incremental builds hide errors like CS7036
+Use `--no-incremental` for final validation — incremental builds hide errors like CS7036.
 
-## Test Commands
+## Project References
 
-| Scope | Command |
-|-------|---------|
-| All tests | `dotnet test` |
-| Filtered | `dotnet test --filter "FullyQualifiedName~ClassName"` |
-| After build | `dotnet test --no-build` |
-
-- Use `--no-build` if already built
-- Use `-v:q` for quieter output
-
-## Lint Command
-
-```bash
-dotnet format --include path/to/file.cs
-dotnet format MySolution.sln         # full solution
-```
-
-## Project Reference Validation
-
-Before writing test code, read the test project's `.csproj` to verify it has `<ProjectReference>` entries for the assemblies your tests will use. If a reference is missing, add it:
+Before writing test code, verify the test `.csproj` has `<ProjectReference>` entries for each source project. Missing references cause CS0234/CS0246.
 
 ```xml
-<ItemGroup>
-    <ProjectReference Include="../SourceProject/SourceProject.csproj" />
-</ItemGroup>
+<ProjectReference Include="../SourceProject/SourceProject.csproj" />
 ```
 
-This prevents CS0234 ("namespace not found") and CS0246 ("type not found") errors.
+## Common Errors
 
-## Common CS Error Codes
+| Error | Fix |
+|-------|-----|
+| CS0234/CS0246 | Add `<ProjectReference>` or `using` statement |
+| CS1061 | Verify method/property name matches source exactly |
+| CS0029 | Fix type mismatch — cast or change type |
+| CS7036 | Read constructor/method signature, pass all required args |
 
-| Error | Meaning | Fix |
-|-------|---------|-----|
-| CS0234 | Namespace not found | Add `<ProjectReference>` to the source project in the test `.csproj` |
-| CS0246 | Type not found | Add `using Namespace;` or add missing `<ProjectReference>` |
-| CS0103 | Name not found | Check spelling, add `using` statement |
-| CS1061 | Missing member | Verify method/property name matches the source code exactly |
-| CS0029 | Type mismatch | Cast or change the type to match the expected signature |
-| CS7036 | Missing required parameter | Read the constructor/method signature and pass all required arguments |
+## Multi-targeting
 
-## `.csproj` / `.sln` Handling
-
-- During phase implementation, build only the specific test `.csproj` for speed
-- For the final validation, build the full `.sln` with `--no-incremental`
-- Full-solution builds catch cross-project reference errors invisible in scoped builds
+When a source project targets multiple frameworks (e.g., `<TargetFrameworks>net8.0;net9.0</TargetFrameworks>`), the test project should target a single compatible framework. Don't multi-target the test project unless explicitly required.
 
 ## MSTest Template
 
@@ -72,27 +43,12 @@ namespace ProjectName.Tests;
 public sealed class ClassNameTests
 {
     [TestMethod]
-    public void MethodName_Scenario_ExpectedResult()
-    {
-        // Arrange
-        var sut = new ClassName();
-
-        // Act
-        var result = sut.MethodName(input);
-
-        // Assert
-        Assert.AreEqual(expected, result);
-    }
-
-    [TestMethod]
     [DataRow(2, 3, 5, DisplayName = "Positive numbers")]
     [DataRow(-1, 1, 0, DisplayName = "Negative and positive")]
-    public void Add_ValidInputs_ReturnsSum(int a, int b, int expected)
+    public void MethodName_Scenario_Expected(int a, int b, int expected)
     {
-        // Act
-        var result = _sut.Add(a, b);
-
-        // Assert
+        var sut = new ClassName();
+        var result = sut.MethodName(a, b);
         Assert.AreEqual(expected, result);
     }
 }

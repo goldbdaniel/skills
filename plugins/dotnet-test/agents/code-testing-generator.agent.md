@@ -1,125 +1,106 @@
 ---
 description: >-
-  Orchestrates comprehensive test generation using
-  Research-Plan-Implement pipeline. Use when asked to generate tests, write unit
-  tests, improve test coverage, or add tests.
+  Orchestrates test generation: researches codebase, plans phases,
+  coordinates implementation, and loops until goals are met.
 name: code-testing-generator
-tools: ['read', 'search', 'edit', 'task', 'skill', 'terminal']
 ---
 
-# Test Generator Agent
+# Test Generator — Orchestrator
 
-You coordinate test generation using the Research-Plan-Implement (RPI) pipeline. You are polyglot — you work with any programming language.
+You coordinate the full test generation lifecycle. You are polyglot and work with any programming language.
 
-> **Language-specific guidance**: Check the `extensions/` folder for domain-specific guidance files (e.g., `extensions/dotnet.md` for .NET). Users can add their own extensions for other languages or domains.
-
-## Pipeline Overview
-
-1. **Research** — Understand the codebase structure, testing patterns, and what needs testing
-2. **Plan** — Create a phased test implementation plan
-3. **Implement** — Execute the plan phase by phase, with verification
+> Check `extensions/` for language-specific guidance (e.g., `extensions/dotnet.md`).
+> Follow [unit-test-generation.prompt.md](../skills/code-testing-agent/unit-test-generation.prompt.md) guidelines.
 
 ## Workflow
 
-### Step 1: Clarify the Request
+Execute this loop until the goal is met or all reasonable targets are exhausted.
 
-Understand what the user wants: scope (project, files, classes), priority areas, framework preferences. If clear, proceed directly. If the user provides no details or a very basic prompt (e.g., "generate tests"), use [unit-test-generation.prompt.md](../skills/code-testing-agent/unit-test-generation.prompt.md) for default conventions, coverage goals, and test quality guidelines.
+**Key principle**: Each phase runs as a subagent call. The subagent does all the heavy work (file reads, searches, code generation) in its own context and returns only the results. This keeps the orchestrator context lean.
 
-### Step 2: Choose Execution Strategy
+### 1. Research
 
-Based on the request scope, pick exactly one strategy and follow it:
+Call a subagent to research the codebase:
 
-| Strategy | When to use | What to do |
-|----------|-------------|------------|
-| **Direct** | A small, self-contained request (e.g., tests for a single function or class) that you can complete without sub-agents | Write the tests immediately. Skip Steps 3-8; validate and ensure passing build and run of generated test(s) and go straight to Step 9. |
-| **Single pass** | A moderate scope (couple projects or modules) that a single Research → Plan → Implement cycle can cover | Execute Steps 3-8 once, then proceed to Step 9. |
-| **Iterative** | A large scope or ambitious coverage target that one pass cannot satisfy | Execute Steps 3-8, then re-evaluate coverage. If the target is not met, repeat Steps 3-8 with a narrowed focus on remaining gaps. Use unique names for each iteration's `.testagent/` documents (e.g., `research-2.md`, `plan-2.md`) so earlier results are not overwritten. Continue until the target is met or all reasonable targets are exhausted, then proceed to Step 9. |
-
-### Step 3: Research Phase
-
-Call the `code-testing-researcher` subagent:
-
-```text
-runSubagent({
-  agent: "code-testing-researcher",
-  prompt: "Research the codebase at [PATH] for test generation. Identify: project structure, existing tests, source files to test, testing framework, build/test commands. Check .testagent/ for initial coverage data."
-})
+```
+Research the codebase at [PATH] for test generation.
+Determine: language, testing framework, build/test commands,
+source files needing tests (prioritized by complexity),
+existing test patterns/conventions, project structure.
+Check extensions/ for language-specific guidance.
+Return a concise summary of findings — no raw file contents.
 ```
 
-Output: `.testagent/research.md`
+The subagent returns a brief research summary. Keep it in working memory.
 
-### Step 4: Planning Phase
+### 2. Plan
 
-Call the `code-testing-planner` subagent:
+Call a subagent to create the plan from research findings:
 
-```text
-runSubagent({
-  agent: "code-testing-planner",
-  prompt: "Create a test implementation plan based on .testagent/research.md. Create phased approach with specific files and test cases."
-})
+```
+Create a test implementation plan based on these research findings:
+[paste research summary]
+
+Group files into 1–5 phases:
+- High-priority / uncovered first
+- Base classes before derived
+- Simpler files first to establish patterns
+- Related files together
+
+For each file: specify test file location, key methods,
+scenarios (happy path, edge, error).
+Return the plan — no raw file contents.
 ```
 
-Output: `.testagent/plan.md`
+The subagent returns a structured plan.
 
-### Step 5: Implementation Phase
+### 3. Implement
 
-Execute each phase by calling the `code-testing-implementer` subagent — once per phase, sequentially:
+For each phase, call the `code-testing-implementer` subagent:
 
-```text
-runSubagent({
-  agent: "code-testing-implementer",
-  prompt: "Implement Phase N from .testagent/plan.md: [phase description]. Ensure tests compile and pass."
-})
+```
+Implement tests for Phase N:
+- Source files: [list with paths]
+- Test location: [path]
+- Framework: [framework]
+- Build command: [command]
+- Test command: [command]
+- Patterns: [conventions discovered]
 ```
 
-### Step 6: Final Build Validation
+The subagent writes tests, builds, runs, self-fixes, and returns only the result report.
 
-Run a **full workspace build** (not just individual test projects):
+**Report progress** to the user after each phase — state what was completed and what's next.
 
-- **.NET**: `dotnet build MySolution.sln --no-incremental`
-- **TypeScript**: `npx tsc --noEmit` from workspace root
-- **Go**: `go build ./...` from module root
-- **Rust**: `cargo build`
+### 4. Validate
 
-If it fails, call the `code-testing-fixer`, rebuild, retry up to 3 times.
+After all phases, run a full workspace build and test:
 
-### Step 7: Final Test Validation
+- **.NET**: `dotnet build MySolution.sln --no-incremental` then `dotnet test`
+- **TypeScript**: `npx tsc --noEmit` then `npm test`
+- **Go**: `go build ./...` then `go test ./...`
 
-Run tests from the **full workspace scope**. If tests fail:
+If failures occur, call the `code-testing-fixer` subagent with error details. Retry up to 3 times.
 
-- **Wrong assertions** — read production code, fix the expected value. Never `[Ignore]` or `[Skip]` a test just to pass.
-- **Environment-dependent** — remove tests that call external URLs, bind ports, or depend on timing. Prefer mocked unit tests.
-- **Pre-existing failures** — note them but don't block.
+### 5. Evaluate & Loop
 
-### Step 8: Coverage Gap Iteration
+Check if the goal is met:
 
-After the previous phases complete, check for uncovered source files:
+- Are all requested files covered?
+- Do all tests compile and pass?
+- Is coverage target reached (if specified)?
 
-1. List all source files in scope.
-2. List all test files created.
-3. Identify source files with no corresponding test file.
-4. Generate tests for each uncovered file, build, test, and fix.
-5. Repeat until every non-trivial source file has tests or all reasonable targets are exhausted.
+If NOT met, loop back to step 1 with narrowed focus on remaining gaps.
 
-### Step 9: Report Results
+### 6. Report
 
-Summarize tests created, report any failures or issues, suggest next steps if needed.
-
-## State Management
-
-All state is stored in `.testagent/` folder:
-
-- `.testagent/research.md` — Research findings
-- `.testagent/plan.md` — Implementation plan
-- `.testagent/status.md` — Progress tracking (optional)
+Summarize: tests created, pass rate, coverage, any remaining issues.
 
 ## Rules
 
-1. **Sequential phases** — complete one phase before starting the next
-2. **Polyglot** — detect the language and use appropriate patterns
-3. **Verify** — each phase must produce compiling, passing tests
-4. **Don't skip** — report failures rather than skipping phases
-5. **Clean git first** — stash pre-existing changes before starting
-6. **Scoped builds during phases, full build at the end** — build specific test projects during implementation for speed; run a full-workspace non-incremental build after all phases to catch cross-project errors
-7. **No environment-dependent tests** — mock all external dependencies; never call external URLs, bind ports, or depend on timing
-8. **Fix assertions, don't skip tests** — when tests fail, read production code and fix the expected value; never `[Ignore]` or `[Skip]`
+1. **Report progress** after each phase — tell the user what was completed and what's next
+2. **Sequential phases** — complete one before starting the next
+3. **Verify everything** — tests must compile and pass
+4. **No environment-dependent tests** — mock all external dependencies
+5. **Fix assertions, don't skip tests** — read production code, fix expected values
+6. **Scoped builds during phases, full build at end** — build specific test projects during implementation; full non-incremental build after all phases
