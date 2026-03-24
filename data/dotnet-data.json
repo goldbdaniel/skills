@@ -2,37 +2,6 @@
   "entries": {
     "Efficiency": [
       {
-        "benches": [
-          {
-            "overfitting": "moderate",
-            "overfittingScore": 0.42,
-            "value": 16.4,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
-            "unit": "seconds"
-          },
-          {
-            "overfitting": "moderate",
-            "overfittingScore": 0.42,
-            "value": 25200.0,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
-            "unit": "tokens"
-          }
-        ],
-        "commit": {
-          "author": {
-            "name": "Dan Moseley",
-            "username": "JanKrivanek"
-          },
-          "url": "https://github.com/dotnet/skills/commit/abdd4d03d4931b62e9d075177fd0c342aeab877e",
-          "message": "Improve evaluation results table readability and add verdict explanations (#299)",
-          "timestamp": "2026-03-10T08:27:13+00:00",
-          "id": "abdd4d03d4931b62e9d075177fd0c342aeab877e"
-        },
-        "tool": "customSmallerIsBetter",
-        "date": 1773138571821,
-        "model": "claude-opus-4.6"
-      },
-      {
         "model": "claude-opus-4.6",
         "benches": [
           {
@@ -1246,38 +1215,54 @@
             "value": 26398.0
           }
         ]
+      },
+      {
+        "model": "claude-opus-4.6",
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/b92dde1854d264049344270bc6a436dfa2f38f5e",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          },
+          "message": "Refactor skill-validator to vertical slice architecture (#429)",
+          "timestamp": "2026-03-24T09:41:55+00:00",
+          "id": "b92dde1854d264049344270bc6a436dfa2f38f5e"
+        },
+        "date": 1774350113060,
+        "benches": [
+          {
+            "value": 19.1,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 26410.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 15.8,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 26446.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          }
+        ],
+        "tool": "customSmallerIsBetter"
       }
     ],
     "Quality": [
-      {
-        "benches": [
-          {
-            "overfitting": "moderate",
-            "overfittingScore": 0.42,
-            "value": 9.199999809265137,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
-            "unit": "Score (0-10)"
-          },
-          {
-            "value": 8.800000190734863,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
-            "unit": "Score (0-10)"
-          }
-        ],
-        "commit": {
-          "author": {
-            "name": "Dan Moseley",
-            "username": "JanKrivanek"
-          },
-          "url": "https://github.com/dotnet/skills/commit/abdd4d03d4931b62e9d075177fd0c342aeab877e",
-          "message": "Improve evaluation results table readability and add verdict explanations (#299)",
-          "timestamp": "2026-03-10T08:27:13+00:00",
-          "id": "abdd4d03d4931b62e9d075177fd0c342aeab877e"
-        },
-        "tool": "customBiggerIsBetter",
-        "date": 1773138571821,
-        "model": "claude-opus-4.6"
-      },
       {
         "model": "claude-opus-4.6",
         "benches": [
@@ -2303,9 +2288,45 @@
             "value": 8.0
           }
         ]
+      },
+      {
+        "model": "claude-opus-4.6",
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/b92dde1854d264049344270bc6a436dfa2f38f5e",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          },
+          "message": "Refactor skill-validator to vertical slice architecture (#429)",
+          "timestamp": "2026-03-24T09:41:55+00:00",
+          "id": "b92dde1854d264049344270bc6a436dfa2f38f5e"
+        },
+        "date": 1774350113060,
+        "benches": [
+          {
+            "value": 10.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
+            "unit": "Score (0-10)"
+          }
+        ],
+        "tool": "customBiggerIsBetter"
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774345735728
+  "lastUpdate": 1774350113060
 }
