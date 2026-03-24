@@ -59,28 +59,28 @@ All examples below use the `skill-validator` binary directly. If running from so
 skill-validator evaluate --help
 
 # Evaluate a skill (--tests-dir is required)
-skill-validator evaluate --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills/my-skill
+skill-validator evaluate --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills/my-skill
 
 # Verbose output with per-scenario breakdowns
-skill-validator evaluate --verbose --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills
+skill-validator evaluate --verbose --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills
 
 # Custom model and threshold
-skill-validator evaluate --model claude-sonnet-4.5 --min-improvement 0.2 --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills
+skill-validator evaluate --model claude-sonnet-4.5 --min-improvement 0.2 --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills
 
 # Use a different model for judging vs agent runs
-skill-validator evaluate --model gpt-5.3-codex --judge-model claude-opus-4.6-fast --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills
+skill-validator evaluate --model gpt-5.3-codex --judge-model claude-opus-4.6-fast --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills
 
 # Multiple runs for stability
-skill-validator evaluate --runs 5 --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills
+skill-validator evaluate --runs 5 --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills
 
 # Override the default results directory (.skill-validator-results)
-skill-validator evaluate --results-dir ./my-results --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills
+skill-validator evaluate --results-dir ./my-results --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills
 
 # File reporters can also be specified explicitly.
-skill-validator evaluate --reporter junit --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills
+skill-validator evaluate --reporter junit --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills
 
 # Verdict-warn-only mode (verdict failures return exit 0, execution errors still fail)
-skill-validator evaluate --verdict-warn-only --tests-dir ./tests/my-plugin ./plugins/my-plugin/skills
+skill-validator evaluate --verdict-warn-only --tests-dir ./tests/release/my-plugin ./plugins/release/my-plugin/skills
 ```
 
 ### Static analysis (`check`)
@@ -90,22 +90,22 @@ skill-validator evaluate --verdict-warn-only --tests-dir ./tests/my-plugin ./plu
 skill-validator check --help
 
 # Check an entire plugin (recommended — validates skills, agents, plugin.json)
-skill-validator check --plugin ./plugins/my-plugin
+skill-validator check --plugin ./plugins/release/my-plugin
 
 # Check multiple plugins
-skill-validator check --plugin ./plugins/my-plugin --plugin ./plugins/other-plugin
+skill-validator check --plugin ./plugins/release/my-plugin --plugin ./plugins/release/other-plugin
 
 # Check only skills
-skill-validator check --skills ./plugins/my-plugin/skills
+skill-validator check --skills ./plugins/release/my-plugin/skills
 
 # Check only agents
-skill-validator check --agents ./plugins/my-plugin/agents
+skill-validator check --agents ./plugins/release/my-plugin/agents
 
 # Check with external dependency allow list
-skill-validator check --plugin ./plugins/my-plugin --allowed-external-deps ./eng/allowed-external-deps.txt
+skill-validator check --plugin ./plugins/release/my-plugin --allowed-external-deps ./eng/allowed-external-deps.txt
 
 # Verbose output
-skill-validator check --verbose --plugin ./plugins/my-plugin
+skill-validator check --verbose --plugin ./plugins/release/my-plugin
 ```
 
 ## `check` flags

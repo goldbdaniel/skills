@@ -36,17 +36,17 @@ This skill helps you scaffold evaluation tests (`eval.yaml`) for agent skills, e
 Tests live at:
 
 ```
-tests/<plugin>/<skill-name>/eval.yaml
+tests/release/<plugin>/<skill-name>/eval.yaml
 ```
 
-Verify the skill exists at `plugins/<plugin>/skills/<skill-name>/SKILL.md`. Read the skill content to understand what it teaches — this is critical for writing non-overfitted rubric items.
+Verify the skill exists at `plugins/release/<plugin>/skills/<skill-name>/SKILL.md`. Read the skill content to understand what it teaches — this is critical for writing non-overfitted rubric items.
 
 ### Step 2: Create the test directory and eval.yaml
 
 Create the directory and file:
 
 ```
-tests/<plugin>/<skill-name>/
+tests/release/<plugin>/<skill-name>/
 └── eval.yaml
 ```
 
@@ -305,8 +305,8 @@ Then run evaluation (at least 3 runs for reliable results):
 ```bash
 dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate \
   --runs 3 \
-  --tests-dir tests/<plugin> \
-  plugins/<plugin>/skills/<skill-name>
+  --tests-dir tests/release/<plugin> \
+  plugins/release/<plugin>/skills/<skill-name>
 ```
 
 ## eval.yaml Template
@@ -348,8 +348,8 @@ scenarios:
 
 After creating a test, verify:
 
-- [ ] Test directory matches `tests/<plugin>/<skill-name>/`
-- [ ] Skill exists at `plugins/<plugin>/skills/<skill-name>/SKILL.md`
+- [ ] Test directory matches `tests/release/<plugin>/<skill-name>/`
+- [ ] Skill exists at `plugins/release/<plugin>/skills/<skill-name>/SKILL.md`
 - [ ] Every scenario has `name`, `prompt`, at least one assertion, and rubric items
 - [ ] Prompts are written as natural developer requests (no skill references)
 - [ ] Assertions are broad enough that multiple valid approaches pass
