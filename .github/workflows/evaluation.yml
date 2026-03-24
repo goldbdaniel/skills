@@ -87,7 +87,7 @@ jobs:
           $changedFiles = git diff --name-only --diff-filter=ACMR $mergeBase $head
 
           $hasSkillChanges = $changedFiles |
-            Where-Object { $_ -match '^(plugins/[^/]+/skills|tests/[^/]+)/[^/]+/' } |
+            Where-Object { $_ -match '^(plugins/release/[^/]+/skills|plugins/experimental/skills|tests/[^/]+)/[^/]+/' } |
             Select-Object -First 1
 
           # Skill-validator changes need evaluation. Workflow YAML changes don't
@@ -151,7 +151,7 @@ jobs:
           $changedFiles = git diff --name-only --diff-filter=ACMR $mergeBase $head
 
           $hasSkillChanges = $changedFiles |
-            Where-Object { $_ -match '^(plugins/[^/]+/skills|tests/[^/]+)/[^/]+/' } |
+            Where-Object { $_ -match '^(plugins/release/[^/]+/skills|plugins/experimental/skills|tests/[^/]+)/[^/]+/' } |
             Select-Object -First 1
 
           $hasInfraChanges = $changedFiles |
@@ -355,22 +355,42 @@ jobs:
             if ($hasInfraChanges) {
               Write-Host "Infrastructure changes detected, evaluating all plugins"
               echo "is_infra=true" >> $env:GITHUB_OUTPUT
-              $plugins = @(Get-ChildItem -Path (Join-Path $contentRoot "plugins") -Directory -ErrorAction SilentlyContinue |
+
+              # Discover release sub-plugins
+              $plugins = @(Get-ChildItem -Path (Join-Path $contentRoot "plugins/release") -Directory -ErrorAction SilentlyContinue |
                 Where-Object {
                   (Test-Path (Join-Path $_.FullName "skills")) -and
                   (Test-Path (Join-Path $contentRoot "tests" $_.Name))
                 } |
                 Select-Object -ExpandProperty Name)
               $entries = @($plugins | ForEach-Object {
-                @{ name = $_; plugin = $_; skills_path = "plugins/$_/skills" }
+                @{ name = $_; plugin = $_; skills_path = "plugins/release/$_/skills" }
               })
+
+              # Add experimental if it has skills and tests
+              if ((Test-Path (Join-Path $contentRoot "plugins/experimental/skills")) -and
+                  (Test-Path (Join-Path $contentRoot "tests/experimental"))) {
+                $entries += @{ name = "experimental"; plugin = "experimental"; skills_path = "plugins/experimental/skills" }
+                $plugins += "experimental"
+              }
             } else {
               # Extract unique plugin/skill pairs from changed files
+              # Handle release plugins: plugins/release/<plugin>/skills/<skill>/...
+              # Handle experimental: plugins/experimental/skills/<skill>/...
+              # Handle tests: tests/<plugin>/<skill>/...
               $changedPairs = @($changedFiles |
-                Where-Object { $_ -match '^(?:plugins/([^/]+)/skills|tests/([^/]+))/([^/]+)/' } |
+                Where-Object { $_ -match '^(?:plugins/release/([^/]+)/skills|plugins/experimental/(skills)|tests/([^/]+))/([^/]+)/' } |
                 ForEach-Object {
-                  $p = if ($Matches[1]) { $Matches[1] } else { $Matches[2] }
-                  "$p/$($Matches[3])"
+                  if ($Matches[1]) {
+                    # Release plugin skill change
+                    "$($Matches[1])/$($Matches[4])"
+                  } elseif ($Matches[2]) {
+                    # Experimental skill change
+                    "experimental/$($Matches[4])"
+                  } else {
+                    # Test directory change — map to plugin name
+                    "$($Matches[3])/$($Matches[4])"
+                  }
                 } |
                 Sort-Object -Unique)
 
@@ -379,13 +399,20 @@ jobs:
                 $parts = $_ -split '/'
                 $plugin = $parts[0]
                 $skill = $parts[1]
-                $skillMd = Join-Path $contentRoot "plugins" $plugin "skills" $skill "SKILL.md"
-                $testsDir = Join-Path $contentRoot "tests" $plugin
+                if ($plugin -eq "experimental") {
+                  $skillMd = Join-Path $contentRoot "plugins/experimental/skills" $skill "SKILL.md"
+                  $testsDir = Join-Path $contentRoot "tests/experimental"
+                  $skillsPath = "plugins/experimental/skills/$skill"
+                } else {
+                  $skillMd = Join-Path $contentRoot "plugins/release" $plugin "skills" $skill "SKILL.md"
+                  $testsDir = Join-Path $contentRoot "tests" $plugin
+                  $skillsPath = "plugins/release/$plugin/skills/$skill"
+                }
                 if ((Test-Path $skillMd) -and (Test-Path $testsDir)) {
                   @{
                     name = "$plugin--$skill"
                     plugin = $plugin
-                    skills_path = "plugins/$plugin/skills/$skill"
+                    skills_path = $skillsPath
                   }
                 }
               } | Where-Object { $_ })
@@ -396,12 +423,19 @@ jobs:
             git worktree remove /tmp/pr-content --force 2>$null
           } else {
             # Schedule: evaluate all plugins with skills and tests
-            $plugins = @(Get-ChildItem -Path "plugins" -Directory |
+            # Release sub-plugins under plugins/release/
+            $plugins = @(Get-ChildItem -Path "plugins/release" -Directory -ErrorAction SilentlyContinue |
               Where-Object { (Test-Path (Join-Path $_.FullName "skills")) -and (Test-Path (Join-Path "tests" $_.Name)) } |
               Select-Object -ExpandProperty Name)
             $entries = @($plugins | ForEach-Object {
-              @{ name = $_; plugin = $_; skills_path = "plugins/$_/skills" }
+              @{ name = $_; plugin = $_; skills_path = "plugins/release/$_/skills" }
             })
+
+            # Experimental plugin
+            if ((Test-Path "plugins/experimental/skills") -and (Test-Path "tests/experimental")) {
+              $entries += @{ name = "experimental"; plugin = "experimental"; skills_path = "plugins/experimental/skills" }
+              $plugins += "experimental"
+            }
           }
 
           # Output entries for evaluate matrix

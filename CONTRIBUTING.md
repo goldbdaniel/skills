@@ -22,16 +22,22 @@ This ensures that every contribution area has accountable reviewers and that PRs
 
 ```text
 plugins/
-  <plugin>/
+  release/
+    <plugin>/
+      plugin.json
+      skills/
+        <skill-name>/
+          SKILL.md
+          scripts/
+          references/
+          assets/
+      agents/
+        <agent-name>.agent.md
+  experimental/
     plugin.json
     skills/
       <skill-name>/
         SKILL.md
-        scripts/
-        references/
-        assets/
-    agents/
-      <agent-name>.agent.md
 tests/
   <plugin>/
     <skill-name>/
@@ -45,27 +51,30 @@ Every plugin must have a plugin.json file in the plugin root that is linked to f
 
 ### Plugin organization
 
-Skills are grouped into domain-specific plugins. When proposing a new skill, place it in the plugin that best matches its domain:
+Skills are grouped into domain-specific plugins under `plugins/release/`. When proposing a new skill, place it in the plugin that best matches its domain:
 
 | Plugin | Domain |
 |--------|--------|
 | `dotnet` | Common everyday C#/.NET coding tasks useful to all .NET developers |
-| `dotnet-upgrade` | Migrating and upgrading .NET projects across framework versions, language features, and compatibility targets |
-| `dotnet-diag` | Performance investigations, debugging, and incident analysis |
-| `dotnet-data` | Data access and Entity Framework |
-| `dotnet-msbuild` | MSBuild and project system |
 | `dotnet-ai` | AI and ML: technology selection, LLM integration, agentic workflows, RAG pipelines, and classic ML |
+| `dotnet-data` | Data access and Entity Framework |
+| `dotnet-diag` | Performance investigations, debugging, and incident analysis |
+| `dotnet-maui` | .NET MAUI development: environment setup, diagnostics, and troubleshooting |
+| `dotnet-msbuild` | MSBuild and project system |
+| `dotnet-nuget` | NuGet and .NET package management |
+| `dotnet-template-engine` | .NET Template Engine: template discovery, project scaffolding, and template authoring |
+| `dotnet-test` | Running, diagnosing, and migrating .NET tests |
+| `dotnet-upgrade` | Migrating and upgrading .NET projects across framework versions, language features, and compatibility targets |
 
 If your skill does not fit any existing plugin, consider creating a new one. The following plugin names are reserved for future use and are good candidates for new skills in those areas:
 
 - `dotnet-aspnet` — ASP.NET
 - `dotnet-wpf` — WPF
 - `dotnet-winforms` — Windows Forms (WinForms)
-- `dotnet-maui` — .NET MAUI
 
 To create a new plugin:
 
-1. Add `plugins/<plugin-name>/plugin.json` and a `skills/` directory beneath it.
+1. Add `plugins/release/<plugin-name>/plugin.json` and a `skills/` directory beneath it.
 2. Add a matching entry in both `.github/plugin/marketplace.json` and `.claude-plugin/marketplace.json`. The `.claude-plugin/marketplace.json` file must remain an exact copy of `.github/plugin/marketplace.json`, so any change to one file (adding, removing, or editing a plugin entry) must be applied to the other in the same way.
 3. Add a CODEOWNERS entry for the new plugin and its tests (see [Code ownership](#code-ownership)).
 4. Add the plugin to the **What's Included** table in the root `README.md`.
@@ -143,7 +152,7 @@ description: <description of what the skill does, when to use it, and when not t
 > **Tip:** The `description` field is used by the agent runtime to decide whether to load the full skill.
 > Include **when to use** and **when not to use** guidance directly in the description so the agent can
 > select or skip skills without reading the entire `SKILL.md`. This avoids unnecessary token usage.
-> See [`thread-abort-migration/SKILL.md`](plugins/dotnet-upgrade/skills/thread-abort-migration/SKILL.md) for a good example.
+> See [`thread-abort-migration/SKILL.md`](plugins/release/dotnet-upgrade/skills/thread-abort-migration/SKILL.md) for a good example.
 
 ### Recommended `SKILL.md` sections
 
@@ -181,7 +190,7 @@ An agent definition should be opinionated but bounded:
 Add an agent file under a plugin's `agents/` directory:
 
 ```text
-plugins/<plugin>/agents/<agent-name>.agent.md
+plugins/release/<plugin>/agents/<agent-name>.agent.md
 ```
 
 ### Agent checklist
@@ -266,19 +275,19 @@ Prerequisites: .NET 10 SDK or later and `gh auth login`.
 
 ```bash
 # Run tests for a single plugin
-dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --tests-dir tests/dotnet-msbuild plugins/dotnet-msbuild/skills
+dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --tests-dir tests/dotnet-msbuild plugins/release/dotnet-msbuild/skills
 
 # Run tests for a single skill (pass the skill directory directly)
-dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --tests-dir tests/dotnet-msbuild plugins/dotnet-msbuild/skills/common-build-errors
+dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --tests-dir tests/dotnet-msbuild plugins/release/dotnet-msbuild/skills/common-build-errors
 
 # Fewer runs for faster iteration (default is 5)
-dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --runs 3 --tests-dir tests/dotnet-msbuild plugins/dotnet-msbuild/skills
+dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --runs 3 --tests-dir tests/dotnet-msbuild plugins/release/dotnet-msbuild/skills
 
 # Use a specific model
-dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --model claude-opus-4.6 --tests-dir tests/dotnet-msbuild plugins/dotnet-msbuild/skills
+dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --model claude-opus-4.6 --tests-dir tests/dotnet-msbuild plugins/release/dotnet-msbuild/skills
 
 # Run with verbose logging
-dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --verbose --tests-dir tests/dotnet-msbuild plugins/dotnet-msbuild/skills
+dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate --verbose --tests-dir tests/dotnet-msbuild plugins/release/dotnet-msbuild/skills
 ```
 
 > [!WARNING]  

@@ -6,7 +6,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 $RepoRoot = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
-$SkillsDir = Join-Path $RepoRoot 'plugins' 'dotnet-msbuild' 'skills'
+$SkillsDir = Join-Path $RepoRoot 'plugins' 'release' 'dotnet-msbuild' 'skills'
 $DomainGatePattern = 'Only activate in MSBuild/\.NET build context'
 
 # ── Step 1: Validate skills ─────────────────────────────────────────

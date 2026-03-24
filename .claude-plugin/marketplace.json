@@ -6,53 +6,58 @@
   "plugins": [
     {
       "name": "dotnet",
-      "source": "./plugins/dotnet",
+      "source": "./plugins/release/dotnet",
       "description": "Collection of core .NET skills for handling common .NET coding tasks."
     },
     {
+      "name": "dotnet-ai",
+      "source": "./plugins/release/dotnet-ai",
+      "description": "AI and ML skills for .NET: technology selection, LLM integration, agentic workflows, RAG pipelines, MCP, and classic ML with ML.NET."
+    },
+    {
       "name": "dotnet-data",
-      "source": "./plugins/dotnet-data",
+      "source": "./plugins/release/dotnet-data",
       "description": "Skills for .NET data access and Entity Framework related tasks."
     },
     {
       "name": "dotnet-diag",
-      "source": "./plugins/dotnet-diag",
+      "source": "./plugins/release/dotnet-diag",
       "description": "Skills for .NET performance investigations, debugging, and incident analysis."
     },
     {
+      "name": "dotnet-maui",
+      "source": "./plugins/release/dotnet-maui",
+      "description": "Skills for .NET MAUI development: environment setup, diagnostics, and troubleshooting."
+    },
+    {
       "name": "dotnet-msbuild",
-      "source": "./plugins/dotnet-msbuild",
+      "source": "./plugins/release/dotnet-msbuild",
       "description": "Comprehensive MSBuild and .NET build skills: failure diagnosis, performance optimization, code quality, and modernization."
     },
     {
       "name": "dotnet-nuget",
-      "source": "./plugins/dotnet-nuget",
+      "source": "./plugins/release/dotnet-nuget",
       "description": "NuGet and .NET package management: dependency management and modernization."
     },
     {
-      "name": "dotnet-upgrade",
-      "source": "./plugins/dotnet-upgrade",
-      "description": "Skills for migrating and upgrading .NET projects across framework versions, language features, and compatibility targets."
-    },
-    {
-      "name": "dotnet-maui",
-      "source": "./plugins/dotnet-maui",
-      "description": "Skills for .NET MAUI development: environment setup, diagnostics, and troubleshooting."
-    },
-    {
-      "name": "dotnet-ai",
-      "source": "./plugins/dotnet-ai",
-      "description": "AI and ML skills for .NET: technology selection, LLM integration, agentic workflows, RAG pipelines, MCP, and classic ML with ML.NET."
-    },
-    {
       "name": "dotnet-template-engine",
-      "source": "./plugins/dotnet-template-engine",
+      "source": "./plugins/release/dotnet-template-engine",
       "description": ".NET Template Engine skills: template discovery, project scaffolding, and template authoring."
     },
     {
       "name": "dotnet-test",
-      "source": "./plugins/dotnet-test",
+      "source": "./plugins/release/dotnet-test",
       "description": "Skills for running, diagnosing, and migrating .NET tests: test execution, filtering, platform detection, and MSTest workflows."
+    },
+    {
+      "name": "dotnet-upgrade",
+      "source": "./plugins/release/dotnet-upgrade",
+      "description": "Skills for migrating and upgrading .NET projects across framework versions, language features, and compatibility targets."
+    },
+    {
+      "name": "experimental",
+      "source": "./plugins/experimental",
+      "description": "Experimental .NET agent skills under active evaluation. These skills may change or be promoted to release."
     }
   ]
 }

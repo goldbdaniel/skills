@@ -8,16 +8,17 @@ This repository contains the .NET team's curated set of core skills and custom a
 
 | Plugin | Description |
 |--------|-------------|
-| [dotnet](plugins/dotnet/) | Collection of core .NET skills for handling common .NET coding tasks. |
-| [dotnet-data](plugins/dotnet-data/) | Skills for .NET data access and Entity Framework related tasks. |
-| [dotnet-diag](plugins/dotnet-diag/) | Skills for .NET performance investigations, debugging, and incident analysis. |
-| [dotnet-msbuild](plugins/dotnet-msbuild/) | Comprehensive MSBuild and .NET build skills: failure diagnosis, performance optimization, code quality, and modernization. |
-| [dotnet-nuget](plugins/dotnet-nuget/) | NuGet and .NET package management: dependency management and modernization. |
-| [dotnet-upgrade](plugins/dotnet-upgrade/) | Skills for migrating and upgrading .NET projects across framework versions, language features, and compatibility targets. |
-| [dotnet-maui](plugins/dotnet-maui/) | Skills for .NET MAUI development: environment setup, diagnostics, and troubleshooting. |
-| [dotnet-ai](plugins/dotnet-ai/) | AI and ML skills for .NET: technology selection, LLM integration, agentic workflows, RAG pipelines, MCP, and classic ML with ML.NET. |
-| [dotnet-template-engine](plugins/dotnet-template-engine/) | .NET Template Engine skills: template discovery, project scaffolding, and template authoring. |
-| [dotnet-test](plugins/dotnet-test/) | Skills for running, diagnosing, and migrating .NET tests: test execution, filtering, platform detection, and MSTest workflows. |
+| [dotnet](plugins/release/dotnet/) | Collection of core .NET skills for handling common .NET coding tasks. |
+| [dotnet-ai](plugins/release/dotnet-ai/) | AI and ML skills for .NET: technology selection, LLM integration, agentic workflows, RAG pipelines, MCP, and classic ML with ML.NET. |
+| [dotnet-data](plugins/release/dotnet-data/) | Skills for .NET data access and Entity Framework related tasks. |
+| [dotnet-diag](plugins/release/dotnet-diag/) | Skills for .NET performance investigations, debugging, and incident analysis. |
+| [dotnet-maui](plugins/release/dotnet-maui/) | Skills for .NET MAUI development: environment setup, diagnostics, and troubleshooting. |
+| [dotnet-msbuild](plugins/release/dotnet-msbuild/) | Comprehensive MSBuild and .NET build skills: failure diagnosis, performance optimization, code quality, and modernization. |
+| [dotnet-nuget](plugins/release/dotnet-nuget/) | NuGet and .NET package management: dependency management and modernization. |
+| [dotnet-template-engine](plugins/release/dotnet-template-engine/) | .NET Template Engine skills: template discovery, project scaffolding, and template authoring. |
+| [dotnet-test](plugins/release/dotnet-test/) | Skills for running, diagnosing, and migrating .NET tests: test execution, filtering, platform detection, and MSTest workflows. |
+| [dotnet-upgrade](plugins/release/dotnet-upgrade/) | Skills for migrating and upgrading .NET projects across framework versions, language features, and compatibility targets. |
+| [experimental](plugins/experimental/) | Experimental .NET agent skills under active evaluation. These skills may change or be promoted to release. |
 
 ## Installation
 
