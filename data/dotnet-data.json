@@ -2,68 +2,6 @@
   "entries": {
     "Efficiency": [
       {
-        "commit": {
-          "id": "ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "timestamp": "2026-03-09T20:34:19+00:00",
-          "author": {
-            "username": "JanKrivanek",
-            "name": "Gerald Versluis"
-          },
-          "url": "https://github.com/dotnet/skills/commit/ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "message": "Add dotnet-maui plugin with dotnet-maui-doctor skill (#199)"
-        },
-        "model": "claude-opus-4.6",
-        "benches": [
-          {
-            "overfitting": "moderate",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
-            "unit": "seconds",
-            "value": 16.8,
-            "overfittingScore": 0.47
-          },
-          {
-            "overfitting": "moderate",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
-            "unit": "tokens",
-            "value": 25261.0,
-            "overfittingScore": 0.47
-          }
-        ],
-        "tool": "customSmallerIsBetter",
-        "date": 1773118303093
-      },
-      {
-        "commit": {
-          "url": "https://github.com/dotnet/skills/commit/ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "message": "Add dotnet-maui plugin with dotnet-maui-doctor skill (#199)",
-          "id": "ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "timestamp": "2026-03-09T20:34:19+00:00",
-          "author": {
-            "name": "Gerald Versluis",
-            "username": "JanKrivanek"
-          }
-        },
-        "tool": "customSmallerIsBetter",
-        "date": 1773127923537,
-        "model": "claude-opus-4.6",
-        "benches": [
-          {
-            "value": 15.4,
-            "overfittingScore": 0.36,
-            "unit": "seconds",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
-            "overfitting": "moderate"
-          },
-          {
-            "value": 25230.0,
-            "overfittingScore": 0.36,
-            "unit": "tokens",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
-            "overfitting": "moderate"
-          }
-        ]
-      },
-      {
         "benches": [
           {
             "overfitting": "moderate",
@@ -1226,67 +1164,46 @@
         ],
         "date": 1774318901052,
         "model": "claude-opus-4.6"
+      },
+      {
+        "commit": {
+          "timestamp": "2026-03-23T19:40:27+00:00",
+          "url": "https://github.com/dotnet/skills/commit/d97128e5d93885e67cae2520323d15f6ae84362e",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Viktor Hofer"
+          },
+          "message": "Move static analysis checks from eval to check command (#425)",
+          "id": "d97128e5d93885e67cae2520323d15f6ae84362e"
+        },
+        "date": 1774345347424,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "unit": "seconds",
+            "value": 15.1
+          },
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 26358.0
+          },
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
+            "unit": "seconds",
+            "value": 19.6
+          },
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 26377.0
+          }
+        ],
+        "model": "claude-opus-4.6"
       }
     ],
     "Quality": [
-      {
-        "commit": {
-          "id": "ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "timestamp": "2026-03-09T20:34:19+00:00",
-          "author": {
-            "username": "JanKrivanek",
-            "name": "Gerald Versluis"
-          },
-          "url": "https://github.com/dotnet/skills/commit/ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "message": "Add dotnet-maui plugin with dotnet-maui-doctor skill (#199)"
-        },
-        "model": "claude-opus-4.6",
-        "benches": [
-          {
-            "overfitting": "moderate",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
-            "unit": "Score (0-10)",
-            "value": 9.199999809265137,
-            "overfittingScore": 0.47
-          },
-          {
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
-            "unit": "Score (0-10)",
-            "value": 8.0
-          }
-        ],
-        "tool": "customBiggerIsBetter",
-        "date": 1773118303093
-      },
-      {
-        "commit": {
-          "url": "https://github.com/dotnet/skills/commit/ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "message": "Add dotnet-maui plugin with dotnet-maui-doctor skill (#199)",
-          "id": "ebe71e2f0658337286b36a8d1e8a5ad5bf008188",
-          "timestamp": "2026-03-09T20:34:19+00:00",
-          "author": {
-            "name": "Gerald Versluis",
-            "username": "JanKrivanek"
-          }
-        },
-        "tool": "customBiggerIsBetter",
-        "date": 1773127923537,
-        "model": "claude-opus-4.6",
-        "benches": [
-          {
-            "value": 8.800000190734863,
-            "overfittingScore": 0.36,
-            "unit": "Score (0-10)",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
-            "overfitting": "moderate"
-          },
-          {
-            "value": 8.399999618530273,
-            "unit": "Score (0-10)",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
-          }
-        ]
-      },
       {
         "benches": [
           {
@@ -2273,9 +2190,41 @@
         ],
         "date": 1774318901052,
         "model": "claude-opus-4.6"
+      },
+      {
+        "commit": {
+          "timestamp": "2026-03-23T19:40:27+00:00",
+          "url": "https://github.com/dotnet/skills/commit/d97128e5d93885e67cae2520323d15f6ae84362e",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Viktor Hofer"
+          },
+          "message": "Move static analysis checks from eval to check command (#425)",
+          "id": "d97128e5d93885e67cae2520323d15f6ae84362e"
+        },
+        "date": 1774345347424,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          }
+        ],
+        "model": "claude-opus-4.6"
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774318901052
+  "lastUpdate": 1774345347424
 }
