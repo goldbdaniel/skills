@@ -306,7 +306,7 @@ public static class AssertionEvaluator
             var actualExitCode = process.ExitCode;
             if (cmd.ExpectedExitCode.HasValue && cmd.ExpectedExitCode.Value != actualExitCode)
             {
-                return new AssertionResult(a, false, $"Command exited with code {actualExitCode} but expected {cmd.ExpectedExitCode.Value}. Stdout: {TruncateOutput(actualStdOut)} Stderr: {TruncateOutput(actualStdErr)}");
+                return new AssertionResult(a, false, $"Command exited with code {actualExitCode} but expected {cmd.ExpectedExitCode.Value}");
             }
 
             if (cmd.ExpectedStdOutContains is not null)
