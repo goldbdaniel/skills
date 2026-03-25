@@ -47,7 +47,7 @@ Each file contains a top-level object with:
 |-------|-------------|
 | `model` | Model used for agent runs |
 | `judgeModel` | Model used for judging |
-| `timestamp` | When the run started |
+| `timestamp` | When the results were written (UTC) |
 | `verdicts[]` | Array of per-skill results |
 
 ### Verdict structure
@@ -175,8 +175,9 @@ Each of `baseline`, `skilledIsolated`, and `skilledPlugin` contains a `metrics` 
 
 **Symptoms:**
 - Skills Loaded column shows `⚠️ NOT ACTIVATED`
-- Skilled run has near-zero tokens (e.g., <100), 0 turns, 0 tools
-- The `turnCount` being 0 is the clearest signal — a small token count with 0 turns indicates the skill was loaded but the agent never ran
+- `skillActivationIsolated` and/or `skillActivationPlugin` fields in `results.json` show `activated: false` (or the legacy `skillActivation` alias)
+- `detectedSkills` is empty or `skillEventCount` is 0
+- The skilled run metrics look similar to baseline (the agent ran normally but without the skill's guidance)
 
 **Cause:** The agent runtime didn't select the skill for this prompt. The skill's frontmatter `description` didn't match.
 
