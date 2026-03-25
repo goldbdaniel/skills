@@ -183,6 +183,7 @@ Each of `baseline`, `skilledIsolated`, and `skilledPlugin` contains a `metrics` 
 **Fixes:**
 - Update the skill's `description` in SKILL.md frontmatter to better match the scenario prompt
 - Make sure the description includes keywords from the scenario
+- Check the scenario itself has sufficient information that the agent can reason that it needs the skill. (It should not cheat and suggest the skill.)
 
 ### 6. Rubric penalizes valid alternatives
 
