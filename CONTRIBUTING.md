@@ -288,6 +288,8 @@ dotnet run --project eng/skill-validator/src/SkillValidator.csproj -- evaluate -
 
 Tests run automatically on pull requests that modify files under `plugins/`. The evaluation workflow discovers changed plugins and runs the skill-validator for each one. Results are posted as a PR comment and uploaded as build artifacts.
 
+If a scenario fails or regresses, see [Investigating Results](eng/skill-validator/InvestigatingResults.md) for how to download artifacts, interpret `results.json`, and diagnose common failure patterns.
+
 ## Writing style
 
 - Be concise and specific.
