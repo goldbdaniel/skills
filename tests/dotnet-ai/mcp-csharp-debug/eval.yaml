@@ -11,7 +11,7 @@ scenarios:
         pattern: "(dotnet run|--project)"
     rubric:
       - "Shows how to launch MCP Inspector with npx @modelcontextprotocol/inspector"
-      - "Explains how to connect it to the stdio server using dotnet run"
+      - "Explains how to connect it to the stdio server using dotnet run — either as a single CLI command (npx @modelcontextprotocol/inspector dotnet run ...) or via the Inspector UI configuration (Transport Type, Command, Arguments)"
       - "Mentions that the Inspector UI shows tools, prompts, and resources"
       - "Notes that server logging must go to stderr, not stdout"
     timeout: 120
