@@ -3386,6 +3386,114 @@
         ],
         "date": 1774428890227,
         "model": "claude-opus-4.6"
+      },
+      {
+        "benches": [
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Quality",
+            "value": 10.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Quality",
+            "value": 10.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Vanilla Quality",
+            "value": 8.0,
+            "unit": "Score (0-10)"
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Quality",
+            "value": 10.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Quality",
+            "value": 8.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Vanilla Quality",
+            "value": 6.0,
+            "unit": "Score (0-10)"
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Quality",
+            "value": 10.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Quality",
+            "value": 10.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Vanilla Quality",
+            "value": 8.0,
+            "unit": "Score (0-10)"
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Quality",
+            "value": 10.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Quality",
+            "value": 10.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Vanilla Quality",
+            "value": 6.0,
+            "unit": "Score (0-10)"
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Quality",
+            "value": 8.0,
+            "unit": "Score (0-10)"
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Quality",
+            "value": 8.0,
+            "unit": "Score (0-10)"
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Vanilla Quality",
+            "value": 8.0,
+            "unit": "Score (0-10)"
+          }
+        ],
+        "model": "claude-opus-4.6",
+        "date": 1774455030315,
+        "commit": {
+          "timestamp": "2026-03-25T12:00:10+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          },
+          "id": "1762a78fedbc51dcbcfdc1c1d69bf0a67f70ad38",
+          "message": "Add stale PRs agentic workflow (#435)",
+          "url": "https://github.com/dotnet/skills/commit/1762a78fedbc51dcbcfdc1c1d69bf0a67f70ad38"
+        },
+        "tool": "customBiggerIsBetter"
       }
     ],
     "Efficiency": [
@@ -7972,8 +8080,157 @@
         ],
         "date": 1774428890227,
         "model": "claude-opus-4.6"
+      },
+      {
+        "benches": [
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Time",
+            "value": 155.6,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Tokens In",
+            "value": 438699.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Time",
+            "value": 145.4,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Tokens In",
+            "value": 342794.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Time",
+            "value": 164.0,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Tokens In",
+            "value": 438933.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Time",
+            "value": 148.9,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Tokens In",
+            "value": 393418.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Time",
+            "value": 122.9,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Tokens In",
+            "value": 302995.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Time",
+            "value": 153.8,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Tokens In",
+            "value": 474876.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Time",
+            "value": 78.9,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Tokens In",
+            "value": 66612.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Time",
+            "value": 73.2,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Tokens In",
+            "value": 66250.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "overfittingScore": 0.27
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Time",
+            "value": 83.8,
+            "unit": "seconds"
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Tokens In",
+            "value": 249626.0,
+            "unit": "tokens"
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Time",
+            "value": 34.9,
+            "unit": "seconds"
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Tokens In",
+            "value": 40591.0,
+            "unit": "tokens"
+          }
+        ],
+        "model": "claude-opus-4.6",
+        "date": 1774455030315,
+        "commit": {
+          "timestamp": "2026-03-25T12:00:10+00:00",
+          "author": {
+            "name": "Viktor Hofer",
+            "username": "ViktorHofer"
+          },
+          "id": "1762a78fedbc51dcbcfdc1c1d69bf0a67f70ad38",
+          "message": "Add stale PRs agentic workflow (#435)",
+          "url": "https://github.com/dotnet/skills/commit/1762a78fedbc51dcbcfdc1c1d69bf0a67f70ad38"
+        },
+        "tool": "customSmallerIsBetter"
       }
     ]
   },
-  "lastUpdate": 1774428890227
+  "lastUpdate": 1774455030315
 }
