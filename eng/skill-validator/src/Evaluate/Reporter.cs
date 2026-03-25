@@ -609,6 +609,10 @@ public static class Reporter
 
         sb.AppendLine($"\nModel: {model ?? "unknown"} | Judge: {judgeModel ?? "unknown"}");
 
+        bool anyFailure = verdicts.Any(v => !v.Passed);
+        if (anyFailure)
+            sb.AppendLine("\n> 📖 See [InvestigatingResults.md](https://github.com/dotnet/skills/blob/main/eng/skill-validator/InvestigatingResults.md) for how to diagnose failures — or use the copy-paste prompt below.");
+
         return sb.ToString();
     }
 
