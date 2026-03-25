@@ -94,7 +94,7 @@ using System.ComponentModel;
 public static class MyTools
 {
     [McpServerTool, Description("Get current weather for a city: temperature, conditions, humidity.")]
-    public static async Task<string> GetWeather(
+    public static string GetWeather(
         [Description("City name (e.g., 'Seattle', 'London')")] string city,
         CancellationToken cancellationToken = default)
     {
@@ -108,7 +108,7 @@ public static class MyTools
 - Every tool method **must** have a `[Description]` attribute — LLMs use this to decide when to call the tool
 - Every parameter **must** have a `[Description]` attribute
 - Accept `CancellationToken` in all async tools
-- Use `[McpServerTool(Name = "custom_name")]` only if the default method name is unclear
+- Use `[McpServerTool(Name = "custom_name")]` when the default method name is unclear, you need snake_case, or to avoid collisions
 
 **Writing effective descriptions:**
 
@@ -132,7 +132,7 @@ Tool descriptions are always loaded into the agent's context — they're routing
 ```csharp
 [McpServerTool, Description("Search build logs for error patterns")]
 public static async Task<string> SearchLogs(
-    [Description("AzDO build ID (integer) or full build URL (e.g., https://dev.azure.com/org/project/_build/results?buildId=123)")] string buildId,
+    [Description("AzDO build ID (integer) or full build URL (e.g., https://dev.azure.com/org/project/_build/results?buildId=123)")] string buildRef,
     [Description("Case-insensitive text pattern to search for. Defaults to 'error'")] string pattern = "error")
 ```
 
@@ -148,7 +148,7 @@ When agents load tools from multiple MCP servers, generic names like `GetStatus`
 [McpServerTool(Name = "search_build_logs")]
 ```
 
-By default, the SDK uses the method name as the tool name. Choose method names that are specific enough to stand alone across servers. Use `[McpServerTool(Name = "...")]` when you need snake_case or a name that differs from the method.
+By default, the SDK uses the method name as the tool name. Choose method names that are specific enough to stand alone across servers. Use `[McpServerTool(Name = "...")]` when you need snake_case, when the default method name would be unclear, or when you need to avoid collisions with tools from other servers.
 
 **DI injection patterns** — the SDK supports two styles:
 
