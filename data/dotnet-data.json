@@ -2,68 +2,6 @@
   "entries": {
     "Efficiency": [
       {
-        "benches": [
-          {
-            "value": 15.0,
-            "overfitting": "moderate",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
-            "unit": "seconds",
-            "overfittingScore": 0.34
-          },
-          {
-            "value": 25163.0,
-            "overfitting": "moderate",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
-            "unit": "tokens",
-            "overfittingScore": 0.34
-          }
-        ],
-        "tool": "customSmallerIsBetter",
-        "model": "claude-opus-4.6",
-        "commit": {
-          "id": "7be01578bd671bf6b4fab9e5976981ab217ee12a",
-          "message": "Rename status job to skill-validator-status",
-          "url": "https://github.com/dotnet/skills/commit/7be01578bd671bf6b4fab9e5976981ab217ee12a",
-          "timestamp": "2026-03-10T22:59:45+00:00",
-          "author": {
-            "name": "Viktor Hofer",
-            "username": "JanKrivanek"
-          }
-        },
-        "date": 1773205267392
-      },
-      {
-        "date": 1773214430581,
-        "tool": "customSmallerIsBetter",
-        "commit": {
-          "timestamp": "2026-03-10T22:59:45+00:00",
-          "author": {
-            "username": "JanKrivanek",
-            "name": "Viktor Hofer"
-          },
-          "message": "Rename status job to skill-validator-status",
-          "url": "https://github.com/dotnet/skills/commit/7be01578bd671bf6b4fab9e5976981ab217ee12a",
-          "id": "7be01578bd671bf6b4fab9e5976981ab217ee12a"
-        },
-        "benches": [
-          {
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
-            "overfitting": "moderate",
-            "overfittingScore": 0.36,
-            "value": 15.5,
-            "unit": "seconds"
-          },
-          {
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
-            "overfitting": "moderate",
-            "overfittingScore": 0.36,
-            "value": 25212.0,
-            "unit": "tokens"
-          }
-        ],
-        "model": "claude-opus-4.6"
-      },
-      {
         "date": 1773225229021,
         "commit": {
           "author": {
@@ -1353,67 +1291,46 @@
             "value": 26400.0
           }
         ]
+      },
+      {
+        "commit": {
+          "id": "c94bc5cdc3dea5824ec15ab637df8d90ea8cc35b",
+          "timestamp": "2026-03-25T07:08:58+00:00",
+          "url": "https://github.com/dotnet/skills/commit/c94bc5cdc3dea5824ec15ab637df8d90ea8cc35b",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Jan Krivanek"
+          },
+          "message": "Add Ability to author agent evals (#436)"
+        },
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "value": 11.1,
+            "unit": "seconds",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time"
+          },
+          {
+            "value": 26340.0,
+            "unit": "tokens",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In"
+          },
+          {
+            "value": 17.4,
+            "unit": "seconds",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time"
+          },
+          {
+            "value": 26402.0,
+            "unit": "tokens",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In"
+          }
+        ],
+        "date": 1774428881954,
+        "model": "claude-opus-4.6"
       }
     ],
     "Quality": [
-      {
-        "benches": [
-          {
-            "value": 8.800000190734863,
-            "overfitting": "moderate",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
-            "unit": "Score (0-10)",
-            "overfittingScore": 0.34
-          },
-          {
-            "value": 8.0,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
-            "unit": "Score (0-10)"
-          }
-        ],
-        "tool": "customBiggerIsBetter",
-        "model": "claude-opus-4.6",
-        "commit": {
-          "id": "7be01578bd671bf6b4fab9e5976981ab217ee12a",
-          "message": "Rename status job to skill-validator-status",
-          "url": "https://github.com/dotnet/skills/commit/7be01578bd671bf6b4fab9e5976981ab217ee12a",
-          "timestamp": "2026-03-10T22:59:45+00:00",
-          "author": {
-            "name": "Viktor Hofer",
-            "username": "JanKrivanek"
-          }
-        },
-        "date": 1773205267392
-      },
-      {
-        "date": 1773214430581,
-        "tool": "customBiggerIsBetter",
-        "commit": {
-          "timestamp": "2026-03-10T22:59:45+00:00",
-          "author": {
-            "username": "JanKrivanek",
-            "name": "Viktor Hofer"
-          },
-          "message": "Rename status job to skill-validator-status",
-          "url": "https://github.com/dotnet/skills/commit/7be01578bd671bf6b4fab9e5976981ab217ee12a",
-          "id": "7be01578bd671bf6b4fab9e5976981ab217ee12a"
-        },
-        "benches": [
-          {
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
-            "overfitting": "moderate",
-            "overfittingScore": 0.36,
-            "value": 8.800000190734863,
-            "unit": "Score (0-10)"
-          },
-          {
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
-            "value": 9.600000381469727,
-            "unit": "Score (0-10)"
-          }
-        ],
-        "model": "claude-opus-4.6"
-      },
       {
         "date": 1773225229021,
         "commit": {
@@ -2477,9 +2394,41 @@
             "value": 10.0
           }
         ]
+      },
+      {
+        "commit": {
+          "id": "c94bc5cdc3dea5824ec15ab637df8d90ea8cc35b",
+          "timestamp": "2026-03-25T07:08:58+00:00",
+          "url": "https://github.com/dotnet/skills/commit/c94bc5cdc3dea5824ec15ab637df8d90ea8cc35b",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Jan Krivanek"
+          },
+          "message": "Add Ability to author agent evals (#436)"
+        },
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality"
+          },
+          {
+            "value": 10.0,
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality"
+          },
+          {
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
+          }
+        ],
+        "date": 1774428881954,
+        "model": "claude-opus-4.6"
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774412551909
+  "lastUpdate": 1774428881954
 }
