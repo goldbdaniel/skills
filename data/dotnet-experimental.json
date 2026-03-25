@@ -109,6 +109,192 @@
         "tool": "customBiggerIsBetter",
         "date": 1774455062375,
         "model": "claude-opus-4.6"
+      },
+      {
+        "model": "claude-opus-4.6",
+        "commit": {
+          "message": "Simplify evaluation table in PR comments; keep full table in workflow summary (#448)",
+          "author": {
+            "name": "Copilot",
+            "username": "danmoseley"
+          },
+          "id": "97832189cf8832a99007b2611caf7442e703b39a",
+          "url": "https://github.com/dotnet/skills/commit/97832189cf8832a99007b2611caf7442e703b39a",
+          "timestamp": "2026-03-25T18:04:12+00:00"
+        },
+        "date": 1774470062451,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "notActivated": true,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 10.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "timedOut": true,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "timedOut": true,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 2.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 8.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 10.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 10.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 10.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 6.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 10.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 10.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 10.0
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 10.0
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Vanilla Quality",
+            "unit": "Score (0-10)",
+            "value": 8.0
+          }
+        ]
       }
     ],
     "Efficiency": [
@@ -260,8 +446,263 @@
         "tool": "customSmallerIsBetter",
         "date": 1774455062375,
         "model": "claude-opus-4.6"
+      },
+      {
+        "model": "claude-opus-4.6",
+        "commit": {
+          "message": "Simplify evaluation table in PR comments; keep full table in workflow summary (#448)",
+          "author": {
+            "name": "Copilot",
+            "username": "danmoseley"
+          },
+          "id": "97832189cf8832a99007b2611caf7442e703b39a",
+          "url": "https://github.com/dotnet/skills/commit/97832189cf8832a99007b2611caf7442e703b39a",
+          "timestamp": "2026-03-25T18:04:12+00:00"
+        },
+        "date": 1774470062451,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Skilled Time",
+            "unit": "seconds",
+            "value": 98.6
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 306042.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Plugin Time",
+            "unit": "seconds",
+            "value": 74.3
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 234040.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Skilled Time",
+            "unit": "seconds",
+            "value": 80.2
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 248640.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Plugin Time",
+            "unit": "seconds",
+            "value": 104.6
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 262436.0
+          },
+          {
+            "notActivated": true,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Skilled Time",
+            "unit": "seconds",
+            "value": 33.5
+          },
+          {
+            "notActivated": true,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 26148.0
+          },
+          {
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Plugin Time",
+            "unit": "seconds",
+            "value": 47.8
+          },
+          {
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 44417.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Skilled Time",
+            "unit": "seconds",
+            "value": 37.3
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 79849.0
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Plugin Time",
+            "unit": "seconds",
+            "value": 39.7
+          },
+          {
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 80509.0
+          },
+          {
+            "timedOut": true,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Skilled Time",
+            "unit": "seconds",
+            "value": 86.2
+          },
+          {
+            "timedOut": true,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 114628.0
+          },
+          {
+            "timedOut": true,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Plugin Time",
+            "unit": "seconds",
+            "value": 97.9
+          },
+          {
+            "timedOut": true,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 93214.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 114.9
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 292416.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 195.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 528246.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 157.3
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 700450.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 131.8
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 222711.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 165.1
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 470889.0
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 140.2
+          },
+          {
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 385679.0
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 72.4
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 67555.0
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 70.3
+          },
+          {
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.27,
+            "value": 67622.0
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Time",
+            "unit": "seconds",
+            "value": 32.5
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Tokens In",
+            "unit": "tokens",
+            "value": 41101.0
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Time",
+            "unit": "seconds",
+            "value": 93.4
+          },
+          {
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Tokens In",
+            "unit": "tokens",
+            "value": 157818.0
+          }
+        ]
       }
     ]
   },
-  "lastUpdate": 1774455062375
+  "lastUpdate": 1774470062451
 }
