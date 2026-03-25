@@ -93,13 +93,13 @@ using System.ComponentModel;
 [McpServerToolType]
 public static class MyTools
 {
-    [McpServerTool, Description("Brief description of what the tool does.")]
-    public static async Task<string> DoSomething(
-        [Description("What this parameter controls")] string input,
+    [McpServerTool, Description("Get current weather for a city: temperature, conditions, humidity.")]
+    public static async Task<string> GetWeather(
+        [Description("City name (e.g., 'Seattle', 'London')")] string city,
         CancellationToken cancellationToken = default)
     {
         // Implementation
-        return $"Result: {input}";
+        return $"Weather for {city}: 72°F, sunny";
     }
 }
 ```
@@ -109,6 +109,46 @@ public static class MyTools
 - Every parameter **must** have a `[Description]` attribute
 - Accept `CancellationToken` in all async tools
 - Use `[McpServerTool(Name = "custom_name")]` only if the default method name is unclear
+
+**Writing effective descriptions:**
+
+Tool descriptions are always loaded into the agent's context — they're routing signals, not documentation. Keep them compact and action-oriented.
+
+```csharp
+// ❌ Vague — agent can't tell when to use this
+[Description("Gets data from the system")]
+
+// ❌ Too verbose — wastes always-loaded context
+[Description("This tool retrieves weather forecast data including temperature, humidity, wind speed, and precipitation probability for a given city name using the OpenWeather API")]
+
+// ✅ Compact, verb-first, purpose-clear
+[Description("Get weather forecast for a city: temperature, humidity, wind")]
+```
+
+- **Lead with a verb** — "Get", "Search", "Create", "List" — so agents know the action at a glance
+- **Keep it to 1-2 sentences** — if you need more, the tool may be doing too much
+- **Put detail in parameter descriptions** — they're only loaded when the agent considers using the tool, so they can be longer:
+
+```csharp
+[McpServerTool, Description("Search build logs for error patterns")]
+public static async Task<string> SearchLogs(
+    [Description("AzDO build ID (integer) or full build URL (e.g., https://dev.azure.com/org/project/_build/results?buildId=123)")] string buildId,
+    [Description("Case-insensitive text pattern to search for. Defaults to 'error'")] string pattern = "error")
+```
+
+**Naming tools for multi-server environments:**
+
+When agents load tools from multiple MCP servers, generic names like `GetStatus` or `Search` collide. Use descriptive names that include context:
+
+```csharp
+// ❌ Collides with other servers — agent can't tell which "Search" to use
+[McpServerTool(Name = "search")]
+
+// ✅ Unambiguous — includes the service domain
+[McpServerTool(Name = "search_build_logs")]
+```
+
+By default, the SDK uses the method name as the tool name. Choose method names that are specific enough to stand alone across servers. Use `[McpServerTool(Name = "...")]` when you need snake_case or a name that differs from the method.
 
 **DI injection patterns** — the SDK supports two styles:
 
@@ -232,6 +272,8 @@ For HTTP: the server listens on the configured port.
 - [ ] All tool classes have `[McpServerToolType]` attribute
 - [ ] All tool methods have `[McpServerTool]` and `[Description]` attributes
 - [ ] All parameters have `[Description]` attributes
+- [ ] Tool descriptions are compact (1-2 sentences) and start with a verb
+- [ ] Tool names are specific enough to avoid collision in multi-server environments
 - [ ] stdio: logging directed to stderr, not stdout
 - [ ] HTTP: `app.MapMcp()` is called in Program.cs
 - [ ] Server starts successfully with `dotnet run`
@@ -242,7 +284,8 @@ For HTTP: the server listens on the configured port.
 |---------|----------|
 | stdio server outputs garbage or hangs | Logging to stdout corrupts JSON-RPC protocol. Set `LogToStandardErrorThreshold = LogLevel.Trace` |
 | Tool not discovered by LLM clients | Missing `[McpServerToolType]` on the class or `[McpServerTool]` on the method. Verify `.WithToolsFromAssembly()` in Program.cs |
-| LLM doesn't understand when to use a tool | Add clear `[Description]` attributes on both the method and all parameters |
+| LLM doesn't understand when to use a tool | Write compact, verb-first `[Description]` attributes. Put format details and examples in parameter descriptions instead — they cost less context |
+| LLM calls the wrong tool in multi-server setups | Use specific tool names that include service context (e.g., `search_build_logs` not `search`). Set `ReadOnly = true` on read-only tools so agents can call them without confirmation |
 | `WithToolsFromAssembly()` fails in AOT | Reflection-based discovery is incompatible with Native AOT. Use `.WithTools<MyTools>()` instead |
 | Parameters not appearing in tool schema | `CancellationToken`, `IMcpServer`, and DI services are injected automatically — they do not appear in the schema. Only parameters with `[Description]` are exposed |
 | HTTP server returns 404 | `app.MapMcp()` must be called. Check the request path matches the configured route |
