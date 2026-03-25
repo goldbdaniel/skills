@@ -3062,6 +3062,114 @@
         ],
         "tool": "customBiggerIsBetter",
         "date": 1774412261773
+      },
+      {
+        "tool": "customBiggerIsBetter",
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "url": "https://github.com/dotnet/skills/commit/17fe01321d01f22a9181c439f8c0d2a956e0db8a",
+          "message": "Promote crap-score and test-anti-patterns from experimental to dotnet-test (#434)",
+          "timestamp": "2026-03-24T18:11:49+00:00",
+          "id": "17fe01321d01f22a9181c439f8c0d2a956e0db8a"
+        },
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "unit": "Score (0-10)",
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 6.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Vanilla Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 6.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Vanilla Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 6.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Vanilla Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 10.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Quality",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 6.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Vanilla Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Quality"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Vanilla Quality"
+          }
+        ],
+        "date": 1774412398090
       }
     ],
     "Efficiency": [
@@ -7201,8 +7309,157 @@
         ],
         "tool": "customSmallerIsBetter",
         "date": 1774412261773
+      },
+      {
+        "tool": "customSmallerIsBetter",
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "url": "https://github.com/dotnet/skills/commit/17fe01321d01f22a9181c439f8c0d2a956e0db8a",
+          "message": "Promote crap-score and test-anti-patterns from experimental to dotnet-test (#434)",
+          "timestamp": "2026-03-24T18:11:49+00:00",
+          "id": "17fe01321d01f22a9181c439f8c0d2a956e0db8a"
+        },
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "unit": "seconds",
+            "value": 168.5,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 487009.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 138.9,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 355417.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 150.4,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 351499.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 135.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 298066.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 129.4,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 353691.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 178.1,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 427193.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 62.3,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 65186.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 65.1,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Time",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 65666.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Tokens In",
+            "overfittingScore": 0.35,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 28.6,
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Time"
+          },
+          {
+            "unit": "tokens",
+            "value": 39453.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Tokens In"
+          },
+          {
+            "unit": "seconds",
+            "value": 33.4,
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Time"
+          },
+          {
+            "unit": "tokens",
+            "value": 40280.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Tokens In"
+          }
+        ],
+        "date": 1774412398090
       }
     ]
   },
-  "lastUpdate": 1774412261773
+  "lastUpdate": 1774412398090
 }

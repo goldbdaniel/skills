@@ -1271,6 +1271,51 @@
         ],
         "tool": "customSmallerIsBetter",
         "date": 1774412254156
+      },
+      {
+        "tool": "customSmallerIsBetter",
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "url": "https://github.com/dotnet/skills/commit/17fe01321d01f22a9181c439f8c0d2a956e0db8a",
+          "message": "Promote crap-score and test-anti-patterns from experimental to dotnet-test (#434)",
+          "timestamp": "2026-03-24T18:11:49+00:00",
+          "id": "17fe01321d01f22a9181c439f8c0d2a956e0db8a"
+        },
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "unit": "seconds",
+            "value": 13.6,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "overfittingScore": 0.28,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 26394.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "overfittingScore": 0.28,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "seconds",
+            "value": 16.7,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
+            "overfittingScore": 0.28,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "tokens",
+            "value": 26479.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
+            "overfittingScore": 0.28,
+            "overfitting": "moderate"
+          }
+        ],
+        "date": 1774412390413
       }
     ],
     "Quality": [
@@ -2327,9 +2372,45 @@
         ],
         "tool": "customBiggerIsBetter",
         "date": 1774412254156
+      },
+      {
+        "tool": "customBiggerIsBetter",
+        "commit": {
+          "author": {
+            "username": "danmoseley",
+            "name": "Amaury Levé"
+          },
+          "url": "https://github.com/dotnet/skills/commit/17fe01321d01f22a9181c439f8c0d2a956e0db8a",
+          "message": "Promote crap-score and test-anti-patterns from experimental to dotnet-test (#434)",
+          "timestamp": "2026-03-24T18:11:49+00:00",
+          "id": "17fe01321d01f22a9181c439f8c0d2a956e0db8a"
+        },
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "overfittingScore": 0.28,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
+            "overfittingScore": 0.28,
+            "overfitting": "moderate"
+          },
+          {
+            "unit": "Score (0-10)",
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
+          }
+        ],
+        "date": 1774412390413
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774412254156
+  "lastUpdate": 1774412390413
 }
