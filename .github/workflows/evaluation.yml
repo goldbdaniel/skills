@@ -640,6 +640,7 @@ jobs:
           if [ -n "$JSON_FILES" ] && [ -x "$VALIDATOR" ]; then
             "$VALIDATOR" evaluate consolidate \
               --output summary-body.md \
+              --commit "${{ needs.gate.outputs.head_sha }}" \
               $JSON_FILES
 
             # Create a simplified table for the PR comment by stripping

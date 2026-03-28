@@ -450,7 +450,9 @@ public static class Reporter
     public static string GenerateMarkdownSummary(
         IReadOnlyList<SkillVerdict> verdicts,
         string? model = null,
-        string? judgeModel = null)
+        string? judgeModel = null,
+        string? commitSha = null,
+        string? commitUrl = null)
     {
         var sb = new StringBuilder();
         sb.AppendLine("## Skill Validation Results");
@@ -627,7 +629,21 @@ public static class Reporter
             }
         }
 
-        sb.AppendLine($"\nModel: {model ?? "unknown"} | Judge: {judgeModel ?? "unknown"}");
+        var footerParts = new List<string>
+        {
+            $"Model: {model ?? "unknown"}",
+            $"Judge: {judgeModel ?? "unknown"}",
+        };
+        if (commitSha is not null)
+        {
+            const int ShortShaLength = 7;
+            var shortSha = commitSha.Length > ShortShaLength ? commitSha[..ShortShaLength] : commitSha;
+            var commitPart = commitUrl is not null
+                ? $"Commit: [{shortSha}]({commitUrl})"
+                : $"Commit: `{shortSha}`";
+            footerParts.Add(commitPart);
+        }
+        sb.AppendLine($"\n{string.Join(" | ", footerParts)}");
 
         bool anyFailure = verdicts.Any(v => !v.Passed);
         if (anyFailure)

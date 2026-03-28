@@ -8,24 +8,27 @@ public static class ConsolidateCommand
     {
         var filesArg = new Argument<string[]>("files") { Description = "Paths to results.json files to merge" };
         var outputOpt = new Option<string>("--output") { Description = "Output file path for the consolidated markdown", Required = true };
+        var commitOpt = new Option<string?>("--commit") { Description = "Commit SHA to include in the output (used to link to the PR commit)" };
 
         var command = new Command("consolidate", "Consolidate multiple results.json files into a single markdown summary")
         {
             filesArg,
             outputOpt,
+            commitOpt,
         };
 
         command.SetAction(async (parseResult, _) =>
         {
             var files = parseResult.GetValue(filesArg) ?? [];
             var output = parseResult.GetValue(outputOpt)!;
-            return await Consolidate(files, output);
+            var commit = parseResult.GetValue(commitOpt);
+            return await Consolidate(files, output, commit);
         });
 
         return command;
     }
 
-    private static async Task<int> Consolidate(string[] files, string outputPath)
+    private static async Task<int> Consolidate(string[] files, string outputPath, string? commitSha)
     {
         if (files.Length == 0)
         {
@@ -56,7 +59,25 @@ public static class ConsolidateCommand
             }
         }
 
-        var output = Reporter.GenerateMarkdownSummary(allVerdicts, model, judgeModel);
+        string? commitUrl = null;
+        if (commitSha is not null)
+        {
+            // Validate that the SHA contains only valid hex characters before embedding in a URL
+            if (!System.Text.RegularExpressions.Regex.IsMatch(commitSha, @"^[0-9a-fA-F]+$"))
+            {
+                Console.Error.WriteLine($"Warning: --commit value '{commitSha}' is not a valid git SHA; ignoring.");
+                commitSha = null;
+            }
+            else
+            {
+                var serverUrl = Environment.GetEnvironmentVariable("GITHUB_SERVER_URL");
+                var repo = Environment.GetEnvironmentVariable("GITHUB_REPOSITORY");
+                if (!string.IsNullOrEmpty(serverUrl) && !string.IsNullOrEmpty(repo))
+                    commitUrl = $"{serverUrl.TrimEnd('/')}/{repo}/commit/{commitSha}";
+            }
+        }
+
+        var output = Reporter.GenerateMarkdownSummary(allVerdicts, model, judgeModel, commitSha, commitUrl);
         await File.WriteAllTextAsync(outputPath, output);
         Console.WriteLine($"Consolidated {files.Length} result file(s) into {outputPath}");
         return 0;
