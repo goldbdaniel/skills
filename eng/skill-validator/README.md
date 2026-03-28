@@ -102,7 +102,7 @@ skill-validator check --skills ./plugins/my-plugin/skills
 skill-validator check --agents ./plugins/my-plugin/agents
 
 # Check with external dependency allow list
-skill-validator check --plugin ./plugins/my-plugin --allowed-external-deps ./eng/skill-validator/allowed-external-deps.txt
+skill-validator check --plugin ./plugins/my-plugin --allowed-external-deps ./eng/allowed-external-deps.txt
 
 # Verbose output
 skill-validator check --verbose --plugin ./plugins/my-plugin
@@ -116,6 +116,7 @@ skill-validator check --verbose --plugin ./plugins/my-plugin
 | `--skills <paths...>` | | Skill directories to check (skills only) |
 | `--agents <paths...>` | | Agent directories to check (agents only) |
 | `--allowed-external-deps <path>` | *(none)* | Path to allowed-external-deps.txt; when omitted the external-deps check is skipped |
+| `--known-domains <path>` | *(none)* | Path to known-domains.txt for reference scanning; when omitted the reference scan is skipped |
 | `--verbose` | `false` | Show detailed output |
 
 > Exactly one of `--plugin`, `--skills`, or `--agents` must be provided.
@@ -154,6 +155,8 @@ Results are displayed in the console with color-coded scores and metric deltas. 
 - `junit` — `results.xml` with JUnit XML test results
 - `markdown` — `summary.md` with a results table, plus per-skill directories with per-scenario judge reports
 
+See [Investigating Results](InvestigatingResults.md) for how to diagnose poor scores, download artifacts, and interpret `results.json`.
+
 ### Consolidating results across matrix jobs
 
 When evaluating multiple plugins in parallel CI matrix jobs, use the `consolidate` subcommand to merge individual `results.json` files into a single markdown summary:
@@ -174,6 +177,29 @@ skill-validator consolidate --output summary.md $(find ./all-results/ -name resu
 
 Each skill can include a `tests/eval.yaml`:
 
+### Per-eval configuration
+
+An optional top-level `config` section lets you override parallelism settings for a specific eval file. This is useful for resource-intensive evaluations (e.g., skills that spawn heavy child processes like ML.NET model training) where the default concurrency would exceed runner memory limits.
+
+```yaml
+config:
+  max_parallel_scenarios: 1   # cap concurrent scenarios (default: use CLI value)
+  max_parallel_runs: 2        # cap concurrent runs per scenario (default: use CLI value)
+
+scenarios:
+  - name: "Heavy scenario"
+    prompt: "..."
+```
+
+| Setting | Type | Description |
+|---------|------|-------------|
+| `max_parallel_scenarios` | `int` (optional) | Maximum concurrent scenarios for this eval. The effective value is `min(--parallel-scenarios, this value)`. |
+| `max_parallel_runs` | `int` (optional) | Maximum concurrent runs per scenario for this eval. The effective value is `min(--parallel-runs, this value)`. |
+
+Both settings are optional. When omitted, the CLI defaults (`--parallel-scenarios`, `--parallel-runs`) apply unchanged. The override can only *reduce* parallelism (via `Math.Min`), never increase it beyond the CLI value.
+
+### Scenarios
+
 ```yaml
 scenarios:
   - name: "Descriptive name of the scenario"
@@ -185,6 +211,10 @@ scenarios:
           content: "file content to create before the run"
         - path: "data.csv"
           source: "fixtures/sample-data.csv"  # relative to skill dir
+      additional_required_skills:       # skills needed by the target in isolated runs
+        - binlog-failure-analysis
+      additional_required_agents:        # agents needed by the target in isolated runs
+        - build-perf
     assertions:
       - type: "output_contains"
         value: "expected text"
@@ -230,6 +260,9 @@ scenarios:
 |--------|-------------|
 | `copy_test_files` | When `true`, copies all files from the eval directory (except `eval.yaml`) into the agent working directory before each run. Useful when test fixtures live alongside the eval file. |
 | `files` | Explicit list of files to create in the working directory. Each entry has a `path` and either inline `content` or a `source` path (relative to the skill directory). Applied after `copy_test_files`. |
+| `commands` | Shell commands to run in the work directory before the agent starts (e.g. `dotnet build -bl:build.binlog`). |
+| `additional_required_skills` | List of skill names (from the same plugin) to load in the **isolated** run alongside the target. Useful when an agent routes to specific skills or a skill depends on sibling skills. Does not affect baseline (nothing loaded) or plugin (everything loaded) runs. |
+| `additional_required_agents` | List of agent names (from the same plugin) to register in the **isolated** run alongside the target. Same semantics as `additional_required_skills` but for agents. |
 
 ### Scenario constraints
 
