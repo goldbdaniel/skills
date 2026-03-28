@@ -1437,6 +1437,53 @@
           "timestamp": "2026-03-26T14:00:24+00:00"
         },
         "model": "claude-opus-4.6"
+      },
+      {
+        "tool": "customSmallerIsBetter",
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "overfitting": "moderate",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "value": 16.4,
+            "unit": "seconds",
+            "overfittingScore": 0.3
+          },
+          {
+            "overfitting": "moderate",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "value": 27163.0,
+            "unit": "tokens",
+            "overfittingScore": 0.3
+          },
+          {
+            "value": 11.4,
+            "overfitting": "moderate",
+            "unit": "seconds",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
+            "notActivated": true,
+            "overfittingScore": 0.3
+          },
+          {
+            "value": 12654.0,
+            "overfitting": "moderate",
+            "unit": "tokens",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
+            "notActivated": true,
+            "overfittingScore": 0.3
+          }
+        ],
+        "date": 1774679183629,
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/c6be49514773dfa4c5827052cebe3703cd265682",
+          "message": "Create README.md for dotnet plugin (#460)",
+          "id": "c6be49514773dfa4c5827052cebe3703cd265682",
+          "author": {
+            "name": "Julien Couvreur",
+            "username": "danmoseley"
+          },
+          "timestamp": "2026-03-28T05:27:13+00:00"
+        }
       }
     ],
     "Quality": [
@@ -2603,9 +2650,46 @@
           "timestamp": "2026-03-26T14:00:24+00:00"
         },
         "model": "claude-opus-4.6"
+      },
+      {
+        "tool": "customBiggerIsBetter",
+        "model": "claude-opus-4.6",
+        "benches": [
+          {
+            "overfitting": "moderate",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "value": 8.0,
+            "unit": "Score (0-10)",
+            "overfittingScore": 0.3
+          },
+          {
+            "value": 8.0,
+            "overfitting": "moderate",
+            "unit": "Score (0-10)",
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
+            "notActivated": true,
+            "overfittingScore": 0.3
+          },
+          {
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
+            "value": 10.0,
+            "unit": "Score (0-10)"
+          }
+        ],
+        "date": 1774679183629,
+        "commit": {
+          "url": "https://github.com/dotnet/skills/commit/c6be49514773dfa4c5827052cebe3703cd265682",
+          "message": "Create README.md for dotnet plugin (#460)",
+          "id": "c6be49514773dfa4c5827052cebe3703cd265682",
+          "author": {
+            "name": "Julien Couvreur",
+            "username": "danmoseley"
+          },
+          "timestamp": "2026-03-28T05:27:13+00:00"
+        }
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774595379823
+  "lastUpdate": 1774679183629
 }
