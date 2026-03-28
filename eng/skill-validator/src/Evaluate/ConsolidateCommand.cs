@@ -1,4 +1,5 @@
 using System.CommandLine;
+using System.Text.RegularExpressions;
 
 namespace SkillValidator.Evaluate;
 
@@ -63,7 +64,7 @@ public static class ConsolidateCommand
         if (commitSha is not null)
         {
             // Validate that the SHA contains only valid hex characters before embedding in a URL
-            if (!System.Text.RegularExpressions.Regex.IsMatch(commitSha, @"^[0-9a-fA-F]+$"))
+            if (!Regex.IsMatch(commitSha, @"^[0-9a-f]+$", RegexOptions.IgnoreCase))
             {
                 Console.Error.WriteLine($"Warning: --commit value '{commitSha}' is not a valid git SHA; ignoring.");
                 commitSha = null;
