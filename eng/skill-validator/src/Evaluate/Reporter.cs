@@ -634,8 +634,9 @@ public static class Reporter
             $"Model: {model ?? "unknown"}",
             $"Judge: {judgeModel ?? "unknown"}",
         };
-        if (commitSha is not null)
+        if (!string.IsNullOrWhiteSpace(commitSha))
         {
+            commitSha = commitSha.Trim();
             const int ShortShaLength = 7;
             var shortSha = commitSha.Length > ShortShaLength ? commitSha[..ShortShaLength] : commitSha;
             var commitPart = commitUrl is not null
