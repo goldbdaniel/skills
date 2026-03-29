@@ -66,7 +66,7 @@ public static class ConsolidateCommand
             // Validate that the SHA contains only valid hex characters before embedding in a URL
             if (!Regex.IsMatch(commitSha, @"^[0-9a-f]+$", RegexOptions.IgnoreCase))
             {
-                Console.Error.WriteLine($"Warning: --commit value '{commitSha}' is not a valid git SHA; ignoring.");
+                Console.Error.WriteLine($"Warning: --commit value '{commitSha}' contains non-hex characters; ignoring.");
                 commitSha = null;
             }
             else
