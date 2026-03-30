@@ -2,96 +2,6 @@
   "entries": {
     "Efficiency": [
       {
-        "model": "claude-opus-4.6",
-        "tool": "customSmallerIsBetter",
-        "date": 1773481323685,
-        "commit": {
-          "message": "Reduce false positives in reference scanner (#360)",
-          "author": {
-            "username": "danmoseley",
-            "name": "Dan Moseley"
-          },
-          "url": "https://github.com/dotnet/skills/commit/a0f77070f511ed6c16f2918d1033c9b1c807acd5",
-          "id": "a0f77070f511ed6c16f2918d1033c9b1c807acd5",
-          "timestamp": "2026-03-14T06:47:37+00:00"
-        },
-        "benches": [
-          {
-            "value": 11.0,
-            "overfitting": "moderate",
-            "unit": "seconds",
-            "overfittingScore": 0.22,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time"
-          },
-          {
-            "value": 17939.0,
-            "overfitting": "moderate",
-            "unit": "tokens",
-            "overfittingScore": 0.22,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In"
-          },
-          {
-            "value": 11.5,
-            "overfitting": "moderate",
-            "unit": "seconds",
-            "overfittingScore": 0.22,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time"
-          },
-          {
-            "value": 17910.0,
-            "overfitting": "moderate",
-            "unit": "tokens",
-            "overfittingScore": 0.22,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In"
-          }
-        ]
-      },
-      {
-        "tool": "customSmallerIsBetter",
-        "date": 1773567884846,
-        "model": "claude-opus-4.6",
-        "benches": [
-          {
-            "overfitting": "moderate",
-            "overfittingScore": 0.26,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
-            "value": 15.4,
-            "unit": "seconds"
-          },
-          {
-            "overfitting": "moderate",
-            "overfittingScore": 0.26,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
-            "value": 23630.0,
-            "unit": "tokens"
-          },
-          {
-            "overfitting": "moderate",
-            "overfittingScore": 0.26,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
-            "value": 13.1,
-            "unit": "seconds"
-          },
-          {
-            "overfitting": "moderate",
-            "overfittingScore": 0.26,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
-            "value": 17944.0,
-            "unit": "tokens"
-          }
-        ],
-        "commit": {
-          "id": "1b8f2aa1e4e691c8176312829f67e367cdfc1862",
-          "url": "https://github.com/dotnet/skills/commit/1b8f2aa1e4e691c8176312829f67e367cdfc1862",
-          "timestamp": "2026-03-15T06:45:40+00:00",
-          "message": "Address Copilot review comments on test agent/skills (#351)",
-          "author": {
-            "username": "danmoseley",
-            "name": "Amaury Levé"
-          }
-        }
-      },
-      {
         "commit": {
           "author": {
             "username": "danmoseley",
@@ -1484,81 +1394,56 @@
           },
           "timestamp": "2026-03-28T05:27:13+00:00"
         }
-      }
-    ],
-    "Quality": [
-      {
-        "model": "claude-opus-4.6",
-        "tool": "customBiggerIsBetter",
-        "date": 1773481323685,
-        "commit": {
-          "message": "Reduce false positives in reference scanner (#360)",
-          "author": {
-            "username": "danmoseley",
-            "name": "Dan Moseley"
-          },
-          "url": "https://github.com/dotnet/skills/commit/a0f77070f511ed6c16f2918d1033c9b1c807acd5",
-          "id": "a0f77070f511ed6c16f2918d1033c9b1c807acd5",
-          "timestamp": "2026-03-14T06:47:37+00:00"
-        },
-        "benches": [
-          {
-            "value": 8.399999618530273,
-            "overfitting": "moderate",
-            "unit": "Score (0-10)",
-            "overfittingScore": 0.22,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality"
-          },
-          {
-            "value": 8.399999618530273,
-            "overfitting": "moderate",
-            "unit": "Score (0-10)",
-            "overfittingScore": 0.22,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality"
-          },
-          {
-            "value": 8.0,
-            "unit": "Score (0-10)",
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality"
-          }
-        ]
       },
       {
-        "tool": "customBiggerIsBetter",
-        "date": 1773567884846,
         "model": "claude-opus-4.6",
+        "date": 1774868229507,
+        "tool": "customSmallerIsBetter",
         "benches": [
           {
+            "value": 23.5,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Time",
+            "unit": "seconds",
             "overfitting": "moderate",
-            "overfittingScore": 0.26,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
-            "value": 8.800000190734863,
-            "unit": "Score (0-10)"
+            "overfittingScore": 0.31
           },
           {
+            "value": 27245.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Tokens In",
+            "unit": "tokens",
             "overfitting": "moderate",
-            "overfittingScore": 0.26,
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
-            "value": 8.399999618530273,
-            "unit": "Score (0-10)"
+            "overfittingScore": 0.31
           },
           {
-            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
-            "value": 9.199999809265137,
-            "unit": "Score (0-10)"
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "value": 13.8,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Time",
+            "notActivated": true,
+            "overfittingScore": 0.31
+          },
+          {
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "value": 12719.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Tokens In",
+            "notActivated": true,
+            "overfittingScore": 0.31
           }
         ],
         "commit": {
-          "id": "1b8f2aa1e4e691c8176312829f67e367cdfc1862",
-          "url": "https://github.com/dotnet/skills/commit/1b8f2aa1e4e691c8176312829f67e367cdfc1862",
-          "timestamp": "2026-03-15T06:45:40+00:00",
-          "message": "Address Copilot review comments on test agent/skills (#351)",
+          "message": "Exclude doc-only .md files from evaluation infra change detection (#466)",
           "author": {
-            "username": "danmoseley",
-            "name": "Amaury Levé"
-          }
+            "username": "ViktorHofer",
+            "name": "Dan Moseley"
+          },
+          "timestamp": "2026-03-30T09:53:37+00:00",
+          "id": "17376fd82d5ca34dad1fb32f34f1e8af58d8f10c",
+          "url": "https://github.com/dotnet/skills/commit/17376fd82d5ca34dad1fb32f34f1e8af58d8f10c"
         }
-      },
+      }
+    ],
+    "Quality": [
       {
         "commit": {
           "author": {
@@ -2687,9 +2572,46 @@
           },
           "timestamp": "2026-03-28T05:27:13+00:00"
         }
+      },
+      {
+        "model": "claude-opus-4.6",
+        "date": 1774868229507,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "value": 8.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.31
+          },
+          {
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "value": 10.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Plugin Quality",
+            "notActivated": true,
+            "overfittingScore": 0.31
+          },
+          {
+            "value": 10.0,
+            "name": "optimizing-ef-core-queries/Optimize bulk operations with EF Core 7+ ExecuteUpdate and ExecuteDelete - Vanilla Quality",
+            "unit": "Score (0-10)"
+          }
+        ],
+        "commit": {
+          "message": "Exclude doc-only .md files from evaluation infra change detection (#466)",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Dan Moseley"
+          },
+          "timestamp": "2026-03-30T09:53:37+00:00",
+          "id": "17376fd82d5ca34dad1fb32f34f1e8af58d8f10c",
+          "url": "https://github.com/dotnet/skills/commit/17376fd82d5ca34dad1fb32f34f1e8af58d8f10c"
+        }
       }
     ]
   },
   "repoUrl": "",
-  "lastUpdate": 1774679183629
+  "lastUpdate": 1774868229507
 }

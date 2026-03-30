@@ -902,6 +902,206 @@
           },
           "timestamp": "2026-03-28T05:27:13+00:00"
         }
+      },
+      {
+        "model": "claude-opus-4.6",
+        "date": 1774868233426,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "value": 10.0,
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 2.0,
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 2.0,
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 4.0,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 6.0,
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Skilled Quality",
+            "unit": "Score (0-10)",
+            "timedOut": true
+          },
+          {
+            "value": 8.0,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Plugin Quality",
+            "unit": "Score (0-10)",
+            "timedOut": true
+          },
+          {
+            "value": 2.0,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-maintainability/Recommend data-driven patterns with display names for unclear parameters - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-maintainability/Recommend data-driven patterns with display names for unclear parameters - Plugin Quality",
+            "unit": "Score (0-10)",
+            "notActivated": true
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-maintainability/Recommend data-driven patterns with display names for unclear parameters - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-maintainability/Recognize well-maintained tests that need minimal changes - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-maintainability/Recognize well-maintained tests that need minimal changes - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-maintainability/Recognize well-maintained tests that need minimal changes - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 6.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Vanilla Quality",
+            "unit": "Score (0-10)"
+          }
+        ],
+        "commit": {
+          "message": "Exclude doc-only .md files from evaluation infra change detection (#466)",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Dan Moseley"
+          },
+          "timestamp": "2026-03-30T09:53:37+00:00",
+          "id": "17376fd82d5ca34dad1fb32f34f1e8af58d8f10c",
+          "url": "https://github.com/dotnet/skills/commit/17376fd82d5ca34dad1fb32f34f1e8af58d8f10c"
+        }
       }
     ],
     "Efficiency": [
@@ -2151,8 +2351,271 @@
           },
           "timestamp": "2026-03-28T05:27:13+00:00"
         }
+      },
+      {
+        "model": "claude-opus-4.6",
+        "date": 1774868233426,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "value": 74.6,
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 216972.0,
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 91.2,
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 290621.0,
+            "name": "exp-simd-vectorization/Optimize manual min/max with TensorPrimitives - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 69.3,
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 247347.0,
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 69.9,
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 214609.0,
+            "name": "exp-simd-vectorization/Optimize manual product with TensorPrimitives - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 43.6,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 44044.0,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 60.2,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 84691.0,
+            "name": "exp-simd-vectorization/No optimization opportunity — dictionary-based lookup service - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 35.6,
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 79774.0,
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 44.6,
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 81479.0,
+            "name": "exp-simd-vectorization/Optimize int array conditional increment with SIMD - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 180.1,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Skilled Time",
+            "unit": "seconds",
+            "timedOut": true
+          },
+          {
+            "value": 190028.0,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Skilled Tokens In",
+            "unit": "tokens",
+            "timedOut": true
+          },
+          {
+            "value": 132.3,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Plugin Time",
+            "unit": "seconds",
+            "timedOut": true
+          },
+          {
+            "value": 101370.0,
+            "name": "exp-simd-vectorization/Optimize byte buffer bit reversal with SIMD - Plugin Tokens In",
+            "unit": "tokens",
+            "timedOut": true
+          },
+          {
+            "value": 25.3,
+            "name": "exp-test-maintainability/Recommend data-driven patterns with display names for unclear parameters - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 27630.0,
+            "name": "exp-test-maintainability/Recommend data-driven patterns with display names for unclear parameters - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 18.7,
+            "name": "exp-test-maintainability/Recommend data-driven patterns with display names for unclear parameters - Plugin Time",
+            "unit": "seconds",
+            "notActivated": true
+          },
+          {
+            "value": 13982.0,
+            "name": "exp-test-maintainability/Recommend data-driven patterns with display names for unclear parameters - Plugin Tokens In",
+            "unit": "tokens",
+            "notActivated": true
+          },
+          {
+            "value": 28.2,
+            "name": "exp-test-maintainability/Recognize well-maintained tests that need minimal changes - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 27258.0,
+            "name": "exp-test-maintainability/Recognize well-maintained tests that need minimal changes - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 25.7,
+            "name": "exp-test-maintainability/Recognize well-maintained tests that need minimal changes - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 27436.0,
+            "name": "exp-test-maintainability/Recognize well-maintained tests that need minimal changes - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 138.9,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 375047.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 163.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 370386.0,
+            "name": "exp-test-tagging/Tag an untagged MSTest test suite - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 126.1,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 369453.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 144.5,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 463385.0,
+            "name": "exp-test-tagging/Tag an untagged xUnit test suite - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 145.5,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 353536.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 134.8,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 293083.0,
+            "name": "exp-test-tagging/Tag an untagged NUnit test suite - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 92.6,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 66087.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 59.1,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 66822.0,
+            "name": "exp-test-tagging/Audit test distribution without modifying files - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 39.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 41495.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 37.2,
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 42236.0,
+            "name": "exp-test-tagging/Decline request to write new tests - Plugin Tokens In",
+            "unit": "tokens"
+          }
+        ],
+        "commit": {
+          "message": "Exclude doc-only .md files from evaluation infra change detection (#466)",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Dan Moseley"
+          },
+          "timestamp": "2026-03-30T09:53:37+00:00",
+          "id": "17376fd82d5ca34dad1fb32f34f1e8af58d8f10c",
+          "url": "https://github.com/dotnet/skills/commit/17376fd82d5ca34dad1fb32f34f1e8af58d8f10c"
+        }
       }
     ]
   },
-  "lastUpdate": 1774679188020
+  "lastUpdate": 1774868233426
 }
