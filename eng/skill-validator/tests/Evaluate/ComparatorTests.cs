@@ -279,4 +279,29 @@ public class CompareScenarioWithPairwiseTests
         Assert.Equal(1.0, withPairwise.Breakdown.OverallJudgmentImprovement);
         Assert.Equal(pairwise, withPairwise.PairwiseResult);
     }
+
+    [Fact]
+    public void KeepsRubricScoresWhenPairwiseIsInconsistent()
+    {
+        var baseline = MakeRunResult(overallScore: 2, rubricScores: [new RubricScore("Q", 2, "")]);
+        var withSkill = MakeRunResult(overallScore: 4, rubricScores: [new RubricScore("Q", 4, "")]);
+
+        // Without pairwise, rubric-based quality should show improvement
+        var noPairwise = Comparator.CompareScenario("test", baseline, withSkill);
+        Assert.True(noPairwise.Breakdown.QualityImprovement > 0);
+        Assert.True(noPairwise.Breakdown.OverallJudgmentImprovement > 0);
+        double rubricQuality = noPairwise.Breakdown.QualityImprovement;
+        double rubricOverall = noPairwise.Breakdown.OverallJudgmentImprovement;
+
+        // With position-swap-inconsistent pairwise, should keep rubric scores (not zero them)
+        var inconsistentPairwise = new PairwiseJudgeResult(
+            [new PairwiseRubricResult("Q", "tie", PairwiseMagnitude.Equal, "inconsistent")],
+            "tie",
+            PairwiseMagnitude.Equal,
+            "Position-swap inconsistent",
+            PositionSwapConsistent: false);
+        var withInconsistent = Comparator.CompareScenario("test", baseline, withSkill, inconsistentPairwise);
+        Assert.Equal(rubricQuality, withInconsistent.Breakdown.QualityImprovement);
+        Assert.Equal(rubricOverall, withInconsistent.Breakdown.OverallJudgmentImprovement);
+    }
 }

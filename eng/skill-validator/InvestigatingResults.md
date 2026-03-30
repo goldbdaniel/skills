@@ -221,11 +221,12 @@ Several scenario-level options in `eval.yaml` are relevant when diagnosing failu
 - `overallJudgmentImprovement` is -0.4 even though quality scores are similar
 - Pairwise judge is inconsistent between position-swapped runs
 
-**Cause:** When outputs are nearly equal, the judge's position bias can dominate. The position-swap mitigation defaults to "tie" on inconsistency, but the weighted scoring still penalizes.
+**Cause:** When outputs are nearly equal, the judge's position bias can dominate. The position-swap mitigation defaults to "tie" on inconsistency. When this happens, the Comparator falls back to rubric-based quality scores instead of using the (zeroed-out) pairwise scores.
 
 **Fixes:**
 - This is usually noise — re-run the eval to see if it persists
 - If it consistently happens, improve the skill to produce clearly differentiated output
+- Check `pairwiseResult.positionSwapConsistent` — when `false`, the quality/overall scores come from rubric scoring, not pairwise
 
 ### 8. Baseline already good (no headroom)
 

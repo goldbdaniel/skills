@@ -21,8 +21,11 @@ public static class Comparator
             OverallJudgmentImprovement: NormalizeScoreImprovement(baseline.JudgeResult.OverallScore, withSkill.JudgeResult.OverallScore),
             ErrorReduction: ComputeReduction(baseline.Metrics.ErrorCount, withSkill.Metrics.ErrorCount));
 
-        // Override quality scores with pairwise results when available
-        if (pairwiseResult is not null)
+        // Override quality scores with pairwise results when consistent.
+        // When position-swap-inconsistent, keep the rubric-based scores —
+        // zeroing out 70% of the score on a noisy comparison is worse than
+        // using the (noisier but non-zero) rubric-based quality signal.
+        if (pairwiseResult is not null && pairwiseResult.PositionSwapConsistent)
         {
             var pairwiseScores = PairwiseJudge.PairwiseToQualityScore(pairwiseResult);
             breakdown = breakdown with
