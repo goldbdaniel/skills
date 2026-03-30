@@ -1,5 +1,5 @@
 {
-  "lastUpdate": 1774679189662,
+  "lastUpdate": 1774868235035,
   "repoUrl": "",
   "entries": {
     "Efficiency": [
@@ -6343,6 +6343,239 @@
           },
           "timestamp": "2026-03-28T05:27:13+00:00"
         }
+      },
+      {
+        "model": "claude-opus-4.6",
+        "date": 1774868235035,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "value": 52.9,
+            "name": "convert-to-cpm/Decline CPM conversion for packages.config project - Skilled Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 68225.0,
+            "name": "convert-to-cpm/Decline CPM conversion for packages.config project - Skilled Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 71.2,
+            "name": "convert-to-cpm/Decline CPM conversion for packages.config project - Plugin Time",
+            "unit": "seconds"
+          },
+          {
+            "value": 96465.0,
+            "name": "convert-to-cpm/Decline CPM conversion for packages.config project - Plugin Tokens In",
+            "unit": "tokens"
+          },
+          {
+            "value": 182.4,
+            "name": "convert-to-cpm/Recommend CPM when updating packages with version conflicts - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 223166.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages with version conflicts - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 77.6,
+            "name": "convert-to-cpm/Recommend CPM when updating packages with version conflicts - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 64160.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages with version conflicts - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 168.1,
+            "name": "convert-to-cpm/Recommend CPM when updating packages in a complex repository - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 313877.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages in a complex repository - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 146.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages in a complex repository - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 215678.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages in a complex repository - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 130.8,
+            "name": "convert-to-cpm/Convert single project to CPM - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 199070.0,
+            "name": "convert-to-cpm/Convert single project to CPM - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 158.8,
+            "name": "convert-to-cpm/Convert single project to CPM - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 194187.0,
+            "name": "convert-to-cpm/Convert single project to CPM - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 107.9,
+            "name": "convert-to-cpm/Convert multi-project solution to CPM - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 213349.0,
+            "name": "convert-to-cpm/Convert multi-project solution to CPM - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 131.4,
+            "name": "convert-to-cpm/Convert multi-project solution to CPM - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 215025.0,
+            "name": "convert-to-cpm/Convert multi-project solution to CPM - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 141.5,
+            "name": "convert-to-cpm/Convert solution with MSBuild property versions to CPM - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 347892.0,
+            "name": "convert-to-cpm/Convert solution with MSBuild property versions to CPM - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 142.1,
+            "name": "convert-to-cpm/Convert solution with MSBuild property versions to CPM - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 312157.0,
+            "name": "convert-to-cpm/Convert solution with MSBuild property versions to CPM - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 177.1,
+            "name": "convert-to-cpm/Convert solution with version conflicts to CPM - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 178250.0,
+            "name": "convert-to-cpm/Convert solution with version conflicts to CPM - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 124.1,
+            "name": "convert-to-cpm/Convert solution with version conflicts to CPM - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 243605.0,
+            "name": "convert-to-cpm/Convert solution with version conflicts to CPM - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 191.3,
+            "name": "convert-to-cpm/Convert complex repository with multiple CPM challenges - Skilled Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 386936.0,
+            "name": "convert-to-cpm/Convert complex repository with multiple CPM challenges - Skilled Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 331.7,
+            "name": "convert-to-cpm/Convert complex repository with multiple CPM challenges - Plugin Time",
+            "unit": "seconds",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 317631.0,
+            "name": "convert-to-cpm/Convert complex repository with multiple CPM challenges - Plugin Tokens In",
+            "unit": "tokens",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          }
+        ],
+        "commit": {
+          "message": "Exclude doc-only .md files from evaluation infra change detection (#466)",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Dan Moseley"
+          },
+          "timestamp": "2026-03-30T09:53:37+00:00",
+          "id": "17376fd82d5ca34dad1fb32f34f1e8af58d8f10c",
+          "url": "https://github.com/dotnet/skills/commit/17376fd82d5ca34dad1fb32f34f1e8af58d8f10c"
+        }
       }
     ],
     "Quality": [
@@ -11018,6 +11251,171 @@
             "username": "danmoseley"
           },
           "timestamp": "2026-03-28T05:27:13+00:00"
+        }
+      },
+      {
+        "model": "claude-opus-4.6",
+        "date": 1774868235035,
+        "tool": "customBiggerIsBetter",
+        "benches": [
+          {
+            "value": 2.0,
+            "name": "convert-to-cpm/Decline CPM conversion for packages.config project - Skilled Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Decline CPM conversion for packages.config project - Plugin Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 2.0,
+            "name": "convert-to-cpm/Decline CPM conversion for packages.config project - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 6.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages with version conflicts - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 6.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages with version conflicts - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages with version conflicts - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages in a complex repository - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages in a complex repository - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Recommend CPM when updating packages in a complex repository - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "convert-to-cpm/Convert single project to CPM - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 10.0,
+            "name": "convert-to-cpm/Convert single project to CPM - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Convert single project to CPM - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 10.0,
+            "name": "convert-to-cpm/Convert multi-project solution to CPM - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 10.0,
+            "name": "convert-to-cpm/Convert multi-project solution to CPM - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Convert multi-project solution to CPM - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "convert-to-cpm/Convert solution with MSBuild property versions to CPM - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 8.0,
+            "name": "convert-to-cpm/Convert solution with MSBuild property versions to CPM - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Convert solution with MSBuild property versions to CPM - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "convert-to-cpm/Convert solution with version conflicts to CPM - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 8.0,
+            "name": "convert-to-cpm/Convert solution with version conflicts to CPM - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 4.0,
+            "name": "convert-to-cpm/Convert solution with version conflicts to CPM - Vanilla Quality",
+            "unit": "Score (0-10)"
+          },
+          {
+            "value": 8.0,
+            "name": "convert-to-cpm/Convert complex repository with multiple CPM challenges - Skilled Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 8.0,
+            "name": "convert-to-cpm/Convert complex repository with multiple CPM challenges - Plugin Quality",
+            "unit": "Score (0-10)",
+            "overfitting": "moderate",
+            "overfittingScore": 0.25
+          },
+          {
+            "value": 6.0,
+            "name": "convert-to-cpm/Convert complex repository with multiple CPM challenges - Vanilla Quality",
+            "unit": "Score (0-10)"
+          }
+        ],
+        "commit": {
+          "message": "Exclude doc-only .md files from evaluation infra change detection (#466)",
+          "author": {
+            "username": "ViktorHofer",
+            "name": "Dan Moseley"
+          },
+          "timestamp": "2026-03-30T09:53:37+00:00",
+          "id": "17376fd82d5ca34dad1fb32f34f1e8af58d8f10c",
+          "url": "https://github.com/dotnet/skills/commit/17376fd82d5ca34dad1fb32f34f1e8af58d8f10c"
         }
       }
     ]
