@@ -9,6 +9,13 @@ scenarios:
       package references and make any necessary project configuration changes.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -74,6 +81,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "LegacyTests.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -118,6 +132,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -181,6 +202,13 @@ scenarios:
       attention to any attribute usages that may have changed.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -249,6 +277,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -332,6 +367,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -405,6 +447,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -468,6 +517,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -534,6 +590,13 @@ scenarios:
       uses Central Package Management with Directory.Packages.props.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -600,6 +663,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -654,6 +724,13 @@ scenarios:
       xunit.abstractions separately.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
@@ -713,6 +790,13 @@ scenarios:
       Migrate this test project from xUnit.net v2 to xUnit.net v3.
     setup:
       files:
+        - path: "global.json"
+          content: |
+            {
+              "test": {
+                "runner": "VSTest"
+              }
+            }
         - path: "TestProject.csproj"
           content: |
             <Project Sdk="Microsoft.NET.Sdk">
