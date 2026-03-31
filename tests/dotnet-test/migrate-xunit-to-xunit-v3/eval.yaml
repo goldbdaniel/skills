@@ -53,6 +53,11 @@ scenarios:
         pattern: "(OutputType|Exe)"
       - type: "output_matches"
         pattern: "(IsTestingPlatformApplication|false)"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Replaces 'xunit' package reference with 'xunit.v3'"
       - "Sets OutputType to Exe in the test project"
@@ -155,6 +160,11 @@ scenarios:
         pattern: "async\\s+Task"
       - type: "output_not_matches"
         pattern: "async\\s+void\\s+(GetUser|ProcessItem)"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Changes 'async void' to 'async Task' for test methods decorated with [Fact] or [Theory]"
       - "Applies the change to both GetUser_ReturnsExpectedName and ProcessItem_Completes methods"
@@ -219,6 +229,11 @@ scenarios:
         pattern: "typeof"
       - type: "output_not_matches"
         pattern: "CollectionBehavior\\(\\s*\"MyApp"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Converts CollectionBehavior from string-based constructor ('namespace.type', 'assembly') to typeof() syntax"
       - "Converts TestCaseOrderer from string-based constructor to typeof() syntax"
@@ -296,6 +311,11 @@ scenarios:
         pattern: "CallerFilePath"
       - type: "output_matches"
         pattern: "CallerLineNumber"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Adds [CallerFilePath] string? sourceFilePath = null parameter to the RetryFactAttribute constructor"
       - "Adds [CallerLineNumber] int sourceLineNumber = -1 parameter to the RetryFactAttribute constructor"
@@ -364,6 +384,11 @@ scenarios:
     assertions:
       - type: "output_matches"
         pattern: "IXunitTest"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Adds IXunitTest parameter to the Before(MethodInfo, IXunitTest) method override"
       - "Adds IXunitTest parameter to the After(MethodInfo, IXunitTest) method override"
@@ -422,6 +447,11 @@ scenarios:
         pattern: "UseMicrosoftTestingPlatformRunner"
       - type: "output_not_matches"
         pattern: "IsTestingPlatformApplication.{0,5}false"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Removes the YTest.MTP.XUnit2 package reference entirely"
       - "Adds UseMicrosoftTestingPlatformRunner=true to Directory.Build.props to preserve MTP"
@@ -481,6 +511,11 @@ scenarios:
         pattern: "(Assert\\.SkipWhen|Assert\\.SkipUnless)"
       - type: "output_not_matches"
         pattern: "SkippableFact.{0,10}Version"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Removes the Xunit.SkippableFact package reference entirely"
       - "Converts [SkippableFact] to the regular [Fact] attribute"
@@ -544,6 +579,11 @@ scenarios:
         pattern: "(Directory\\.Packages\\.props|PackageVersion)"
       - type: "output_matches"
         pattern: "xunit\\.v3"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Updates PackageVersion entries in Directory.Packages.props (not just the csproj)"
       - "Renames xunit PackageVersion to xunit.v3 with appropriate version in Directory.Packages.props"
@@ -592,6 +632,11 @@ scenarios:
     assertions:
       - type: "output_matches"
         pattern: "(already|no.{0,30}migration|not.{0,20}need|already.{0,20}(v3|migrated|done))"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Correctly identifies that the project already references xunit.v3 packages"
       - "Does NOT make unnecessary changes to package references or project configuration"
@@ -647,6 +692,11 @@ scenarios:
         pattern: "xunit\\.v3\\.extensibility"
       - type: "output_not_matches"
         pattern: "using Xunit\\.Abstractions;"
+      - type: run_command_and_assert
+        command_to_run: "dotnet"
+        command_arguments: "test"
+        expected_exit_code: 0
+        command_timeout: 120
     rubric:
       - "Consolidates xunit.extensibility.core and xunit.extensibility.execution into a single xunit.v3.extensibility.core reference"
       - "Removes the xunit.abstractions package reference entirely"
