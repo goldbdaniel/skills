@@ -102,7 +102,7 @@ In xUnit.net v3, some attributes were updated so that they accept a `System.Type
 - `TestCollectionOrdererAttribute`
 - `TestFrameworkAttribute`
 
-For example, `[assembly: CollectionBehavior("MyNamespace.MyCollectionFactory", "MyAssembly")]` must be converted to `[assembly: CollectionBehavior(typeof(MyCollectionFactory))]`.
+For example, `[assembly: CollectionBehavior("MyNamespace.MyCollectionFactory", "MyAssembly")]` must be converted to `[assembly: CollectionBehavior(typeof(MyNamespace.MyCollectionFactory))]`.
 
 ### Step 9: Inheriting from FactAttribute or TheoryAttribute
 
@@ -133,7 +133,7 @@ internal sealed class MyFactAttribute : FactAttribute
 
 ### Step 10: Inheriting from BeforeAfterTestAttribute
 
-Identify if there are any custom attributes that inherit from `BeforeAfterTestAttribute`. These custom user-defined attributes must update their method signatures. Previously, they would have `Before`/`After` overrides that look liks this:
+Identify if there are any custom attributes that inherit from `BeforeAfterTestAttribute`. These custom user-defined attributes must update their method signatures. Previously, they would have `Before`/`After` overrides that look like this:
 
 ```csharp
     public override void Before(MethodInfo methodUnderTest)
@@ -151,7 +151,7 @@ Identify if there are any custom attributes that inherit from `BeforeAfterTestAt
     }
 ```
 
-it must be changed tho this:
+it must be changed to this:
 
 ```csharp
     public override void Before(MethodInfo methodUnderTest, IXunitTest test)
@@ -207,4 +207,4 @@ Fix any straightforward errors that show up, and keep iterating and fixing more.
 
 You can also look into https://xunit.net/docs/getting-started/v3/migration-extensibility and https://xunit.net/docs/getting-started/v3/migration to help with the remaining compilation errors.
 
-You can fix as much as you can, and it's okay if not everything is fixed. Just tell the user that there are remaining errors that needs to be manually addressed.
+You can fix as much as you can, and it's okay if not everything is fixed. Just tell the user that there are remaining errors that need to be manually addressed.
