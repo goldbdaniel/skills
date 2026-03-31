@@ -26,7 +26,7 @@ scenarios:
                 <IsPackable>false</IsPackable>
               </PropertyGroup>
               <ItemGroup>
-                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
               </ItemGroup>
@@ -95,6 +95,7 @@ scenarios:
                 <TargetFramework>net462</TargetFramework>
               </PropertyGroup>
               <ItemGroup>
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
               </ItemGroup>
@@ -148,6 +149,7 @@ scenarios:
                 <Nullable>enable</Nullable>
               </PropertyGroup>
               <ItemGroup>
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
               </ItemGroup>
@@ -218,6 +220,7 @@ scenarios:
                 <Nullable>enable</Nullable>
               </PropertyGroup>
               <ItemGroup>
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
               </ItemGroup>
@@ -293,6 +296,7 @@ scenarios:
                 <Nullable>enable</Nullable>
               </PropertyGroup>
               <ItemGroup>
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
               </ItemGroup>
@@ -383,6 +387,7 @@ scenarios:
                 <Nullable>enable</Nullable>
               </PropertyGroup>
               <ItemGroup>
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
               </ItemGroup>
@@ -451,7 +456,7 @@ scenarios:
           content: |
             {
               "test": {
-                "runner": "VSTest"
+                "runner": "Microsoft.Testing.Platform"
               }
             }
         - path: "TestProject.csproj"
@@ -464,7 +469,6 @@ scenarios:
               </PropertyGroup>
               <ItemGroup>
                 <PackageReference Include="xunit" Version="2.9.3" />
-                <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
                 <PackageReference Include="YTest.MTP.XUnit2" Version="1.0.0" />
               </ItemGroup>
             </Project>
@@ -533,6 +537,7 @@ scenarios:
                 <Nullable>enable</Nullable>
               </PropertyGroup>
               <ItemGroup>
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
                 <PackageReference Include="Xunit.SkippableFact" Version="1.4.13" />
@@ -618,7 +623,7 @@ scenarios:
                 <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
               </PropertyGroup>
               <ItemGroup>
-                <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+                <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageVersion Include="xunit" Version="2.9.3" />
                 <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
               </ItemGroup>
@@ -744,6 +749,7 @@ scenarios:
                 <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
                 <PackageReference Include="xunit.extensibility.execution" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
               </ItemGroup>
             </Project>
         - path: "CustomDiscoverer.cs"
@@ -808,6 +814,7 @@ scenarios:
               <ItemGroup>
                 <PackageReference Include="xunit" Version="2.9.3" />
                 <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+                <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.3.0" />
                 <PackageReference Include="Xunit.Combinatorial" Version="1.6.24" />
                 <PackageReference Include="Xunit.StaFact" Version="1.1.11" />
               </ItemGroup>
