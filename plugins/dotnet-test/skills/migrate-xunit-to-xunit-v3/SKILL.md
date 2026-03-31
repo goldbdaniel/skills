@@ -21,7 +21,7 @@ Migrate .NET test projects from xUnit.net v2 to xUnit.net v3. The outcome is a s
 
 - Migrating between test frameworks (e.g., MSTest or NUnit to xUnit.net) — different effort entirely
 - Migrating from VSTest to Microsoft.Testing.Platform — use `migrate-vstest-to-mtp`
-- The projects already references `xunit.v3` — migration is done
+- The projects already reference `xunit.v3` — migration is done
 
 ## Inputs
 
