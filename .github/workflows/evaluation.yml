@@ -640,7 +640,6 @@ jobs:
           if [ -n "$JSON_FILES" ] && [ -x "$VALIDATOR" ]; then
             "$VALIDATOR" evaluate consolidate \
               --output summary-body.md \
-              --commit "${{ needs.gate.outputs.head_sha }}" \
               $JSON_FILES
 
             # Create a simplified table for the PR comment by stripping
@@ -664,6 +663,14 @@ jobs:
               prev = is_tbl
           open('simplified-body.md', 'w').write('\n'.join(result))
           PY
+
+            # Append commit link to the footer line (Model: ... | Judge: ...)
+            HEAD_SHA="${{ needs.gate.outputs.head_sha }}"
+            if [ -n "$HEAD_SHA" ]; then
+              SHORT_SHA="${HEAD_SHA:0:7}"
+              COMMIT_URL="${{ github.server_url }}/${{ github.repository }}/commit/${HEAD_SHA}"
+              sed -i "s@\(Model:.*\)@\1 | Commit: [${SHORT_SHA}](${COMMIT_URL})@" simplified-body.md
+            fi
 
             {
               cat simplified-body.md
