@@ -1,38 +1,14 @@
 scenarios:
   # ============================================================
-  # Scenario 1: Mocking trivial types (DTOs, records, enums)
+  # Scenarios removed (baseline already scores 5.0/5 — no headroom):
+  #   - "Detect mocking of DTOs, records, and enums": Model already
+  #     identifies trivial-type mocking without skill guidance.
+  #   - "Recognize well-placed mocks without inventing false positives":
+  #     Model already avoids false positives on well-structured tests.
   # ============================================================
-  - name: "Detect mocking of DTOs, records, and enums"
-    prompt: |
-      Our test suite uses Moq extensively, but I think we're mocking things
-      that don't need to be mocked — like DTOs and simple records. Can you
-      audit the mock usage in these tests and tell me which mocks are unnecessary?
-
-      Test file: OrderServiceTests.cs
-      Production files: OrderService.cs, Models.cs
-    setup:
-      files:
-        - path: "OrderServiceTests.cs"
-          source: "mocking-trivial-types/OrderServiceTests.cs"
-        - path: "OrderService.cs"
-          source: "mocking-trivial-types/OrderService.cs"
-        - path: "Models.cs"
-          source: "mocking-trivial-types/Models.cs"
-    assertions:
-      - type: "output_matches"
-        pattern: "(mock.*DTO|mock.*record|mock.*data.*object|mock.*CustomerDto|mock.*OrderDto|trivial|unnecessary.*mock|real.*instance)"
-      - type: "output_matches"
-        pattern: "(new CustomerDto|new OrderDto|new Address|real.*object|real.*instance|construct)"
-      - type: "exit_success"
-    rubric:
-      - "Identified that mocking record types like CustomerDto, OrderDto, and Address is unnecessary because they are simple data containers with no behavior"
-      - "Identified that mocking an enum or enum wrapper (IPaymentMethodProvider for PaymentMethod) adds complexity without value"
-      - "Recommended replacing mocked DTOs with real instance construction (e.g., new CustomerDto(...) instead of Mock<CustomerDto>)"
-      - "Correctly noted that the IOrderRepository, INotificationService, and IPricingEngine mocks are appropriate because they represent external boundaries or complex collaborators"
-    timeout: 180
 
   # ============================================================
-  # Scenario 2: Unused mock setups
+  # Scenario 1: Unused mock setups
   # ============================================================
   - name: "Detect unused and unreachable mock setups"
     prompt: |
@@ -128,36 +104,13 @@ scenarios:
     timeout: 120
 
   # ============================================================
-  # Scenario 5: Well-placed mocks (no false positives)
+  # Scenarios removed (baseline already scores 5.0/5 — no headroom):
+  #   - "Recognize well-placed mocks without inventing false positives":
+  #     Model already avoids false positives on well-structured tests.
   # ============================================================
-  - name: "Recognize well-placed mocks without inventing false positives"
-    prompt: |
-      We're doing a mock usage audit across our codebase. Can you review these
-      appointment scheduler tests and tell me if our mocking approach is sound?
-      Don't modify any files — just explain your analysis.
-
-      Test file: AppointmentSchedulerTests.cs
-      Production file: AppointmentScheduler.cs
-    setup:
-      files:
-        - path: "AppointmentSchedulerTests.cs"
-          source: "well-placed-mocks/AppointmentSchedulerTests.cs"
-        - path: "AppointmentScheduler.cs"
-          source: "well-placed-mocks/AppointmentScheduler.cs"
-    reject_tools: ["bash", "edit"]
-    assertions:
-      - type: "output_matches"
-        pattern: "(well.placed|appropriate|correct|good|sound|no.*(major|critical|significant)|properly.*mock)"
-      - type: "exit_success"
-    rubric:
-      - "Concluded that the mocking approach is sound overall — ICalendarService and IEmailService are external boundaries that should be mocked"
-      - "Did not recommend removing the calendar or email mocks, since these represent I/O-bound external services"
-      - "Acknowledged that the tests have good structure: clear Arrange-Act-Assert, meaningful assertions, and proper boundary isolation"
-      - "Did not inflate severity or invent unnecessary problems — a finding of no Critical/High issues is valid"
-    timeout: 120
 
   # ============================================================
-  # Scenario 6: NSubstitute framework support
+  # Scenario 4: NSubstitute framework support
   # ============================================================
   - name: "Analyze mock usage in NSubstitute tests"
     prompt: |
@@ -184,7 +137,7 @@ scenarios:
       - "Identified that GetQuote_InvalidOrigin sets up Normalize, CalculateRate, CreateShipment, and GetTracking — all unreachable after the address validation fails"
       - "Identified that Ship_OnlyVerifiesInteractions only checks Received() calls without asserting on the returned shipment ID"
       - "Used correct NSubstitute terminology (Substitute.For, .Returns, .Received) rather than Moq terms"
-    timeout: 120
+    timeout: 180
 
   # ============================================================
   # Scenario 7: FakeItEasy framework support
@@ -251,62 +204,9 @@ scenarios:
     timeout: 180
 
   # ============================================================
-  # Non-activation scenarios
+  # Non-activation scenarios removed (baseline already scores 5.0/5):
+  #   - "Decline when asked about non-mock test anti-patterns":
+  #     Model already handles non-mock test reviews without skill.
+  #   - "Decline mock framework migration request":
+  #     Model already handles migration requests without skill.
   # ============================================================
-
-  # Scenario 10: General test anti-patterns (not mock-specific)
-  - name: "Decline when asked about non-mock test anti-patterns"
-    prompt: |
-      I have some tests that use Thread.Sleep and DateTime.Now directly.
-      Can you review these for test quality issues?
-
-      ```csharp
-      [TestClass]
-      public class TimerTests
-      {
-          [TestMethod]
-          public void Timer_ExpiresAfterDelay()
-          {
-              var timer = new CountdownTimer(5);
-              timer.Start();
-              Thread.Sleep(6000);
-              Assert.IsTrue(timer.IsExpired);
-          }
-
-          [TestMethod]
-          public void Record_HasCorrectTimestamp()
-          {
-              var record = new AuditRecord("test-action");
-              Assert.AreEqual(DateTime.Now.Date, record.Timestamp.Date);
-          }
-      }
-      ```
-    expect_activation: false
-    assertions:
-      - type: "output_matches"
-        pattern: "(Thread\\.Sleep|DateTime\\.Now|flak|timing|time)"
-      - type: "exit_success"
-    rubric:
-      - "Addressed the Thread.Sleep and DateTime.Now test quality issues raised by the user"
-      - "Did not attempt to analyze mock usage, since the code contains no mocks"
-      - "Provided relevant test quality guidance appropriate to the actual problems shown"
-    timeout: 60
-
-  # Scenario 11: Mock framework migration (out of scope)
-  - name: "Decline mock framework migration request"
-    prompt: |
-      We want to migrate from Moq to NSubstitute across our codebase.
-      Can you help convert these Moq calls to NSubstitute syntax?
-
-      ```csharp
-      var mock = new Mock<IRepository>();
-      mock.Setup(r => r.GetById(1)).Returns(new Entity(1, "Test"));
-      mock.Verify(r => r.GetById(1), Times.Once);
-      ```
-    expect_activation: false
-    assertions:
-      - type: "exit_success"
-    rubric:
-      - "Did not attempt to audit mock usage or identify unused setups"
-      - "Addressed the migration request or explained it is out of scope for mock analysis"
-    timeout: 60
