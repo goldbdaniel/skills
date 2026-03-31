@@ -77,13 +77,15 @@ scenarios:
     assertions:
       - type: "output_matches"
         pattern: "(integration|appropriate|expected|legitimate|acceptable)"
+      - type: "output_matches"
+        pattern: "(Sleep|delay|sleepy|conditional|if.else|assert|no assert)"
       - type: "exit_success"
     rubric:
-      - "Recognized that these are integration tests (TestCategory attribute and/or class naming) and adjusted expectations accordingly"
-      - "Did not flag database usage as a Mystery Guest smell since database interaction is the point of integration tests"
-      - "Acknowledged good practices: proper setup/cleanup lifecycle, in-memory database for isolation, schema initialization"
-      - "Did not falsely flag the multi-step insert-then-query patterns as Eager Test since verifying round-trip persistence is the integration test's purpose"
-      - "If any concerns were raised, they were contextualized as integration-test-specific recommendations rather than smell violations"
+      - "Recognized that these are integration tests and did not flag database usage or insert-then-query patterns as smells"
+      - "Identified the Thread.Sleep(3000) in NotifyOnInsert_SendsEventAfterDelay as a real smell even in an integration test context"
+      - "Flagged the if/else conditional logic in GetUser_ReturnsCorrectType as a test smell — one branch is untested"
+      - "Identified BulkInsert_RunsWithoutErrors as having no assertions — it exercises code but verifies nothing"
+      - "Distinguished between the legitimate integration patterns (setup/teardown, multi-step persistence) and the actual smells (sleep, conditional, assertion-free)"
     timeout: 120
 
   # ==========================================================================
@@ -115,4 +117,4 @@ scenarios:
     rubric:
       - "Wrote test methods for the ShoppingCart class"
       - "Covered multiple methods of the class"
-    timeout: 120
+    timeout: 300

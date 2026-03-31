@@ -77,6 +77,47 @@ public sealed class UserRepositoryIntegrationTests
         CollectionAssert.AllItemsAreNotNull(users);
     }
 
+    // Smell: Sleepy Test — Thread.Sleep in integration test (still a smell even for integration tests)
+    [TestMethod]
+    public async Task NotifyOnInsert_SendsEventAfterDelay()
+    {
+        var user = new User("dave@example.com", "Dave");
+        _repository.Insert(user);
+
+        Thread.Sleep(3000);
+
+        Assert.IsTrue(_repository.WasNotificationSent(user.Id));
+    }
+
+    // Smell: Conditional Test Logic — if/else inside test
+    [TestMethod]
+    public void GetUser_ReturnsCorrectType()
+    {
+        var user = new User("eve@example.com", "Eve");
+        _repository.Insert(user);
+
+        var loaded = _repository.GetByEmail("eve@example.com");
+
+        if (loaded is PremiumUser premium)
+        {
+            Assert.IsTrue(premium.DiscountRate > 0);
+        }
+        else
+        {
+            Assert.AreEqual("Eve", loaded!.Name);
+        }
+    }
+
+    // Smell: Assertion-Free Test — exercises code but asserts nothing
+    [TestMethod]
+    public void BulkInsert_RunsWithoutErrors()
+    {
+        for (int i = 0; i < 100; i++)
+        {
+            _repository.Insert(new User($"bulk{i}@example.com", $"Bulk User {i}"));
+        }
+    }
+
     [TestMethod]
     public async Task InsertUser_ConcurrentInserts_MaintainsIntegrity()
     {
