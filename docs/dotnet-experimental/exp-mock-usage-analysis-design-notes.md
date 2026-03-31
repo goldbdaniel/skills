@@ -26,6 +26,7 @@
 ⁴ Weighted -1.9% from token/time overhead with no quality delta.
 
 **Issues identified:**
+
 - **Timeouts** on scenarios 1-3 (120s too short for fixture-based scenarios)
 - **Activation failures** — scenario 1 not activated in plugin, scenario 3 not activated in either mode (prompts lacked mock-specific keywords)
 - **Baseline at ceiling** — 4 scenarios where the model already scores 5.0/5
@@ -33,6 +34,7 @@
 ### Round 2 — Fix timeouts, activation, and no-headroom scenarios
 
 **Changes:**
+
 - Increased timeouts: 120s → 180s for scenarios with fixture files
 - Rewrote prompts with explicit mock terminology for better activation
 - Added `reject_tools: ["bash", "edit"]` to FakeItEasy and well-placed mocks scenarios
@@ -55,6 +57,7 @@
 ⁵ Baseline at ceiling — model handles these well without skill guidance.
 
 **Improvements from Round 1:**
+
 - DTOs scenario: now activates in both isolated and plugin (was plugin-only failure)
 - Redundant mocks: now activates in both modes (was NOT ACTIVATED in either)
 - No more timeouts on scenarios 1-3
@@ -63,6 +66,7 @@
 ### Round 3 — Remove no-headroom scenarios, fix NSubstitute timeout
 
 **Changes:**
+
 - Removed 4 scenarios where baseline scores 5.0/5 (see "Decisions" below)
 - Increased NSubstitute timeout: 120s → 180s
 
@@ -71,6 +75,7 @@
 ## Key Insight
 
 The baseline LLM already excels at two mock-related tasks:
+
 1. **Identifying trivial-type mocking** — the model recognizes when `Mock<CustomerDto>` should be `new CustomerDto(...)` without guidance.
 2. **Recognizing well-placed mocks** — when tests correctly mock external boundaries, the model concludes the approach is sound without inventing false positives.
 
