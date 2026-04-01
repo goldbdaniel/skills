@@ -62,7 +62,7 @@ scenarios:
         pattern: "(IsTestingPlatformApplication|false)"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -180,12 +180,12 @@ scenarios:
             }
     assertions:
       - type: "output_matches"
-        pattern: "async\\s+Task"
+        pattern: "async Task"
       - type: "output_not_matches"
-        pattern: "async\\s+void\\s+(GetUser|ProcessItem)"
+        pattern: "async void"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -262,7 +262,7 @@ scenarios:
         pattern: "CollectionBehavior\\(\\s*\"MyApp"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -352,7 +352,7 @@ scenarios:
         pattern: "CallerLineNumber"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -433,7 +433,7 @@ scenarios:
         pattern: "IXunitTest"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -502,7 +502,7 @@ scenarios:
         pattern: "IsTestingPlatformApplication.{0,5}false"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -574,7 +574,7 @@ scenarios:
         pattern: "SkippableFact.{0,10}Version"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -649,7 +649,7 @@ scenarios:
         pattern: "xunit\\.v3"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -709,7 +709,7 @@ scenarios:
         pattern: "(already|no.{0,30}migration|not.{0,20}need|already.{0,20}(v3|migrated|done))"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
@@ -777,7 +777,7 @@ scenarios:
         pattern: "using Xunit\\.Abstractions;"
       - type: run_command_and_assert
         command_to_run: "dotnet"
-        command_arguments: "test"
+        command_arguments: "test -p:TreatWarningsAsErrors=true"
         expected_exit_code: 0
         command_timeout: 120
     rubric:
