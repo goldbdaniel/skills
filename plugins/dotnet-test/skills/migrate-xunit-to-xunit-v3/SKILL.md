@@ -55,7 +55,10 @@ Make sure to check the package references in project files, MSBuild props and ta
 
 ### Step 3: Establish a baseline
 
-Run `dotnet test` to establish a baseline of test pass/fail counts
+Run `dotnet test` to establish a baseline of test pass/fail counts. When running `dotnet test`, ensure that:
+
+- You run `dotnet test` without any additional arguments (i.e, don't pass `--no-restore` or `--no-build`).
+- Ensure you redirect the command output to a file and read the output from that file.
 
 ### Step 4: Update package references
 
@@ -169,7 +172,13 @@ it must be changed to this:
     }
 ```
 
-### Step 11: Test platform selection
+### Step 11: Address new xUnit analyzer warnings
+
+xunit.v3 introduced new analyzer warnings. You should attempt to address them.
+
+One of the most notable warnings is [xUnit1051: Calls to methods which accept CancellationToken should use TestContext.Current.CancellationToken](https://xunit.net/xunit.analyzers/rules/xUnit1051). Identify the calls to such methods, if any, and pass the cancellation token.
+
+### Step 12: Test platform selection
 
 You should keep the same test platform that was used with xunit 2.
 
@@ -181,7 +190,7 @@ Note that xunit 2 is always VSTest except if the user used YTest.MTP.XUnit2.
 - If user didn't have a reference to YTest.MTP.XUnit2:
     - Add `<IsTestingPlatformApplication>false</IsTestingPlatformApplication>` to Directory.Build.props under an unconditional PropertyGroup.
 
-### Step 12: Migrate `Xunit.SkippableFact`
+### Step 13: Migrate `Xunit.SkippableFact`
 
 If there are any package references to `Xunit.SkippableFact`, remove all these package references entirely.
 
@@ -192,15 +201,15 @@ Then, follow these steps to eliminate usages of APIs coming from the removed pac
 - Change `Skip.If` method calls to `Assert.SkipWhen`.
 - Change `Skip.IfNot` method calls to `Assert.SkipUnless`.
 
-### Step 13: Update `Xunit.Combinatorial` NuGet package
+### Step 14: Update `Xunit.Combinatorial` NuGet package
 
 Find package references of `Xunit.Combinatorial` and update them from 1.x to the latest 2.x version available.
 
-### Step 14: Update `Xunit.StaFact` NuGet package
+### Step 15: Update `Xunit.StaFact` NuGet package
 
 Find package references of `Xunit.StaFact` and update them from 1.x to the latest 3.x version available.
 
-### Step 15: Build the solution
+### Step 16: Build the solution
 
 Now, build the solution to identify any remaining compilation errors that might have not been addressed by previous instructions.
 Fix any straightforward errors that show up, and keep iterating and fixing more.
